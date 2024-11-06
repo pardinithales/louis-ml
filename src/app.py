@@ -25,14 +25,20 @@ if "OPENAI_API_KEY" not in st.secrets:
 else:
     openai.api_key = st.secrets["OPENAI_API_KEY"]
 
-# Teste de conexão com a OpenAI
-try:
-    openai.Model.list()
-    logging.info("Conexão com a OpenAI estabelecida com sucesso.")
-except Exception as e:
-    logging.error(f"Erro ao conectar com a OpenAI: {e}")
-    st.error("Não foi possível conectar com a OpenAI. Verifique sua chave da API.")
-    st.stop()
+def test_openai_connection():
+    try:
+        openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[{"role": "user", "content": "Test connection"}],
+            max_tokens=5
+        )
+        logging.info("Conexão com a OpenAI estabelecida com sucesso.")
+    except Exception as e:
+        logging.error(f"Erro ao conectar com a OpenAI: {e}")
+        st.error("Não foi possível conectar com a OpenAI. Verifique sua chave da API.")
+        st.stop()
+
+test_openai_connection()
 
 # URL da API do Ollama
 OLLAMA_API_URL = "http://localhost:11434/api/generate"
