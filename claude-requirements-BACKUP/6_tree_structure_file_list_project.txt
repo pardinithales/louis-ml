@@ -1,0 +1,22 @@
+PS C:\Users\fagun\OneDrive\Desktop\louiS_2.0> tree /F
+Listagem de caminhos de pasta para o volume Acer
+O número de série do volume é 8C21-E9E2
+C:.
+│   app.log
+│   app.py
+│   checkDB.py
+│   config.yaml
+│   db_json.json
+│   json_converter_toSQL.py
+│   README.md
+│   requirements.txt
+│   syndrome_data.db
+│
+└───requirements-Claude
+        1_original_javascript_louiS_no_machine_learning.txt
+        2_original_frontEnd_louiS_no_machineLearning.txt
+        3_database_structure_SQL.txt
+        4_louis_sample_code_last_version.txt
+        5_error_file4_louis_sample_code.txt
+
+PS C:\Users\fagun\OneDrive\Desktop\louiS_2.0>

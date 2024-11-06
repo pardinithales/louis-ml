@@ -1,0 +1,17 @@
+=== ESTRUTURA DO BANCO DE DADOS ===
+
+[Tabela: syndromes]
+Colunas:
+  - syndrome_name (TEXT)
+  - signs (TEXT)
+  - locals (TEXT)
+  - arteries (TEXT)
+  - notes (TEXT)
+  - is_ipsilateral (TEXT)
+  - local_name (TEXT)
+  - vessel_name (TEXT)
+  - registered_at (TEXT)
+  - updated_at (TEXT)
+
+Exemplo de dados:
+('Anterior Choroidal Artery Syndrome', '["Uncontrollable crying and laughing", "Homonymous hemianopia", "Sensory loss", "Muteness", "Facial palsy (bilateral)", "Hemiparesis / Hemiplegia", "Monoparesis (inferior limb)", "Facial palsy", "Quadruple Sectoranopia"]', '["Superior thalamic radiations", "Optic tract, lateral geniculate body, optic radiations", "internal capsule (posterior limb)"]', '["Anterior Choroidal Artery"]', '["NA", "Infarction of the distal anterior choroidal artery can cause quadruple sectoranopia, a characteristic visual field defect associated with sectorial optic atrophy. Occlusion of the anterior choroidal artery during tumor removal led to partial infarction of the lateral geniculate nucleus, causing the visual field defect. The distribution of retinal nerve fiber atrophy corresponds to the infarcted area of the lateral geniculate nucleus (Fris\\u00c3\\u00a9n, 1979)."]', '{"Uncontrollable crying and laughing": "", "Homonymous hemianopia": "", "Sensory loss": "", "Muteness": "", "Facial palsy (bilateral)": "", "Hemiparesis / Hemiplegia": "", "Facial palsy": "NA", "Quadruple Sectoranopia": "no"}', '["Superior_thalamic_radiations_anterior_choroidal_artery.png", "Optic tract, lateral geniculate body, optic radiations", "internal_capsule_posterior limb.png", "NA"]', '["AChAleft.png", "NA"]', '["25:00.0"]', '["25:00.0"]')

@@ -1,0 +1,29 @@
+# last update
+
+Decisões
+1. Tentar notebook no Collab
+2. Baixeo o SQLite Broser e DVC
+3. DVC 
+4. Baixei o Terminal do Windows (preview)
+5. Já tenho o Windows hot key se precisar
+
+k, vejo que houve uma duplicação de diretórios. Vamos arrumar:
+
+Primeiro, vamos sair do diretório atual e limpar:
+
+powershellCopycd ..
+Remove-Item -Recurse -Force louis-ml
+
+Agora vamos clonar e configurar corretamente:
+
+powershellCopygit clone https://github.com/pardinithales/louis-ml.git
+cd louis-ml
+dvc init
+git add .dvc .dvcignore
+git commit -m "Inicialização do DVC"
+
+Agora vamos criar a estrutura básica do projeto:
+
+powershellCopyNew-Item -ItemType Directory -Path "data","models","src","logs","notebooks"
+
+

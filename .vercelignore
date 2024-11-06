@@ -1,0 +1,9 @@
+﻿.git
+.dvc
+__pycache__
+*.pyc
+tests/
+logs/
+docs/
+notebooks/
+claude-requirements-BACKUP/

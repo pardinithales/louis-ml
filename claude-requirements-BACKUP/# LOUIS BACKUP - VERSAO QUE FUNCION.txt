@@ -1,0 +1,125 @@
+# LOUIS BACKUP - VERSAO QUE FUNCIONA BEM PARECIDO
+
+import streamlit as st
+import requests
+import json
+import logging
+from pathlib import Path
+from database.db_connection import get_db_connection, load_symptoms, load_syndromes
+
+# Configuração de Logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    handlers=[
+        logging.FileHandler('logs/app.log'),
+        logging.StreamHandler()
+    ]
+)
+
+# Referência ao caminho original do banco
+DB_PATH = r"C:\Users\fagun\OneDrive\Desktop\louiS_2.0\syndrome_data.db"
+
+def get_llm_response(prompt):
+    logging.debug("Enviando prompt para LLaMA")
+    try:
+        response = requests.post(
+            'http://localhost:11434/api/generate',
+            json={
+                "model": "llama3.2",
+                "prompt": prompt,
+                "stream": False
+            }
+        )
+        response.raise_for_status()
+        return response.json().get('response', '')
+    except Exception as e:
+        logging.error(f"Erro ao conectar com LLaMA: {e}")
+        return None
+
+def analyze_symptoms_progressive(symptoms_list, syndromes):
+    logging.debug(f"Analisando lista de sintomas: {symptoms_list}")
+    
+    matched_syndromes = []
+    for syndrome in syndromes:
+        matches = 0
+        total_signs = len(syndrome['signs'])
+        
+        for symptom in symptoms_list:
+            if symptom.lower() in [s.lower() for s in syndrome['signs']]:
+                matches += 1
+        
+        if matches > 0:
+            match_score = matches / total_signs
+            matched_syndromes.append({
+                'syndrome': syndrome,
+                'score': match_score,
+                'matched_count': matches
+            })
+    
+    # Ordenar por score
+    matched_syndromes.sort(key=lambda x: x['score'], reverse=True)
+    return matched_syndromes[:4]  # Retorna top 4
+
+def main():
+    st.title("Louis - Sistema de Análise Neurológica")
+    
+    symptoms = load_symptoms()
+    syndromes = load_syndromes()
+    
+    if not symptoms or not syndromes:
+        st.error("Erro ao carregar banco de dados")
+        return
+        
+    st.sidebar.success(f"Banco conectado - {len(syndromes)} síndromes")
+    
+    # Lista para armazenar sintomas
+    if 'symptoms_list' not in st.session_state:
+        st.session_state.symptoms_list = []
+    
+    # Interface de entrada de sintomas
+    new_symptom = st.text_input(
+        "Digite um sintoma:",
+        key="symptom_input",
+        placeholder="Ex: headache"
+    )
+    
+    col1, col2 = st.columns([1,4])
+    with col1:
+        if st.button("Adicionar Sintoma"):
+            if new_symptom and len(st.session_state.symptoms_list) < 6:
+                st.session_state.symptoms_list.append(new_symptom)
+    with col2:
+        if st.button("Limpar Sintomas"):
+            st.session_state.symptoms_list = []
+    
+    # Mostrar sintomas atuais
+    if st.session_state.symptoms_list:
+        st.write("Sintomas atuais:", ", ".join(st.session_state.symptoms_list))
+        
+        # Análise progressiva
+        matched_syndromes = analyze_symptoms_progressive(
+            st.session_state.symptoms_list, 
+            syndromes
+        )
+        
+        # Exibir resultados
+        st.subheader("Síndromes Prováveis")
+        for match in matched_syndromes:
+            syndrome = match['syndrome']
+            with st.expander(
+                f"{syndrome['syndrome_name']} ({match['matched_count']} sintomas em comum)"
+            ):
+                signs = syndrome['signs']
+                # Destacar sintomas que deram match
+                highlighted_signs = [
+                    f"**{sign}**" if sign.lower() in [s.lower() for s in st.session_state.symptoms_list]
+                    else sign
+                    for sign in signs
+                ]
+                st.write("Sintomas:", ", ".join(highlighted_signs))
+                st.write(f"**Localização:** {syndrome['locals']}")
+                st.write(f"**Artérias:** {syndrome['arteries']}")
+
+if __name__ == "__main__":
+    main()

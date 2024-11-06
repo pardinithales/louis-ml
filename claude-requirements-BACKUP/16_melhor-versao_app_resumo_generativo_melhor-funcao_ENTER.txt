@@ -1,0 +1,314 @@
+import streamlit as st
+import requests
+import json
+import logging
+import ast  # Import necessário para avaliar strings como listas
+from pathlib import Path
+from database.db_connection import get_db_connection, load_symptoms, load_syndromes
+
+# Configuração de Logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    handlers=[
+        logging.FileHandler('logs/app.log'),
+        logging.StreamHandler()
+    ]
+)
+
+# Referência ao caminho original do banco
+DB_PATH = r"C:\Users\fagun\OneDrive\Desktop\louiS_2.0\syndrome_data.db"
+
+@st.cache_data
+def get_llm_response(prompt):
+    logging.debug("Enviando prompt para LLaMA")
+    try:
+        response = requests.post(
+            'http://localhost:11434/api/generate',
+            json={
+                "model": "llama3.2",
+                "prompt": prompt,
+                "stream": False
+            }
+        )
+        response.raise_for_status()
+        return response.json().get('response', '')
+    except Exception as e:
+        logging.error(f"Erro ao conectar com LLaMA: {e}")
+        return None
+
+def analyze_symptoms_progressive(symptoms_list, syndromes):
+    logging.debug(f"Analisando lista de sintomas: {symptoms_list}")
+    
+    # Normalizar sintomas da lista atual
+    symptoms_list = [s.strip('"\' ') for s in symptoms_list]
+    
+    matched_syndromes = []
+    for syndrome in syndromes:
+        matches = 0
+        total_signs = len(syndrome['signs'])
+        
+        # Normalizar sintomas da síndrome
+        syndrome_signs = [s.strip('"\' ') for s in syndrome['signs']]
+        
+        for symptom in symptoms_list:
+            if symptom.lower() in [s.lower() for s in syndrome_signs]:
+                matches += 1
+        
+        if matches > 0:
+            match_score = matches / total_signs
+            matched_syndromes.append({
+                'syndrome': syndrome,
+                'score': match_score,
+                'matched_count': matches
+            })
+    
+    matched_syndromes.sort(key=lambda x: x['score'], reverse=True)
+    return matched_syndromes[:4]
+
+def normalize_symptoms(symptoms):
+    """Normaliza a lista de sintomas"""
+    normalized = []
+    for symptom in symptoms:
+        if isinstance(symptom, str):
+            # Remove aspas, colchetes e espaços extras
+            clean_symptom = symptom.strip('[]"\'').strip()
+            # Remove aspas internas
+            clean_symptom = clean_symptom.replace('"', '').replace("'", "")
+            # Divide se houver múltiplos sintomas
+            individual_symptoms = [s.strip() for s in clean_symptom.split(',')]
+            normalized.extend(individual_symptoms)
+        else:
+            normalized.append(symptom)
+    return list(set(normalized))  # Remove duplicatas
+
+@st.cache_data
+def get_symptoms():
+    return normalize_symptoms(load_symptoms())
+
+@st.cache_data
+def get_syndromes():
+    return load_syndromes()
+
+def main():
+    st.set_page_config(layout="wide")  # Melhor utilização do espaço na tela
+    st.title("Louis - Sistema de Análise Neurológica")
+    
+    symptoms = get_symptoms()
+    syndromes = get_syndromes()
+    
+    if not symptoms or not syndromes:
+        st.error("Erro ao carregar banco de dados")
+        return
+        
+    st.sidebar.success(f"Banco conectado - {len(syndromes)} síndromes")
+    
+    # Inicializar lista de sintomas no estado da sessão
+    if 'symptoms_list' not in st.session_state:
+        st.session_state.symptoms_list = []
+    
+    # Layout em duas colunas
+    col_main, col_info = st.columns([2, 1])
+    
+    with col_main:
+        # Formulário para adicionar sintomas via texto
+        with st.form("add_symptom_form", clear_on_submit=True):
+            symptom_input = st.text_input("Digite um sintoma e pressione Enter:", key="symptom_input")
+            submitted = st.form_submit_button("Adicionar")
+            if submitted and symptom_input:
+                clean_symptom = symptom_input.strip('[]"\' ').capitalize()
+                if clean_symptom not in st.session_state.symptoms_list:
+                    if len(st.session_state.symptoms_list) < 6:
+                        st.session_state.symptoms_list.append(clean_symptom)
+                    else:
+                        st.warning("Você pode adicionar no máximo 6 sintomas.")
+        
+        # Multiselect para adicionar sintomas (removendo aspas dos sintomas)
+        cleaned_symptoms = [symptom.strip('[]"\'') for symptom in symptoms]
+        selected_symptoms = st.multiselect(
+            "Ou selecione os sintomas:",
+            options=cleaned_symptoms,
+            default=st.session_state.symptoms_list,
+            help="Digite para filtrar os sintomas disponíveis"
+        )
+        
+        # Atualizar lista de sintomas com seleção do multiselect
+        if selected_symptoms:
+            st.session_state.symptoms_list = selected_symptoms[:6]  # Limita a 6 sintomas
+        
+        # Botão para limpar todos os sintomas
+        if st.button("Limpar Todos"):
+            st.session_state.symptoms_list = []
+            st.experimental_rerun()
+        
+        # Mostrar sintomas atuais
+        if st.session_state.symptoms_list:
+            st.write("**Sintomas atuais:**", ", ".join(st.session_state.symptoms_list))
+            
+            # Análise progressiva
+            matched_syndromes = analyze_symptoms_progressive(
+                st.session_state.symptoms_list, 
+                syndromes
+            )
+            
+            # Dividir em duas colunas dentro da coluna principal
+            col1, col2 = st.columns([1, 1])
+            
+            with col1:
+                # Exibir resultados na primeira sub-coluna
+                st.subheader("Síndromes Prováveis")
+                for match in matched_syndromes:
+                    syndrome = match['syndrome']
+                    with st.expander(
+                        f"{syndrome['syndrome_name']} ({match['matched_count']} sintomas em comum)"
+                    ):
+                        signs = syndrome['signs']
+                        # Destacar sintomas que deram match em verde e negrito
+                        highlighted_signs = [
+                            f"<span style='color:green; font-weight:bold;'>{sign}</span>" if sign.lower() in [s.lower() for s in st.session_state.symptoms_list]
+                            else sign
+                            for sign in signs
+                        ]
+                        # Processar 'locals' e 'arteries' para remover colchetes e aspas
+                        locals_raw = syndrome['locals']
+                        arteries_raw = syndrome['arteries']
+
+                        # Converter strings que representam listas em listas reais
+                        try:
+                            locals_list = ast.literal_eval(locals_raw) if isinstance(locals_raw, str) else locals_raw
+                        except:
+                            locals_list = [locals_raw]
+
+                        try:
+                            arteries_list = ast.literal_eval(arteries_raw) if isinstance(arteries_raw, str) else arteries_raw
+                        except:
+                            arteries_list = [arteries_raw]
+
+                        # Limpar e juntar
+                        locals_clean = ', '.join([item.strip('[]"\'') for item in locals_list])
+                        arteries_clean = ', '.join([item.strip('[]"\'') for item in arteries_list])
+
+                        # Aumentar tamanho da fonte e exibir informações formatadas
+                        st.markdown(
+                            f"<p style='font-size:16px;'><strong>Sintomas:</strong> {', '.join(highlighted_signs)}</p>",
+                            unsafe_allow_html=True
+                        )
+                        st.markdown(
+                            f"<p style='font-size:16px;'><strong>Localização:</strong> {locals_clean}</p>",
+                            unsafe_allow_html=True
+                        )
+                        st.markdown(
+                            f"<p style='font-size:16px;'><strong>Artérias:</strong> {arteries_clean}</p>",
+                            unsafe_allow_html=True
+                        )
+            
+            with col2:
+                # Gerar resumo comparativo das três primeiras síndromes usando IA generativa
+                st.subheader("Resumo Comparativo")
+                if matched_syndromes:
+                    # Preparar o prompt para o modelo de IA
+                    syndrome_info = []
+                    for match in matched_syndromes[:3]:
+                        syndrome = match['syndrome']
+                        syndrome_name = syndrome['syndrome_name']
+                        locals_raw = syndrome['locals']
+                        signs = syndrome['signs']
+                        arteries_raw = syndrome['arteries']
+                        
+                        # Limpar dados
+                        try:
+                            locals_list = ast.literal_eval(locals_raw) if isinstance(locals_raw, str) else locals_raw
+                        except:
+                            locals_list = [locals_raw]
+                        locals_clean = ', '.join([item.strip('[]"\'') for item in locals_list])
+                        
+                        try:
+                            arteries_list = ast.literal_eval(arteries_raw) if isinstance(arteries_raw, str) else arteries_raw
+                        except:
+                            arteries_list = [arteries_raw]
+                        arteries_clean = ', '.join([item.strip('[]"\'') for item in arteries_list])
+                        
+                        signs_clean = ', '.join(signs)
+                        
+                        syndrome_info.append(f"""Síndrome: {syndrome_name}
+Localização: {locals_clean}
+Sintomas principais: {signs_clean}
+Artéria afetada: {arteries_clean}""")
+                    
+                    # Construir o prompt
+                    prompt = f"""Como um neurologista com 25 anos de experiência, compare e contraste as seguintes síndromes neurológicas, destacando suas semelhanças e diferenças clínicas e anatômicas em até 15 linhas:
+
+{"\n\n".join(syndrome_info)}
+
+Use linguagem técnica e termos neurológicos avançados."""
+                    
+                    # Obter a resposta do modelo de IA
+                    ai_response = get_llm_response(prompt)
+                    
+                    if ai_response:
+                        st.markdown(f"<p style='font-size:14px;'>{ai_response}</p>", unsafe_allow_html=True)
+                    else:
+                        st.error("Erro ao gerar resumo com IA.")
+                else:
+                    st.write("Nenhuma síndrome encontrada para gerar resumo.")
+        else:
+            st.write("Nenhum sintoma adicionado.")
+        
+    with col_info:
+        st.subheader("Consulta de Síndromes")
+        # Dropdown para selecionar uma síndrome para consulta
+        syndrome_names = [syndrome['syndrome_name'] for syndrome in syndromes]
+        selected_syndrome = st.selectbox("Selecione uma síndrome para mais informações:", [""] + syndrome_names)
+        
+        if selected_syndrome:
+            # Encontrar a síndrome selecionada
+            syndrome = next((s for s in syndromes if s['syndrome_name'] == selected_syndrome), None)
+            if syndrome:
+                with st.expander(f"Detalhes da Síndrome: {syndrome['syndrome_name']}"):
+                    # Processar e exibir informações de forma sintética
+                    signs = syndrome['signs']
+                    locals_raw = syndrome['locals']
+                    arteries_raw = syndrome['arteries']
+                    
+                    try:
+                        locals_list = ast.literal_eval(locals_raw) if isinstance(locals_raw, str) else locals_raw
+                    except:
+                        locals_list = [locals_raw]
+                    locals_clean = ', '.join([item.strip('[]"\'') for item in locals_list])
+                    
+                    try:
+                        arteries_list = ast.literal_eval(arteries_raw) if isinstance(arteries_raw, str) else arteries_raw
+                    except:
+                        arteries_list = [arteries_raw]
+                    arteries_clean = ', '.join([item.strip('[]"\'') for item in arteries_list])
+                    
+                    st.markdown(f"**Localização:** {locals_clean}")
+                    st.markdown(f"**Artérias Afetadas:** {arteries_clean}")
+                    st.markdown(f"**Sintomas Principais:** {', '.join(signs)}")
+            else:
+                st.error("Síndrome não encontrada.")
+    
+    # Quadro informativo adicional: Lista completa de síndromes
+    st.sidebar.header("Consulta Rápida de Síndromes")
+    with st.sidebar.expander("Ver todas as síndromes"):
+        for syndrome in syndromes:
+            st.markdown(f"### {syndrome['syndrome_name']}")
+            try:
+                locals_list = ast.literal_eval(syndrome['locals']) if isinstance(syndrome['locals'], str) else syndrome['locals']
+            except:
+                locals_list = [syndrome['locals']]
+            locals_clean = ', '.join([item.strip('[]"\'') for item in locals_list])
+            
+            try:
+                arteries_list = ast.literal_eval(syndrome['arteries']) if isinstance(syndrome['arteries'], str) else syndrome['arteries']
+            except:
+                arteries_list = [syndrome['arteries']]
+            arteries_clean = ', '.join([item.strip('[]"\'') for item in arteries_list])
+            
+            st.markdown(f"- **Localização:** {locals_clean}")
+            st.markdown(f"- **Artérias Afetadas:** {arteries_clean}")
+            st.markdown(f"- **Sintomas Principais:** {', '.join(syndrome['signs'])}")
+            st.markdown("---")
+    
+if __name__ == "__main__":
+    main()

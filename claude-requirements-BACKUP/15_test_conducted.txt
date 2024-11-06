@@ -1,0 +1,72 @@
+
+
+Vou ajudar a corrigir o erro de importação nos testes. O problema está na estrutura do projeto e como o Python está procurando os módulos.
+
+1. Primeiro, vamos criar um arquivo `conftest.py` na pasta `tests`:
+
+```python:tests/conftest.py
+import os
+import sys
+
+# Adiciona o diretório raiz do projeto ao PYTHONPATH
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
+```
+
+2. Agora vamos atualizar o `test_app.py`:
+
+```python:tests/test_app.py
+import unittest
+import logging
+import requests
+from src.app import get_llm_response
+
+class TestLouis(unittest.TestCase):
+    def setUp(self):
+        logging.basicConfig(level=logging.DEBUG)
+        
+    def test_ollama_connection(self):
+        """Testa se o Ollama está rodando"""
+        try:
+            response = requests.get('http://localhost:11434/api/tags')
+            self.assertEqual(response.status_code, 200)
+        except requests.exceptions.ConnectionError:
+            self.fail("Ollama não está rodando em localhost:11434")
+            
+    def test_llama_response(self):
+        """Testa resposta do modelo"""
+        prompt = "Liste sintomas: cefaleia"
+        response = get_llm_response(prompt)
+        self.assertIsNotNone(response)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+3. Execute os testes a partir da raiz do projeto:
+
+```powershell
+cd C:\Users\fagun\louis-ml
+python -m pytest tests/test_app.py -v
+```
+
+Referências ao código original:
+- Estrutura do app.py: ```claude-requirements-BACKUP/13_new_changes_in_DB_SQLITE_testing_database.txt``` (linhas 7-42)
+- Função get_llm_response: ```claude-requirements-BACKUP/12_new_modifications_SQL_and_app.txt``` (linhas 125-140)
+
+
+
+@"
+# Testes do Louis-ML
+
+## Estrutura
+- test_app.py: Testes principais da aplicação
+  - test_ollama_connection: Verifica conexão com Ollama
+  - test_llama_response: Verifica respostas do modelo
+
+## Como executar
+\`\`\`powershell
+cd C:\Users\fagun\louis-ml
+python -m pytest tests/test_app.py -v
+\`\`\`
+"@ | Out-File -FilePath "tests/README.md" -Encoding utf8

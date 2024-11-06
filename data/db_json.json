@@ -1,0 +1,3817 @@
+{
+    "Anterior Choroidal Artery Syndrome": {
+        "signs": [
+            "Uncontrollable crying and laughing",
+            "Homonymous hemianopia",
+            "Sensory loss",
+            "Muteness",
+            "Facial palsy (bilateral)",
+            "Hemiparesis / Hemiplegia",
+            "Monoparesis (inferior limb)",
+            "Facial palsy",
+            "Quadruple Sectoranopia"
+        ],
+        "locals": [
+            "Superior thalamic radiations",
+            "Optic tract, lateral geniculate body, optic radiations",
+            "internal capsule (posterior limb)"
+        ],
+        "arteries": [
+            "Anterior Choroidal Artery"
+        ],
+        "notes": [
+            "NA",
+            "Infarction of the distal anterior choroidal artery can cause quadruple sectoranopia, a characteristic visual field defect associated with sectorial optic atrophy. Occlusion of the anterior choroidal artery during tumor removal led to partial infarction of the lateral geniculate nucleus, causing the visual field defect. The distribution of retinal nerve fiber atrophy corresponds to the infarcted area of the lateral geniculate nucleus (Frisén, 1979)."
+        ],
+        "is_ipsilateral": {
+            "Uncontrollable crying and laughing": "",
+            "Homonymous hemianopia": "",
+            "Sensory loss": "",
+            "Muteness": "",
+            "Facial palsy (bilateral)": "",
+            "Hemiparesis / Hemiplegia": "",
+            "Facial palsy": "NA",
+            "Quadruple Sectoranopia": "no"
+        },
+        "local_name": [
+            "Superior_thalamic_radiations_anterior_choroidal_artery.png",
+            "Optic tract, lateral geniculate body, optic radiations",
+            "internal_capsule_posterior limb.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "AChAleft.png",
+            "NA"
+        ],
+        "registered_at": [
+            "25:00.0"
+        ],
+        "updated_at": [
+            "25:00.0"
+        ]
+    },
+    "Balint Syndrome": {
+        "signs": [
+            "Apraxia of gaze",
+            "Cortical blindness",
+            "Optic ataxia",
+            "Peripheral visual inattention",
+            "Saccades impairment (except vestibular quick phases)",
+            "Simultanagnosia",
+            "Smooth pursuit deficits",
+            "opic ataxia"
+        ],
+        "locals": [
+            "Inferior parietal lobule bilateral"
+        ],
+        "arteries": [
+            "Bilateral Middle cerebral artery - posterior parietal and angular"
+        ],
+        "notes": [
+            "Ischemia is the most common cause of Bálint's syndrome, particularly from watershed infarctions. Optic ataxia is a difficulty in initiating saccades to visual targets on command, although patients may easily make spontaneous scanning saccades or reflex saccades to suddenly appearing stimuli.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Apraxia of gaze": "NA",
+            "Cortical blindness": "",
+            "Optic ataxia": "",
+            "Peripheral visual inattention": "NA",
+            "Saccades impairment (except vestibular quick phases)": "NA",
+            "Simultanagnosia": "",
+            "Smooth pursuit deficits": "",
+            "opic ataxia": "NA"
+        },
+        "local_name": [
+            "cerebro.jpg",
+            "balint_syndrome_(1).png",
+            "balint_syndrome_(1)1.png",
+            "balint_syndrome_(1)2.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "ACM_posterior_parietal_and_angular_pmg.png"
+        ],
+        "registered_at": [
+            "04:00.9",
+            "05:29.0"
+        ],
+        "updated_at": [
+            "04:00.9",
+            "50:03.0"
+        ]
+    },
+    "Benedikts syndrome": {
+        "signs": [
+            "Ataxia",
+            "Chorea",
+            "Oculomotor palsy (III)",
+            "Holmes tremor",
+            "Large pupils (mydriasis)",
+            "Parkinsonism",
+            "Dystonia",
+            "Hemiparesis / Hemiplegia",
+            "Dysarthria",
+            "Ataxia (limb unilateral)"
+        ],
+        "locals": [
+            "Midbrain (anteromedial)"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (P1)",
+            "Basilar perforating branches",
+            "arteria_teste"
+        ],
+        "notes": [
+            "Benedikt's is essentially Weber's + Claude's. Because the fascicles of cranial nerve (CN) III are scattered in their course through the midbrain, the third nerve palsy in any of these syndromes may be partial.",
+            "NA",
+            "Benedikt syndrome is an extremely rare eponymous cluster of symptoms due to anatomically specific midbrain damage. It is characterized by ipsilateral oculomotor nerve palsy, contralateral hemiparesis, and contralateral cerebellar ataxia, Holmes tremor, or choreoathetosis.\r\n\r\nPierce Burr, Kesava Mandalaneni. Benedikt Syndrome. In: StatPearls. Treasure Island (FL): StatPearls Publishing; 2024 Jan-. Last Update: July 4, 2023."
+        ],
+        "is_ipsilateral": {
+            "Ataxia": "NA",
+            "Chorea": "no",
+            "Oculomotor palsy (III)": "yes",
+            "Holmes tremor": "no",
+            "Large pupils (mydriasis)": "no",
+            "Parkinsonism": "no",
+            "Dystonia": "no",
+            "Dysarthria": "NA",
+            "Ataxia (limb unilateral)": "yes"
+        },
+        "local_name": [
+            "Posterior_cerebral_artery_P1.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_perforating_branches.png",
+            "NA"
+        ],
+        "registered_at": [
+            "05:32.0",
+            "05:33.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Bilateral ACA territory syndrome": {
+        "signs": [
+            "Abulia and/or disinhibition",
+            "Paraparesis"
+        ],
+        "locals": [
+            "Bilateral ACA territory"
+        ],
+        "arteries": [
+            "Anterior Cerebral Artery (ACA) - bilateral (azygous distal ACA)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Abulia and/or disinhibition": "NA",
+            "Paraparesis": ""
+        },
+        "local_name": [
+            "Bilateral_ACA_territory.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Anterior_Cerebral_Artery_ACA_Bilateral2.png"
+        ],
+        "registered_at": [
+            "05:53.0",
+            "05:52.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Bilateral Temporal lobe (fusiform gyrus) syndrome": {
+        "signs": [
+            "Prosopagnosia (inability to recognize previously familiar faces)"
+        ],
+        "locals": [
+            "Bilateral Temporal lobe (fusiform gyrus)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Prosopagnosia (inability to recognize previously familiar faces)": "NA"
+        },
+        "local_name": [
+            "Temporal_lobe_fusiform gyrus.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG2.jpg"
+        ],
+        "registered_at": [
+            "05:48.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Brissaud-Sicard Syndrome": {
+        "signs": [
+            "Facial cramps",
+            "Hemiparesis / Hemiplegia",
+            "Horizontal gaze palsy",
+            "Abducens palsy (VI)"
+        ],
+        "locals": [
+            "Pons (anterolateral and inferior)"
+        ],
+        "arteries": [
+            "Basilar artery"
+        ],
+        "notes": [
+            "NA",
+            "If present, a palsy of CN VI is heralded by complaints of diplopia and findings of restricted abduction ipsilateral to the lesion. Hemiparesis of the arms and legs contralateral to the lesion is present. A Babinski sign may be present on the affected side. Typically, but not invariably,[1] sensation in the face and the extremities is unaffected in MGS. \r\n\r\n[1] Source: Patel S, Bhakta A, Wortsman J, Aryal BB, Shrestha DB, Joshi T. Pontine Infarct Resulting in Millard-Gubler Syndrome: A Case Report. Cureus. 2023 Feb;15(2):e34869."
+        ],
+        "is_ipsilateral": {
+            "Facial cramps": "NA",
+            "Hemiparesis / Hemiplegia": "no",
+            "Horizontal gaze palsy": "yes",
+            "Abducens palsy (VI)": "yes"
+        },
+        "local_name": [
+            "Basilar_artery.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Basilar_artery3.png",
+            "NA"
+        ],
+        "registered_at": [
+            "05:24.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Caudal cerebellum syndrome": {
+        "signs": [
+            "Ataxia",
+            "Dysmetria",
+            "Lateropulsion",
+            "Vertigo"
+        ],
+        "locals": [
+            "Caudal cerebellum"
+        ],
+        "arteries": [
+            "Posterior inferior cerebellar artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Ataxia": "yes",
+            "Dysmetria": "yes",
+            "Lateropulsion": "yes",
+            "Vertigo": ""
+        },
+        "local_name": [
+            "Posterior_inferior_cerebellar_artery_caudal_cerebellum.png"
+        ],
+        "vessel_name": [
+            "Posterior_inferior_cerebellar_artery(1).png"
+        ],
+        "registered_at": [
+            "05:38.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Caudate nucleus syndrome": {
+        "signs": [
+            "Confusion and/or Agitation",
+            "Emotional Disturbances"
+        ],
+        "locals": [
+            "Caudate nucleus"
+        ],
+        "arteries": [
+            "Heubners artery or perforating branches from A1"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Confusion and/or Agitation": "NA",
+            "Emotional Disturbances": ""
+        },
+        "local_name": [
+            "Caudate_nucleus.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "ACAHeubner.png"
+        ],
+        "registered_at": [
+            "05:53.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Caudate nucleus, putamen, anterior portion of internal capsule syndrome": {
+        "signs": [
+            "Hemiparesis / Hemiplegia"
+        ],
+        "locals": [
+            "Caudate nucleus, putamen, anterior portion of internal capsule"
+        ],
+        "arteries": [
+            "Heubners artery or perforating branches from A1"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Hemiparesis / Hemiplegia": "NA"
+        },
+        "local_name": [
+            "Caudate_nucleus_putamen_anterior_portion_of_internal_capsule.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "ACAHeubner1.png"
+        ],
+        "registered_at": [
+            "05:52.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Deep middle cerebral artery syndrome": {
+        "signs": [
+            "Abulia and/or disinhibition",
+            "Dystonia",
+            "Hemiparesis / Hemiplegia",
+            "Parkinsonism",
+            "Cortical sensory loss"
+        ],
+        "locals": [
+            "Caudate nucleus",
+            "Putamen",
+            "Anterior portion of internal capsule",
+            "Globus pallidus",
+            "Head of caudate nucleus, putamen, anterior portion of internal capsule",
+            "Brain (superolateral surface - nondominant hemisphere)"
+        ],
+        "arteries": [
+            "Middle cerebral artery (lenticulostriate)",
+            "Middle Cerebral Artery (M1)"
+        ],
+        "notes": [
+            "Lesions of the putamen and GP often resulted in dystonia, particularly with putaminal involvement.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Abulia and/or disinhibition": "NA",
+            "Dystonia": "yes",
+            "Hemiparesis / Hemiplegia": "no",
+            "Parkinsonism": "no"
+        },
+        "local_name": [
+            "Caudate_nucleus.png",
+            "Putamen.png",
+            "Anterior_portion_of_internal_capsule.png",
+            "Globus_pallidus.png",
+            "Caudate_nucleus_putamen_anterior_portion_of_internal_capsule.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "lenticulostriate_arteries.png"
+        ],
+        "registered_at": [
+            "05:50.0",
+            "05:51.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Dysarthria-clumsy hand (lacunar)": {
+        "signs": [
+            "Ataxia (limb unilateral)",
+            "Dysarthria",
+            "Dysphagia",
+            "Facial palsy",
+            "Tongue paralysis"
+        ],
+        "locals": [
+            "Internal capsule (genu)",
+            "Pons (basal paramedian)"
+        ],
+        "arteries": [
+            "Anterior Cerebral Artery (ACA)",
+            "Basilar artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Ataxia (limb unilateral)": "NA",
+            "Dysarthria": "",
+            "Dysphagia": "",
+            "Facial palsy": "no",
+            "Tongue paralysis": "no"
+        },
+        "local_name": [
+            "Anterior_Cerebral_Artery_ACA_genu_internal_capsule.png",
+            "Basilar_artery.png",
+            "Internal_capsule_genu.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Basilar_artery6.png"
+        ],
+        "registered_at": [
+            "05:17.0",
+            "05:16.0",
+            "05:21.0"
+        ],
+        "updated_at": [
+            "50:03.0",
+            "50:50.0"
+        ]
+    },
+    "Foix-Chavany-Marie": {
+        "signs": [
+            "Facial and pharyngeal hypotonia",
+            "Dysfagia",
+            "Dysarthria"
+        ],
+        "locals": [
+            "Bilateral frontal operculum"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Facial and pharyngeal hypotonia": "",
+            "Dysfagia": "",
+            "Dysarthria": "NA"
+        },
+        "local_name": [
+            "Bilateral_frontal_operculum.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG6.JPG"
+        ],
+        "registered_at": [
+            "04:00.9"
+        ],
+        "updated_at": [
+            "04:00.9"
+        ]
+    },
+    "Fovilles syndrome": {
+        "signs": [
+            "Facial palsy",
+            "Abducens palsy (VI)",
+            "Hemiparesis / Hemiplegia"
+        ],
+        "locals": [
+            "Pons (inferior medial pontine)"
+        ],
+        "arteries": [
+            "Basilar perforating branches"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Facial palsy": "NA",
+            "Abducens palsy (VI)": "yes",
+            "Hemiparesis / Hemiplegia": "no"
+        },
+        "local_name": [
+            "Fovilles_syndrome.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_perforating_branches3.png"
+        ],
+        "registered_at": [
+            "18:00.0"
+        ],
+        "updated_at": [
+            "18:00.0"
+        ]
+    },
+    "Gerstmann Syndrome": {
+        "signs": [
+            "Agraphia",
+            "Alexia",
+            "Finger agnosia",
+            "Right-left confusion",
+            "Dyscalculia",
+            "Confusão direita - esquerda"
+        ],
+        "locals": [
+            "Dominant parietal lobe (angular gyrus)"
+        ],
+        "arteries": [
+            "Middle cerebral artery (M2) - Inferior division",
+            "Posterior cerebral artery (P2)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Agraphia": "",
+            "Alexia": "",
+            "Dysalculia": "",
+            "Finger agnosia": "",
+            "Right-left confusion": "",
+            "Confusão direita - esquerda": ""
+        },
+        "local_name": [
+            "Middle_cerebral_artery_M2_inferior_division.png",
+            "Posterior_cerebral_artery_P2.png"
+        ],
+        "vessel_name": [
+            "Middle_cerebral_artery_(M2)___Inferior_division(1).png"
+        ],
+        "registered_at": [
+            "05:49.0",
+            "05:53.0",
+            "05:45.0",
+            "05:26.0",
+            "05:22.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Lateral Medulla (more rostrally) syndrome": {
+        "signs": [
+            "Sensory loss"
+        ],
+        "locals": [
+            "Lateral Medulla (more rostrally)"
+        ],
+        "arteries": [
+            "Anterior Inferior Cerebellar Artery (AICA)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Sensory loss": "no"
+        },
+        "local_name": [
+            "Anterior_inferior_cerebellar_artery_AICA"
+        ],
+        "vessel_name": [
+            "anterior_inferior_cerebellar_artery_right.tif"
+        ],
+        "registered_at": [
+            "05:18.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Lateral Medullary Infarction (Wallenberg)": {
+        "signs": [
+            "Dysphagia",
+            "Facial palsy",
+            "Gait instability",
+            "Headache",
+            "Hiccups",
+            "Hoarseness",
+            "Horner syndrome",
+            "Lateropulsion",
+            "Nausea/vomiting",
+            "Nystagmus (horizontal)",
+            "Nystagmus (horizontal-rotational)",
+            "Ptosis",
+            "Sensory loss",
+            "Vertigo",
+            "Vocal chord paralysis"
+        ],
+        "locals": [
+            "Lateral Medulla (more caudally)",
+            "Lateral Medulla"
+        ],
+        "arteries": [
+            "Distal intracranial vertebral artery",
+            "Posterior inferior cerebellar artery"
+        ],
+        "notes": [
+            "Facial palsy: It is presumably caused by involvement of aberrant corticobulbar fibers that loop caudally before travelling rostrally toward the facial nucleus",
+            "In a series describing small infarcts limited to the nodule, 310 all patients presented with isolated vertigo, unilateral ipsilesional nystagmus, and falling to the opposite direction"
+        ],
+        "is_ipsilateral": {
+            "Dysphagia": "",
+            "Facial palsy": "yes",
+            "Gait instability": "",
+            "Headache": "",
+            "Hiccups": "",
+            "Hoarseness": "",
+            "Horner syndrome": "yes",
+            "Lateropulsion": "",
+            "Nausea/vomiting": "",
+            "Nystagmus (horizontal)": "yes",
+            "Nystagmus (horizontal-rotational)": "yes",
+            "Ptosis": "",
+            "Sensory loss": "no",
+            "Vertigo": "",
+            "Vocal chord paralysis": "yes"
+        },
+        "local_name": [
+            "Distal_intracranial_vertebral_artery.png",
+            "Posterior_inferior_cerebellar_artery.png"
+        ],
+        "vessel_name": [
+            "Distal_intracranial_vertebral_artery.png",
+            "Posterior_inferior_cerebellar_artery(1).png"
+        ],
+        "registered_at": [
+            "05:28.0",
+            "05:34.0",
+            "05:29.0",
+            "05:35.0",
+            "05:27.0",
+            "05:33.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Lateral inferior cerebellum syndrome": {
+        "signs": [
+            "Gait ataxia"
+        ],
+        "locals": [
+            "Lateral cerebellum"
+        ],
+        "arteries": [
+            "Posterior inferior cerebellar artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Gait ataxia": ""
+        },
+        "local_name": [
+            "Posterior_inferior_cerebellar_artery.png"
+        ],
+        "vessel_name": [
+            "Posterior_inferior_cerebellar_artery(1).png"
+        ],
+        "registered_at": [
+            "05:37.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Left Temporal lobe (angular gyrus), extensive syndrome": {
+        "signs": [
+            "Alexia with agraphia",
+            "Alexia"
+        ],
+        "locals": [
+            "Left Temporal lobe (angular gyrus), extensive"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "Frequently, accompanied by anomia and Gerstmann syndrome",
+            "Usually, alexia in Left Temporal lobe (angular gyrus) is accompanied by agraphia",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Alexia with agraphia": "",
+            "Alexia": "NA"
+        },
+        "local_name": [
+            "Left _temporal_lobe_angular gyrus_extensive.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG3.jpg"
+        ],
+        "registered_at": [
+            "05:49.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Left Temporal lobe (fusiform) AND callosal fibers at the splenium syndrome": {
+        "signs": [
+            "Alexia Pure (reading difficulty)",
+            "Alexia"
+        ],
+        "locals": [
+            "Left Temporal lobe (fusiform) AND callosal fibers at the splenium"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Alexia Pure (reading difficulty)": "NA",
+            "Alexia": "NA"
+        },
+        "local_name": [
+            "cerebro.jpg",
+            "Tempotal_lobe_splenium_fusiform_png.png"
+        ],
+        "vessel_name": [
+            "PChA_PNG1.jpg",
+            "NA"
+        ],
+        "registered_at": [
+            "05:53.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Left Temporal lobe (more anterior segments of fusiform gyri) syndrome": {
+        "signs": [
+            "Visual agnosia (associative)",
+            "VIsual agnosia"
+        ],
+        "locals": [
+            "Left Temporal lobe (more anterior segments of fusiform gyri)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)",
+            "Posterior cerebral artery (P2)"
+        ],
+        "notes": [
+            "In apperceptive visual agnosia, the individual does not recognize what the object is, does not discern its forms (the percept). In associative visual agnosia, he perceives the form but does not recognize what the object is.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Visual agnosia (associative)": "NA",
+            "VIsual agnosia": "NA"
+        },
+        "local_name": [
+            "cerebro.jpg",
+            "left_fusiform_gyri.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Posterior_cerebral_artery_P2_(1).png"
+        ],
+        "registered_at": [
+            "05:48.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Left temporooccipital lobe (frequent extension to callosal interhemispheric fibers) syndrome": {
+        "signs": [
+            "Optic aphasia"
+        ],
+        "locals": [
+            "Left temporooccipital lobe (frequent extension to callosal interhemispheric fibers)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "Optic aphasia is typically a visuoverbal disconnection syndrome. Difficulty naming objects by sight, but does so through other non-visual stimuli and can describe their use, including pantomime.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Optic aphasia": "NA"
+        },
+        "local_name": [
+            "cerebro.jpg",
+            "left_fusiform_gyri1.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG8.jpg"
+        ],
+        "registered_at": [
+            "05:48.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Marie-Foix syndrome": {
+        "signs": [
+            "Ataxia",
+            "Hemiparesis / Hemiplegia",
+            "Hyperalgesia",
+            "Sensory loss (pain and temperature)",
+            "Facial palsy",
+            "Hearing loss",
+            "Vertigo",
+            "Nystagmus (horizontal)"
+        ],
+        "locals": [
+            "Lateral pons"
+        ],
+        "arteries": [
+            "Anterior Inferior Cerebellar Artery (AICA)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Ataxia": "yes",
+            "Hemiparesis / Hemiplegia": "no",
+            "Hyperalgesia": "no"
+        },
+        "local_name": [
+            "Anterior_inferior_cerebellar_artery_AICA.png"
+        ],
+        "vessel_name": [
+            "anterior_inferior_cerebellar_artery_right.tif"
+        ],
+        "registered_at": [
+            "05:42.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Medial Medullary Infarction (Dejerine)": {
+        "signs": [
+            "Ataxia",
+            "Diplopia",
+            "Dysarthria",
+            "Dysphagia",
+            "Emotional Disturbances",
+            "Facial palsy",
+            "Gait instability",
+            "Hemiparesis / Hemiplegia (except face)",
+            "Lateropulsion",
+            "Nystagmus (upbeat)",
+            "Paresthesia",
+            "Sensory loss (deep)",
+            "Tongue paralysis",
+            "Vertigo"
+        ],
+        "locals": [
+            "Medial Medulla"
+        ],
+        "arteries": [
+            "Anterior spinal artery",
+            "Basilar perforating branches"
+        ],
+        "notes": [
+            "Gait instability or body lateropulsion may be related to involvement of the vestibulocerebellar tract, inferior olivary nucleus, or more laterally located spinocerebellar tract",
+            "Lateropulsion in this case is contralateral to the lesions side",
+            "Unlike pontine infarction, the face is mostly spared because the lesions are below the level of the facial nerve nucleus/fascicles",
+            "In lesions of medial medulla, sensory loss is the 2nd most important symptom/sign;",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Ataxia": "NA",
+            "Diplopia": "",
+            "Dysarthria": "",
+            "Dysphagia": "",
+            "Emotional Disturbances": "",
+            "Facial palsy": "no",
+            "Gait instability": "",
+            "Hemiparesis / Hemiplegia (except face)": "no",
+            "Lateropulsion": "",
+            "Nystagmus (upbeat)": "",
+            "Paresthesia": "",
+            "Sensory loss (deep)": "no",
+            "Tongue paralysis": "yes",
+            "Vertigo": ""
+        },
+        "local_name": [
+            "Medial_medulla_anterior_spinal_artery.png",
+            "Medial_medulla_basilar_perforating_branches.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "anterior_spinal_artery__png1.png"
+        ],
+        "registered_at": [
+            "05:19.0",
+            "05:25.0",
+            "05:20.0",
+            "05:26.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Medial frontal lobe syndrome": {
+        "signs": [
+            "Motor neglect"
+        ],
+        "locals": [
+            "Medial frontal lobe"
+        ],
+        "arteries": [],
+        "notes": [
+            "Motor neglect: These individuals have little voluntary movement on the hemiparetic side"
+        ],
+        "is_ipsilateral": {
+            "Motor neglect": "no"
+        },
+        "local_name": [
+            "Medial frontal lobe"
+        ],
+        "vessel_name": [
+            "NA"
+        ],
+        "registered_at": [
+            "05:52.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Medial inferior cerebellum syndrome": {
+        "signs": [
+            "Dysmetria",
+            "Headache",
+            "Lateropulsion",
+            "Nystagmus (horizontal)",
+            "Vertigo",
+            "Uncontrollable crying and laughing"
+        ],
+        "locals": [
+            "Medial cerebellum"
+        ],
+        "arteries": [
+            "Posterior inferior cerebellar artery"
+        ],
+        "notes": [
+            "In PICA infarction, headache is usually unilateral in cervical,occipital or both regions.",
+            "Lateropulsion is a striking sign in PICA territory infarction.",
+            "In PICA infarction, horizontal nystagmus is more common than vertical ones, unilateral and ipsilesional. Head impulse is usually normal.",
+            "In PICA infarction (partial territory), the vertigo may be aggravated (or relieved) on certain head positions and patients may describe recurrent vertigo symptoms. In cerebellum, it is caused by involvement of uvulonodular complex of the vermis",
+            "In humans, cerebellar areas around the vermis appear to be involved in the formation of fear memory traces. 301 One of the authors (JSK) observed patients who showed phobic attacks after cerebellar infarction. In clinical practice, however, emotional incontinence (excessive or inappropriate laughing/crying) is much more frequently observed"
+        ],
+        "is_ipsilateral": {
+            "Dysmetria": "",
+            "Headache": "",
+            "Lateropulsion": "",
+            "Nystagmus (horizontal)": "",
+            "Vertigo": "",
+            "Uncontrollable crying and laughing": ""
+        },
+        "local_name": [
+            "Posterior_inferior_cerebellar_artery.png",
+            "Medial_cerebellum.png"
+        ],
+        "vessel_name": [
+            "Posterior_inferior_cerebellar_artery(1).png"
+        ],
+        "registered_at": [
+            "05:38.0",
+            "05:37.0",
+            "25:00.0"
+        ],
+        "updated_at": [
+            "50:03.0",
+            "25:00.0"
+        ]
+    },
+    "Mesial frontal lobe syndrome": {
+        "signs": [
+            "Confusion and/or Agitation"
+        ],
+        "locals": [
+            "Mesial frontal lobe"
+        ],
+        "arteries": [
+            "Anterior Cerebral Artery (ACA)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Confusion and/or Agitation": "NA"
+        },
+        "local_name": [
+            "Anterior_Cerebral_Artery_ACA.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Anterior_Cerebral_Artery_ACA_(2).png"
+        ],
+        "registered_at": [
+            "05:53.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Midbrain (anterolateral) syndrome": {
+        "signs": [
+            "Dysarthria",
+            "Dysarthria-ataxia",
+            "Hemiparesis / Hemiplegia"
+        ],
+        "locals": [
+            "Midbrain (anterolateral)"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (P2)"
+        ],
+        "notes": [
+            "An anterolateral lesion is the second most common pattern (25%) of pure midbrain infarction. Hemiparesis is the classic sign and it is due to crus cerebri involvement.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Dysarthria": "NA",
+            "Dysarthria-ataxia": "NA",
+            "Hemiparesis / Hemiplegia": "no"
+        },
+        "local_name": [
+            "NA",
+            "Midbrain_anterolateral_PNG_.jpg"
+        ],
+        "vessel_name": [
+            "Posterior_cerebral_artery_P21.png",
+            "NA"
+        ],
+        "registered_at": [
+            "05:31.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Midbrain (anteromedial) - Claude's syndrome": {
+        "signs": [
+            "Ataxia",
+            "Oculomotor palsy (III)",
+            "Hemiparesis / Hemiplegia",
+            "Large pupils (mydriasis)"
+        ],
+        "locals": [
+            "Midbrain (anteromedial)"
+        ],
+        "arteries": [
+            "Basilar artery (upper portion)",
+            "Basilar paramedian arteries",
+            "Posterior cerebral artery (penetrating branches)"
+        ],
+        "notes": [
+            "Claudeâ€™s syndrome is caused by infarction of the third nerve nucleus or its fibers and of the cerebellothalamic connections when they pass through the red nucleus. The combination of a third nerve palsy with contralateral involuntary abnormal movements like dystonia, parkinsonism, resting and postural tremor, or chorea affecting the contralateral limbs is known as Benediktâ€™s syndrome.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Ataxia": "NA"
+        },
+        "local_name": [
+            "Basilar_artery.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_paramedian_branches_png.png"
+        ],
+        "registered_at": [
+            "05:25.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Midbrain (anteromedial) - Claudes syndrome": {
+        "signs": [
+            "Ataxia",
+            "Holmes tremor"
+        ],
+        "locals": [
+            "Midbrain (anteromedial)"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (P1)"
+        ],
+        "notes": [
+            "Claudeâ€™s syndrome is caused by infarction of the third nerve nucleus or its fibers and of the cerebellothalamic connections when they pass through the red nucleus. The combination of a third nerve palsy with contralateral involuntary abnormal movements like dystonia, parkinsonism, resting and postural tremor, or chorea affecting the contralateral limbs is known as Benediktâ€™s syndrome.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Ataxia": "NA",
+            "Holmes tremor": "no"
+        },
+        "local_name": [
+            "Posterior_cerebral_artery_P1.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Posterior_cerebral__artery_P12.png"
+        ],
+        "registered_at": [
+            "05:32.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Midbrain (anteromedial) - Webers syndrome": {
+        "signs": [
+            "Oculomotor palsy (III)",
+            "Hemiparesis / Hemiplegia",
+            "Ptosis",
+            "Large pupils (mydriasis)",
+            "Parkinsonism"
+        ],
+        "locals": [
+            "Midbrain (anteromedial)"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (P1)"
+        ],
+        "notes": [
+            "An anteromedial (paramedian) lesion is the most common pattern (50-60% of pure midbrain infarctions)",
+            "Oculomotor palsies are frequent in midbrain strokes and dominate the neurological picture; they provide the best indication of a lesion affecting the midbrain.",
+            "NA",
+            "WEBER SYNDROME: Contralateral parkinsonism occurs because the substantia nigra's dopaminergic projections to the basal ganglia affect the contralateral body. Contralateral hemiparesis or hemiplegia results from corticospinal tract lesions before medullary decussation. Corticobulbar tract damage causes contralateral lower facial muscle and hypoglossal nerve dysfunction. Ipsilateral oculomotor nerve palsy presents with partial ptosis, mydriasis, and diplopia. \r\n\r\nMunakomi S, Das JM. Weber Syndrome. In: StatPearls. Treasure Island (FL): StatPearls Publishing; August 13, 2023."
+        ],
+        "is_ipsilateral": {
+            "Oculomotor palsy (III)": "yes",
+            "Hemiparesis / Hemiplegia": "no",
+            "Ptosis": "",
+            "Large pupils (mydriasis)": "NA",
+            "Parkinsonism": "no"
+        },
+        "local_name": [
+            "Posterior_cerebral_artery_P1.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "p1.png",
+            "p11.png",
+            "Posterior_cerebral__artery_P11.png",
+            "Posterior_cerebral__artery_P16.png",
+            "p1_png.png",
+            "NA"
+        ],
+        "registered_at": [
+            "05:24.0",
+            "05:31.0",
+            "05:32.0"
+        ],
+        "updated_at": [
+            "20/07/2023 07:39"
+        ]
+    },
+    "Midbrain (anteromedial) - webers syndrome": {
+        "signs": [
+            "Hemiparesis / Hemiplegia",
+            "Large pupils (mydriasis)"
+        ],
+        "locals": [
+            "Midbrain (anteromedial)"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (P1)"
+        ],
+        "notes": [
+            "Third nerve palsy plus hemiplegia Herman Weber [9] described a patient who presented with unilateral third nerve palsy associated with a crossed hemiplegia due to a hematoma affecting the paramedian and lateral midbrain. Infarcts as causes of Weberâ€™s syndrome are rare."
+        ],
+        "is_ipsilateral": {
+            "Hemiparesis / Hemiplegia": "no",
+            "Large pupils (mydriasis)": ""
+        },
+        "local_name": [
+            "Posterior_cerebral_artery_P1.png"
+        ],
+        "vessel_name": [
+            "NA"
+        ],
+        "registered_at": [
+            "05:24.0",
+            "25:00.0"
+        ],
+        "updated_at": [
+            "20/07/2023 07:39"
+        ]
+    },
+    "Midbrain (anteromedial) syndrome": {
+        "signs": [
+            "Internuclear ophthalmoplegia (INO)",
+            "Sensory loss"
+        ],
+        "locals": [
+            "Midbrain (anteromedial)"
+        ],
+        "arteries": [
+            "Basilar artery (upper portion)",
+            "Posterior cerebral artery (P1)"
+        ],
+        "notes": [
+            "In midbrain (anteromedial), sensory deficits, when present, are usually mild and often present in restricted body parts such as the perioral or perioral-hand areas.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Internuclear ophthalmoplegia (INO)": "NA",
+            "Sensory loss": "no"
+        },
+        "local_name": [
+            "Basilar_artery.png",
+            "Posterior_cerebral_artery_P1.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "p12.png"
+        ],
+        "registered_at": [
+            "05:24.0",
+            "05:31.0",
+            "05:25.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Midbrain (dorsolateral) syndrome": {
+        "signs": [
+            "Ataxia",
+            "Oculomotor palsy (III)",
+            "Internuclear ophthalmoplegia (INO)",
+            "Sensory loss"
+        ],
+        "locals": [
+            "Midbrain (dorsolateral)"
+        ],
+        "arteries": [
+            "Superior Cerebellar Artery (SCA)"
+        ],
+        "notes": [
+            "Infarcts occurring in midbrain (dorsolateral) are almost always accompanied by concomitant involvement of the cerebellum. Because the lesions mostly damage the trochlear nucleus or the fascicle before decussation, superior oblique palsy usually develops in the eye contralateral to the midbrain stroke"
+        ],
+        "is_ipsilateral": {
+            "Ataxia": "yes",
+            "Oculomotor palsy (III)": "",
+            "Internuclear ophthalmoplegia (INO)": "",
+            "Sensory loss": "no"
+        },
+        "local_name": [
+            "Superior_cerebellar_artery_SCA.png"
+        ],
+        "vessel_name": [
+            "Superior_Cerebellar_Artery_(SCA)(1).png"
+        ],
+        "registered_at": [
+            "05:40.0",
+            "05:39.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Midbrain (lateral) syndrome": {
+        "signs": [
+            "Sensory loss"
+        ],
+        "locals": [
+            "Midbrain (lateral)"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (P1)"
+        ],
+        "notes": [
+            "Midbrain (lateral) only is very uncommon: sensory symptoms due to involvement of the laterally located sensory lemniscus",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Sensory loss": "NA"
+        },
+        "local_name": [
+            "Posterior_cerebral_artery_P1.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Posterior_cerebral__artery_P13.png"
+        ],
+        "registered_at": [
+            "05:32.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Millard-Gubler syndrome": {
+        "signs": [
+            "Facial palsy",
+            "Hemiparesis / Hemiplegia",
+            "Abducens palsy (VI)"
+        ],
+        "locals": [
+            "Pons (tegmental paramedian)"
+        ],
+        "arteries": [
+            "Basilar perforating branches"
+        ],
+        "notes": [
+            "6th and 7th nerve palsies with contralateral hemiparesis is refered to Millard-Gubler syndrome",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Facial palsy": "NA",
+            "Hemiparesis / Hemiplegia": "no"
+        },
+        "local_name": [
+            "Pons_tegmental_paramedian.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_perforating_branches4.png"
+        ],
+        "registered_at": [
+            "05:27.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Nothnagel syndrome": {
+        "signs": [
+            "Ataxia",
+            "Oculomotor palsy (III)"
+        ],
+        "locals": [
+            "Midbrain (dorsolateral) - superior cerebellar peduncle",
+            "Midbrain (dorsolateral)"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (penetrating branches)"
+        ],
+        "notes": [
+            "Nothnagel's (ophthalmoplegia-ataxia) syndrome is different; it is more a variant of Parinaud's syndrome, with unilateral or bilateral third nerve palsy and ataxia accompanied by vertical gaze deficits and other neurologic signs. The lesion affects the midbrain tectum and is often neoplastic.",
+            "NA",
+            "'."
+        ],
+        "is_ipsilateral": {
+            "Ataxia": "NA",
+            "Oculomotor palsy (III)": "yes"
+        },
+        "local_name": [
+            "cerebro.jpg",
+            "superior_cerebellar_peduncle_png.jpg",
+            "Midbrain_dorsolateral_PNG.jpg",
+            "superior_cerebellar_peduncle_png1.jpg"
+        ],
+        "vessel_name": [
+            "perfurantesACP.png",
+            "NA"
+        ],
+        "registered_at": [
+            "05:33.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Occipital lobe syndrome": {
+        "signs": [
+            "Homonymous hemianopia",
+            "Macropsia (objects appear larger)",
+            "Metamorphopsia (distorted in size)",
+            "Micropsia (objects appear smaller)",
+            "Polyopia (multiple images)",
+            "Visual hallucination"
+        ],
+        "locals": [
+            "Occipital lobe"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "The pattern and severity of visual field defect may vary according to the lesion location and extension, which is in part related to the status of collateral flows (e.g., flows from the MCA); patients may have macula sparing or isolated central hemianopia (infarction is confined to the occipital pole).",
+            "In polyopia, micropsia, macropsia and metamorphopsia, most patients have visual field defects.",
+            "In patients with PCA infarction, visual hallucination is uncommon and tends to occur more in the recovery phase than the acute stage. Most patients are aware that the hallucinations are not real and do not feel that they are threatening.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Homonymous hemianopia": "NA",
+            "Macropsia (objects appear larger)": "NA",
+            "Metamorphopsia (distorted in size)": "NA",
+            "Micropsia (objects appear smaller)": "",
+            "Polyopia (multiple images)": "",
+            "Visual hallucination": "yes"
+        },
+        "local_name": [
+            "Occipital_lobe.png",
+            "occipital_lobe2.png",
+            "occipital_lobe3.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG.jpg"
+        ],
+        "registered_at": [
+            "05:47.0",
+            "05:48.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Opalsky syndrome (only if hemiparesia or hemiplegia are present)": {
+        "signs": [
+            "Dysphagia",
+            "Facial palsy",
+            "Gait instability",
+            "Headache",
+            "Hemiparesis / Hemiplegia",
+            "Hiccups",
+            "Hoarseness",
+            "Horner syndrome",
+            "Lateropulsion",
+            "Nausea/vomiting",
+            "Nystagmus (horizontal)",
+            "Nystagmus (horizontal-rotational)",
+            "Sensory loss",
+            "Sensory loss (except face)",
+            "Sensory loss (face)",
+            "Vertigo"
+        ],
+        "locals": [
+            "Lateral Medulla (more caudally)",
+            "Lateral Medulla"
+        ],
+        "arteries": [
+            "Distal intracranial vertebral artery",
+            "Posterior inferior cerebellar artery",
+            "Posterior_inferior_cerebellar_artery.png"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Dysphagia": "",
+            "Facial palsy": "no",
+            "Gait instability": "",
+            "Headache": "",
+            "Hemiparesis / Hemiplegia": "no",
+            "Hiccups": "",
+            "Hoarseness": "",
+            "Horner syndrome": "yes",
+            "Lateropulsion": "",
+            "Nausea/vomiting": "",
+            "Nystagmus (horizontal)": "yes",
+            "Nystagmus (horizontal-rotational)": "yes",
+            "Sensory loss": "no",
+            "Sensory loss (except face)": "no",
+            "Sensory loss (face)": "yes",
+            "Vertigo": ""
+        },
+        "local_name": [
+            "Distal_intracranial_vertebral_artery.png",
+            "Posterior_inferior_cerebellar_artery.png"
+        ],
+        "vessel_name": [
+            "Distal_intracranial_vertebral_artery.png",
+            "Posterior_inferior_cerebellar_artery(1).png"
+        ],
+        "registered_at": [
+            "05:30.0",
+            "05:36.0",
+            "05:31.0",
+            "05:37.0",
+            "05:29.0",
+            "05:35.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Paracentral lobule and upper motor cortex syndrome": {
+        "signs": [
+            "Monoparesis (inferior limb)"
+        ],
+        "locals": [
+            "Paracentral lobule and upper motor cortex"
+        ],
+        "arteries": [
+            "Anterior Cerebral Artery (ACA) - cortical branches"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Monoparesis (inferior limb)": "NA"
+        },
+        "local_name": [
+            "Paracentral_lobule_and_upper_motor_cortex.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "ACAcorticalBRANCHES.png"
+        ],
+        "registered_at": [
+            "05:52.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Parinaud syndrome": {
+        "signs": [
+            "Conjugate deviation of the eyes",
+            "Convergence impaired",
+            "Nystagmus (convergence-retraction)",
+            "Pupillary light-near dissociation",
+            "Bilateral Lid retraction",
+            "Skew deviation"
+        ],
+        "locals": [
+            "Midbrain (vertical gaze center at the rostral interstitial nucleus of medial longitudinal fasciculus (riMLF))"
+        ],
+        "arteries": [
+            "Basilar artery",
+            "Posterior cerebral artery (P1)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Conjugate deviation of the eyes": "",
+            "Convergence impaired": "NA",
+            "Nystagmus (convergence-retraction)": "",
+            "Pupillary light-near dissociation": "",
+            "Bilateral Lid retraction": "NA",
+            "Skew deviation": ""
+        },
+        "local_name": [
+            "Basilar_artery.png",
+            "Posterior_cerebral_artery_P1.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Posterior_cerebral__artery_P14.png",
+            "Basilar_artery7.png"
+        ],
+        "registered_at": [
+            "18:00.0"
+        ],
+        "updated_at": [
+            "18:00.0"
+        ]
+    },
+    "Partial Anterior Circulation Syndrome": {
+        "signs": [
+            "Aphasia (global)",
+            "Conjugate deviation of the eyes",
+            "Hemiparesis / Hemiplegia",
+            "Sensory loss",
+            "Aphasia"
+        ],
+        "locals": [
+            "Frontal, parietal lobes and internal capsule",
+            "Frontal, parietal and occipital lobes, and internal capsule"
+        ],
+        "arteries": [
+            "Middle cerebral artery (after M1)",
+            "Middle Cerebral Artery (M1)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Aphasia (global)": "",
+            "Conjugate deviation of the eyes": "yes",
+            "Hemiparesis / Hemiplegia": "no",
+            "Sensory loss": "no",
+            "Aphasia": "NA"
+        },
+        "local_name": [
+            "Frontal_parietal_lobes_and_internal_capsule.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Afterm1_PNG.jpg",
+            "AcmAFTERM1_PNG.png"
+        ],
+        "registered_at": [
+            "05:51.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Partial Anterior Circulation Syndrome - Inferior Division Syndrome": {
+        "signs": [
+            "Aphasia (impaired comprehension)",
+            "Confusion and/or Agitation",
+            "Hemineglect",
+            "Homonymous hemianopia",
+            "Quadrantanopia"
+        ],
+        "locals": [
+            "Superior and inferior temporal gyri, occipital lobe, inferior parietal lobe",
+            "Frontal and parietal lobes"
+        ],
+        "arteries": [
+            "Middle cerebral artery (M2) - Inferior division"
+        ],
+        "notes": [
+            "Temporal lobe involvement can cause an agitated and confused state."
+        ],
+        "is_ipsilateral": {
+            "Aphasia (impaired comprehension)": "",
+            "Confusion and/or Agitation": "",
+            "Hemineglect": "no",
+            "Homonymous hemianopia": "no",
+            "Quadrantanopia": "no"
+        },
+        "local_name": [
+            "Middle_cerebral_artery_M2_inferior_division.png"
+        ],
+        "vessel_name": [
+            "Middle_cerebral_artery_(M2)___Inferior_division(1).png"
+        ],
+        "registered_at": [
+            "05:52.0",
+            "05:51.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Partial Anterior Circulation Syndrome - Superior Division Syndrome": {
+        "signs": [
+            "Aphasia (impaired fluency)",
+            "Hemiparesis / Hemiplegia",
+            "Homonymous hemianopia",
+            "Quadrantanopia (inferior)"
+        ],
+        "locals": [
+            "Frontal and parietal lobes",
+            "Frontal and parietal lobe"
+        ],
+        "arteries": [
+            "Middle cerebral artery (M2) - Superior division"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Aphasia (impaired fluency)": "",
+            "Hemiparesis / Hemiplegia": "no"
+        },
+        "local_name": [
+            "Middle_cerebral_artery_superior_division.png"
+        ],
+        "vessel_name": [
+            "Middle_cerebral_artery_(M2)___Superior_division(1).png"
+        ],
+        "registered_at": [
+            "05:51.0",
+            "05:50.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Percheron artery syndrome": {
+        "signs": [
+            "Altered consciousness",
+            "Aphasia (impaired comprehension and fluency)",
+            "Confusion and/or Agitation",
+            "Disorientation",
+            "Memory loss"
+        ],
+        "locals": [
+            "Bilateral Thalamus (Intralaminar and Medial Dorsal nuclei)"
+        ],
+        "arteries": [
+            "Percheron artery (single pedicle from P1 originating bilateral paramedian arteries)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Altered consciousness": "NA",
+            "Aphasia (impaired comprehension and fluency)": "",
+            "Confusion and/or Agitation": "",
+            "Disorientation": "",
+            "Memory loss": "NA"
+        },
+        "local_name": [
+            "Bilateral_Thalamus_Intralaminar_and_Medial_Dorsal_nuclei.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "pecheron.png",
+            "pecheron1.png"
+        ],
+        "registered_at": [
+            "05:45.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Pons (basal paramedian) syndrome": {
+        "signs": [
+            "Ataxic hemiparesis",
+            "Cheiro-oral sensory disturbances",
+            "Hemiparesis / Hemiplegia",
+            "Sensory loss"
+        ],
+        "locals": [
+            "Pons (basal paramedian)"
+        ],
+        "arteries": [
+            "Basilar artery"
+        ],
+        "notes": [
+            "Pons (basal paramedian) is the most common pattern of stroke; a medially located lesion preferentially affects the face and arm, causing a cheiro-oral syndrome",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Ataxic hemiparesis": "NA",
+            "Cheiro-oral sensory disturbances": "no",
+            "Hemiparesis / Hemiplegia": "no",
+            "Sensory loss": "no"
+        },
+        "local_name": [
+            "Basilar_artery.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Basilar_artery2.png"
+        ],
+        "registered_at": [
+            "05:21.0",
+            "05:20.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Pons (bilateral) syndrome": {
+        "signs": [
+            "Altered consciousness",
+            "Ataxia",
+            "Auditory hallucination",
+            "Dysarthria",
+            "Dysphagia",
+            "Emotional Disturbances",
+            "Facial palsy (bilateral)",
+            "Gait instability",
+            "Abducens palsy (VI)",
+            "Hemiparesis / Hemiplegia",
+            "Internuclear ophthalmoplegia (INO)",
+            "Locked-in",
+            "Ocular bobbing",
+            "One-and-a-half syndrome",
+            "Palatal myoclonus",
+            "Pinpoint pupils",
+            "Ptosis",
+            "Quadriparesis",
+            "Tinnitus",
+            "Conjugate deviation of the eyes",
+            "Muteness"
+        ],
+        "locals": [
+            "Pons (bilateral)"
+        ],
+        "arteries": [
+            "Basilar artery"
+        ],
+        "notes": [
+            "Emotional disturbances in pontine infarction are usually pathologic laughing or crying",
+            "In basilar occlusion and hemiparesis, frequently there are abnormal movements (shivering, twitching, shaking, or jerking) of the relatively spared side",
+            "When all voluntary movements are lost, the deficit is referred to as the \"locked-in\" syndrome. Vertical eye movements are usually spared and are used for simple communications",
+            "definition of ocular bobbing: the eyeballs intermittently dip briskly downward through an arc of a few millimeters and then return to the primary position in a kind of bobbing action (Fisher's definition). Ocular bobbing is an ominous sign, usually associated with extensive, bilateral pontine infarcts or hemorrhages",
+            "Usually palatal myoclonus have a delayed onset and happens when \"Guillain-Mollaret triangle\" is affected, which includes the dentate nucleus of the cerebellum, the red nucleus in the midbrain, and the inferior olivary nucleus in the medulla and their interconnections",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Altered consciousness": "",
+            "Ataxia": "NA",
+            "Auditory hallucination": "",
+            "Dysarthria": "",
+            "Dysphagia": "",
+            "Emotional Disturbances": "",
+            "Facial palsy (bilateral)": "",
+            "Gait instability": "",
+            "Abducens palsy (VI)": "",
+            "Hemiparesis / Hemiplegia": "no",
+            "Internuclear ophthalmoplegia (INO)": "",
+            "Locked-in": "",
+            "Ocular bobbing": "",
+            "One-and-a-half syndrome": "",
+            "Palatal myoclonus": "",
+            "Pinpoint pupils": "",
+            "Ptosis": "",
+            "Quadriparesis": "",
+            "Tinnitus": "",
+            "Conjugate deviation of the eyes": ""
+        },
+        "local_name": [
+            "Basilar_artery.png",
+            "Basilar_artery_pons.png",
+            "Pons_bilateral.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Basilar_artery4.png"
+        ],
+        "registered_at": [
+            "05:23.0",
+            "05:22.0",
+            "05:24.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Pons (dorsolateral / Lower) syndrome": {
+        "signs": [
+            "Corneal hyperesthesia",
+            "Facial pain",
+            "Facial palsy",
+            "Dysartrhria",
+            "Conjugate deviation of the eyes",
+            "Hearing loss",
+            "Hemiparesis / Hemiplegia",
+            "Sensory loss",
+            "Sensory loss (face)",
+            "Tinnitus",
+            "Vertigo"
+        ],
+        "locals": [
+            "Pons (dorsolateral / Lower)"
+        ],
+        "arteries": [
+            "Anterior Inferior Cerebellar Artery (AICA)"
+        ],
+        "notes": [
+            "In pontine infarction, trigeminal sensory symptoms may be restricted to the intraoral area.",
+            "Frequently infarction of Pons (dorsolateral) is accompanied by cerebellar infarction",
+            "Hemiparesis is rare in infarction of Pons (dorsolateral) or is mild",
+            "Frequently infarction of Pons (dorsolateral) is accompanied by cerebellar infarction; laterally located lesions produce leg-dominant sensory symptoms."
+        ],
+        "is_ipsilateral": {
+            "Corneal hyperesthesia": "yes",
+            "Facial pain": "yes",
+            "Facial palsy": "yes",
+            "Dysartrhria": "yes",
+            "Conjugate deviation of the eyes": "",
+            "Hearing loss": "yes",
+            "Hemiparesis / Hemiplegia": "no",
+            "Sensory loss": "no",
+            "Sensory loss (face)": "no",
+            "Tinnitus": "",
+            "Vertigo": ""
+        },
+        "local_name": [
+            "Anterior_inferior_cerebellar_artery_AICA.png"
+        ],
+        "vessel_name": [
+            "anterior_inferior_cerebellar_artery_right.tif"
+        ],
+        "registered_at": [
+            "05:19.0",
+            "05:18.0",
+            "05:17.0",
+            "00:00.0"
+        ],
+        "updated_at": [
+            "50:03.0",
+            "00:00.0"
+        ]
+    },
+    "Pons (dorsolateral / Upper) syndrome": {
+        "signs": [
+            "Facial palsy",
+            "Conjugate deviation of the eyes",
+            "Hemiparesis / Hemiplegia",
+            "Horner syndrome",
+            "Sensory loss"
+        ],
+        "locals": [
+            "Pons (dorsolateral / Upper)"
+        ],
+        "arteries": [
+            "Superior Cerebellar Artery (SCA)"
+        ],
+        "notes": [
+            "Frequently infarction of Pons (dorsolateral) is accompanied by cerebellar infarction",
+            "Hemiparesis is rare in infarction of Pons (dorsolateral) or is mild"
+        ],
+        "is_ipsilateral": {
+            "Facial palsy": "yes",
+            "Conjugate deviation of the eyes": "",
+            "Hemiparesis / Hemiplegia": "no",
+            "Horner syndrome": "yes",
+            "Sensory loss": "no"
+        },
+        "local_name": [
+            "Superior_cerebellar_artery_SCA.png"
+        ],
+        "vessel_name": [
+            "Superior_Cerebellar_Artery_(SCA)(1).png"
+        ],
+        "registered_at": [
+            "05:39.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Pons (tegmental paramedian) syndrome": {
+        "signs": [
+            "Facial palsy",
+            "Abducens palsy (VI)",
+            "Internuclear ophthalmoplegia (INO)",
+            "One-and-a-half syndrome",
+            "Sensory loss",
+            "Skew deviation",
+            "Conjugate deviation of the eyes"
+        ],
+        "locals": [
+            "Pons (tegmental paramedian)"
+        ],
+        "arteries": [
+            "Basilar perforating branches"
+        ],
+        "notes": [
+            "Involvement of Pons (tegmental paramedian) is second most common pattern of pure pontine infarction",
+            "Involvement of Pons (tegmental paramedian) is second most common pattern of pure pontine infarction; 6th nerve and fascicles are located in Pons (tegmental paramedian lower pons)",
+            "Internuclear ophthalmoplegia (INO) due to involvement of the MLF is much more common in patients with pontine infarction than 6th nerve palsy",
+            "In pontine involvement: medially located lesion preferentially affects the face and arm, causing a cheiro-oral syndrome, whereas laterally located lesions produce leg-dominant sensory symptom",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Facial palsy": "NA",
+            "Abducens palsy (VI)": "NA",
+            "Internuclear ophthalmoplegia (INO)": "",
+            "One-and-a-half syndrome": "",
+            "Sensory loss": "no",
+            "Skew deviation": "",
+            "Conjugate deviation of the eyes": ""
+        },
+        "local_name": [
+            "Pons_tegmental_paramedian.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_perforating_branches5.png",
+            "basilar_perforating_branches6.png"
+        ],
+        "registered_at": [
+            "05:27.0",
+            "05:26.0",
+            "26:00.0",
+            "40:00.0"
+        ],
+        "updated_at": [
+            "50:03.0",
+            "26:00.0",
+            "40:00.0"
+        ]
+    },
+    "Posterior choroidal artery syndrome": {
+        "signs": [
+            "Cheiro-oral sensory disturbances",
+            "Homonymous hemianopia",
+            "Nystagmus (horizontal)",
+            "Optokinetic response impaired",
+            "Quadrantanopia",
+            "Sectoranopia",
+            "Sensory loss",
+            "Cognitive dysfunction",
+            "Anterograde amnesia",
+            "Horizontal Sectoranopia"
+        ],
+        "locals": [
+            "Thalamus (Lateral Geniculate Body, Pulvinar, Lateral Dorsal and Lateral Posterior nuclei)",
+            "Hippocampus",
+            "Thalamus",
+            "Optic tract, lateral geniculate body, optic radiations"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)",
+            "Posterior cerebral artery (P2)"
+        ],
+        "notes": [
+            "Infarction limited to posterior choroidal artery territory area is uncommon and accounts for 9.5% of thalamic infarcts. The fact that the anterior choroidal artery supplies a part of the LGB may explain the diverse pattern of visual field defects in patients with posterior choroidal artery infarction.",
+            "In thalamic infaction, impaired fast-phase optokinetic response to the opposite side of the lesion has also been observed, which could be attributed to the involvement of the smooth pursuit pathways in the LGB",
+            "NA",
+            "Infarction of the lateral posterior choroidal artery (LPChA) region typically results in a distinctive visual field defect known as a homonymous horizontal sectoranopia or a wedge-shaped defect. This occurs because the LPChA supplies the intermediate portion of the lateral geniculate body (LGB), which receives input from the horizontal sector of the visual field. While homonymous horizontal sectoranopia is considered the hallmark of LPChA region infarction, a complete homonymous hemianopsia can also occur when the entire LGB is compromised. Therefore, in cases of homonymous hemianopsia, the possibility of an LGB lesion due to LPChA region infarction should be considered in the differential diagnosis.\r\n\r\nShibata, K., Nishimura, Y., Kondo, H., Otuka, K., & Iwata, M. (2009). Isolated homonymous hemianopsia due to lateral posterior choroidal artery region infarction: A case report. Clinical Neurology and Neurosurgery, 111(8), 713-716. https://doi.org/10.1016/j.clineuro.2009.07.003"
+        ],
+        "is_ipsilateral": {
+            "Cheiro-oral sensory disturbances": "no",
+            "Homonymous hemianopia": "no",
+            "Nystagmus (horizontal)": "no",
+            "Optokinetic response impaired": "no",
+            "Quadrantanopia": "no",
+            "Sectoranopia": "no",
+            "Sensory loss": "no",
+            "Cognitive dysfunction": "",
+            "Anterograde amnesia": "NA",
+            "Horizontal Sectoranopia": "no"
+        },
+        "local_name": [
+            "Thalamus_posterior_choroidal_artery_P2_ territory.png",
+            "Thalamus_posterior_choroidal_artery_P2_territory.png",
+            "Thalamus_posterior_choroidal_artery_P2_territory",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG4.jpg",
+            "NA"
+        ],
+        "registered_at": [
+            "05:46.0",
+            "05:45.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Posterior cingulate syndrome": {
+        "signs": [
+            "Topographagnosia (Topographic Disorientation)"
+        ],
+        "locals": [
+            "Posterior cingulate"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "There is a type of topographagnosia in which landmarks are \"recognized\" but do not evoke a sense of direction (i.e., directional or heading disorientation). The patient fails to utilize previously learned routes when traveling from one landmark to another.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Topographagnosia (Topographic Disorientation)": "NA"
+        },
+        "local_name": [
+            "Posterior_cingulate.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG4.JPG"
+        ],
+        "registered_at": [
+            "05:48.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Raymond-Cestan syndrome": {
+        "signs": [
+            "Chorea",
+            "Abducens palsy (VI)",
+            "Hemiparesis / Hemiplegia",
+            "Sensory loss",
+            "Ataxia",
+            "Horizontal gaze palsy",
+            "Internuclear ophthalmoplegia (INO)"
+        ],
+        "locals": [
+            "Pons"
+        ],
+        "arteries": [
+            "Basilar artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Chorea": "no",
+            "Abducens palsy (VI)": "",
+            "Hemiparesis / Hemiplegia": "no",
+            "Sensory loss": "no",
+            "Ataxia": "NA"
+        },
+        "local_name": [
+            "Basilar_artery_pons.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Basilar_artery5.png"
+        ],
+        "registered_at": [
+            "05:42.0",
+            "05:41.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Right Temporal lobe (fusiform gyrus) syndrome": {
+        "signs": [
+            "Prosopagnosia (inability to recognize previously familiar faces)"
+        ],
+        "locals": [
+            "Right Temporal lobe (fusiform gyrus)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Prosopagnosia (inability to recognize previously familiar faces)": "NA"
+        },
+        "local_name": [
+            "Temporal_lobe_fusiform gyrus.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG.JPG"
+        ],
+        "registered_at": [
+            "05:48.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Right Temporal lobe (parahippocampal and anterior of lingual and fusiform gyri) syndrome": {
+        "signs": [
+            "Topographagnosia (Topographic Disorientation)"
+        ],
+        "locals": [
+            "Right Temporal lobe (parahippocampal and anterior of lingual and fusiform gyri)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)",
+            "Posterior cerebral artery (P2)"
+        ],
+        "notes": [
+            "In temporal disorientation, in addition to the usual causes (delirium, etc.) it is important to determine whether the patient recognizes landmarks.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Topographagnosia (Topographic Disorientation)": "NA"
+        },
+        "local_name": [
+            "cerebro.jpg",
+            "Temporal_lobe_right_parahipocampal_lingualanterior_fusiform_PNG.jpg"
+        ],
+        "vessel_name": [
+            "PChA_PNG6.jpg",
+            "NA"
+        ],
+        "registered_at": [
+            "05:48.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Right Thalamus (Lateral Geniculate Body, Pulvinar, Lateral Dorsal and Lateral Posterior nuclei) syndrome": {
+        "signs": [
+            "Aphasia (impaired fluency)"
+        ],
+        "locals": [
+            "Right Thalamus (Lateral Geniculate Body, Pulvinar, Lateral Dorsal and Lateral Posterior nuclei)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Aphasia (impaired fluency)": "NA"
+        },
+        "local_name": [
+            "Thalamus_posterior_choroidal_artery_P2_ territory.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG5.jpg"
+        ],
+        "registered_at": [
+            "05:46.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Superior cerebellum and pons syndrome": {
+        "signs": [
+            "Chorea",
+            "Palatal myoclonus",
+            "Tremor"
+        ],
+        "locals": [
+            "Superior cerebellum and pons"
+        ],
+        "arteries": [
+            "Superior Cerebellar Artery (SCA)"
+        ],
+        "notes": [
+            "Abnormal movements in SCA territory infarction: due lesion to dentate nucleus or the superior cerebellar peduncle"
+        ],
+        "is_ipsilateral": {
+            "Chorea": "yes",
+            "Palatal myoclonus": "",
+            "Tremor": "yes"
+        },
+        "local_name": [
+            "Superior_cerebellar_artery_SCA.png"
+        ],
+        "vessel_name": [
+            "Superior_Cerebellar_Artery_(SCA)(1).png"
+        ],
+        "registered_at": [
+            "05:41.0",
+            "05:40.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Superior lateral cerebellum syndrome": {
+        "signs": [
+            "Ataxia (limb unilateral)",
+            "Dysarthria"
+        ],
+        "locals": [
+            "Superior lateral cerebellum"
+        ],
+        "arteries": [
+            "Superior Cerebellar Artery (SCA)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Ataxia (limb unilateral)": "yes",
+            "Dysarthria": ""
+        },
+        "local_name": [
+            "Superior_cerebellar_artery_SCA.png"
+        ],
+        "vessel_name": [
+            "Superior_Cerebellar_Artery_(SCA)(1).png"
+        ],
+        "registered_at": [
+            "05:40.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Superior medial cerebellum": {
+        "signs": [
+            "Ataxia (truncal)",
+            "Lateropulsion"
+        ],
+        "locals": [
+            "Superior medial cerebellum"
+        ],
+        "arteries": [
+            "Superior Cerebellar Artery (SCA)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Ataxia (truncal)": "",
+            "Lateropulsion": ""
+        },
+        "local_name": [
+            "Superior_cerebellar_artery_SCA.png"
+        ],
+        "vessel_name": [
+            "Superior_Cerebellar_Artery_(SCA)(1).png"
+        ],
+        "registered_at": [
+            "05:41.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Superior medial cerebellum syndrome": {
+        "signs": [
+            "Dysarthria"
+        ],
+        "locals": [
+            "Superior medial cerebellum"
+        ],
+        "arteries": [
+            "Superior Cerebellar Artery (SCA)"
+        ],
+        "notes": [
+            "Dysarthria in SCA territory infarction is characterized by irregularly distributed articulatory deficits, monotonous and scanning speech, and is localized to the paravermal segments of the rostral cerebellar hemisphere"
+        ],
+        "is_ipsilateral": {
+            "Dysarthria": ""
+        },
+        "local_name": [
+            "Superior_cerebellar_artery_SCA.png"
+        ],
+        "vessel_name": [
+            "Superior_Cerebellar_Artery_(SCA)(1).png"
+        ],
+        "registered_at": [
+            "05:40.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Superolateral and medial superior frontal gyrus syndrome": {
+        "signs": [
+            "Sphinecter dysfunction"
+        ],
+        "locals": [
+            "Superolateral and medial superior frontal gyrus"
+        ],
+        "arteries": [
+            "Anterior Cerebral Artery (ACA)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Sphinecter dysfunction": "NA"
+        },
+        "local_name": [
+            "Anterior_Cerebral_Artery_ACA.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Anterior_Cerebral_Artery_ACA_(1).png"
+        ],
+        "registered_at": [
+            "05:53.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Temporal lobe (fusiform or lingual gyri) syndrome": {
+        "signs": [
+            "Achromatopsia (inability to perceive color)"
+        ],
+        "locals": [
+            "Temporal lobe (fusiform or lingual gyri)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "In achromatopsia, prosopagnosia and topographagnosia are often accompanied, particularly in patients with bilateral lesions.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Achromatopsia (inability to perceive color)": "NA"
+        },
+        "local_name": [
+            "Temporal_lobe_fusiform_gyrus.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG1.JPG"
+        ],
+        "registered_at": [
+            "05:49.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Temporal lobe (lower bank of the striate cortex) syndrome": {
+        "signs": [
+            "Quadrantanopia (superior)"
+        ],
+        "locals": [
+            "Temporal lobe (lower bank of the striate cortex)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "Hemianopia may evolve into quadrantanopia during the recovery phase.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Quadrantanopia (superior)": "NA"
+        },
+        "local_name": [
+            "cerebro.jpg",
+            "v1_upper_fibers_png.png",
+            "v1_inferior_fibers_png1.png"
+        ],
+        "vessel_name": [
+            "PChA_PNG5.JPG",
+            "NA"
+        ],
+        "registered_at": [
+            "05:47.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Temporal lobe (more posterior segments of lingual and fusiform gyri) syndrome": {
+        "signs": [
+            "Visual agnosia (apperceptive)",
+            "VIsual agnosia"
+        ],
+        "locals": [
+            "Temporal lobe (more posterior segments of lingual and fusiform gyri)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "In apperceptive visual agnosia, the individual does not recognize what the object is, does not discern its forms (the percept). In associative visual agnosia, he perceives the form but does not recognize what the object is. Patients with severe apperceptive agnosia usually have extensive and diffuse occipital lesions and tend to have residual field defects.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Visual agnosia (apperceptive)": "",
+            "VIsual agnosia": "yes"
+        },
+        "local_name": [
+            "cerebro.jpg",
+            "Temporal_lobe_posteriorlingual_and_fusiform_PNG_.jpg"
+        ],
+        "vessel_name": [
+            "PChA_PNG3.JPG",
+            "NA"
+        ],
+        "registered_at": [
+            "05:48.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Temporal lobe (upper bank of the striate cortex) syndrome": {
+        "signs": [
+            "Quadrantanopia (inferior)"
+        ],
+        "locals": [
+            "Temporal lobe (upper bank of the striate cortex)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "Superior quadrantanopia occurs more than 3-times as often as inferior quadrantanopia in patients with PCA infarction.",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Quadrantanopia (inferior)": "NA"
+        },
+        "local_name": [
+            "cerebro.jpg",
+            "v1_inferior_fibers_png.png"
+        ],
+        "vessel_name": [
+            "PChA_PNG2.JPG",
+            "NA"
+        ],
+        "registered_at": [
+            "05:47.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Thalamic syndrome (Dejerine and Roussy Syndrome)": {
+        "signs": [
+            "Altered consciousness",
+            "Cheiro-oral sensory disturbances",
+            "Hyperalgesia",
+            "Loss of taste sensation",
+            "Pain in extremities",
+            "Paresthesia",
+            "Sensory loss"
+        ],
+        "locals": [
+            "Thalamus (Ventral Anterior, Ventrolateral and Medial Dorsal Nuclei)",
+            "Thalamus (ventrolateral and ventroposterior)"
+        ],
+        "arteries": [
+            "Tuberotothalamic (polar) artery (Posterior communicating artery)",
+            "Inferolateral (thalamogeniculate) artery (P2)"
+        ],
+        "notes": [
+            "In cheiro-oral syndrome due to thalamic involvement, the thumb and index finger are preferentially or selectively involved.",
+            "Inferolateral (thalamogeniculate) arteries are composed of 5–10 arteries that arise from the P2 portion of the PCA. Inferolateral artery territory infarction is the most common type of thalamic infarction",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Altered consciousness": "NA",
+            "Cheiro-oral sensory disturbances": "no",
+            "Hyperalgesia": "no",
+            "Loss of taste sensation": "no",
+            "Pain in extremities": "no",
+            "Paresthesia": "no",
+            "Sensory loss": "no"
+        },
+        "local_name": [
+            "Thalamus_polar_artery_territory.png",
+            "Thalamus_thalamogeniculate_artery_territory.png",
+            "Thalamus_thalamogeniculate_artery_terrytori.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Polar_png1.jpg",
+            "Thalamogeniculate_png.jpg"
+        ],
+        "registered_at": [
+            "05:43.0",
+            "05:42.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Thalamus (Lateral Geniculate Body, Pulvinar, Lateral Dorsal and Lateral Posterior nuclei) syndrome": {
+        "signs": [
+            "Aphasia (impaired fluency)"
+        ],
+        "locals": [
+            "Thalamus (Lateral Geniculate Body, Pulvinar, Lateral Dorsal and Lateral Posterior nuclei)",
+            "Right Thalamus (Lateral Geniculate Body, Pulvinar, Lateral Dorsal and Lateral Posterior nuclei)"
+        ],
+        "arteries": [
+            "Posterior choroidal artery (P2)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Aphasia (impaired fluency)": "NA"
+        },
+        "local_name": [
+            "Thalamus_posterior_choroidal_artery_P2_territory.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "PChA_PNG7.jpg"
+        ],
+        "registered_at": [
+            "05:46.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Thalamus (Ventral Anterior, Ventrolateral and Medial Dorsal Nuclei) syndrome": {
+        "signs": [
+            "Altered consciousness",
+            "Apathy",
+            "Aphasia",
+            "Aphasia (impaired comprehension)",
+            "Aphasia (impaired fluency)",
+            "Apraxia",
+            "Euphoria",
+            "Hemineglect",
+            "Hypophonia",
+            "Memory loss",
+            "Paraphasia",
+            "Perseveration",
+            "Uncontrollable crying and laughing"
+        ],
+        "locals": [
+            "Thalamus (Intralaminar and Medial Dorsal nuclei)",
+            "Thalamus (Ventral Anterior, Ventrolateral and Medial Dorsal Nuclei)",
+            "Left Thalamus (Ventral Anterior, Ventrolateral and Medial Dorsal Nuclei)",
+            "Right Thalamus (Ventral Anterior, Ventrolateral and Medial Dorsal Nuclei)"
+        ],
+        "arteries": [
+            "Paramedian (thalamic-subthalamic) artery (P1)",
+            "Tuberotothalamic (polar) artery (Posterior communicating artery)"
+        ],
+        "notes": [
+            "Involvement of the paramedian (Thalamic-Subthalamic) territory is very common in patients with occlusion of the top of BA (top of the BA syndrome. Other commonly involved structures include the occipital lobe, cerebellum, and brainstem",
+            "After thalamic strokes, depending on intrathalamic infarct location, other behavioral changes can be observed, such as euphoria or mania. Involuntary emotional expression disorder Uncontrollable outbursts of laughing, crying, or both are frequent findings in patients with subcortical lesions, particularly in left or bilateral lesions. These outbursts have a paroxysmal onset, transient duration of seconds or minutes, are stereotyped, incongruent, or exaggerated, relative to the emotional feeling, are precipitated by nonspecific or inappropriate stimuli but also by appropriate stimuli, and occur even in an inappropriate context",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Altered consciousness": "NA",
+            "Apathy": "",
+            "Aphasia": "",
+            "Aphasia (impaired comprehension)": "",
+            "Aphasia (impaired fluency)": "",
+            "Apraxia": "",
+            "Euphoria": "",
+            "Hemineglect": "no",
+            "Hypophonia": "",
+            "Memory loss": "",
+            "Paraphasia": "",
+            "Perseveration": "",
+            "Uncontrollable crying and laughing": ""
+        },
+        "local_name": [
+            "Thalamus_Intralaminar_and_Medial_Dorsal_nuclei.png",
+            "Thalamus_polar_artery_territory.png",
+            "Left _thalamus_polar_artery_territory.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Thalamic-subt_png.jpg",
+            "Polar_png.jpg"
+        ],
+        "registered_at": [
+            "05:44.0",
+            "05:43.0",
+            "05:45.0",
+            "25:00.0"
+        ],
+        "updated_at": [
+            "50:03.0",
+            "25:00.0"
+        ]
+    },
+    "Total Anterior Circulation Syndrome": {
+        "signs": [
+            "Aphasia (global)",
+            "Aphasia (impaired fluency)",
+            "Conjugate deviation of the eyes",
+            "Hemineglect",
+            "Hemiparesis / Hemiplegia",
+            "Homonymous hemianopia",
+            "Sensory loss"
+        ],
+        "locals": [
+            "Frontal, parietal and occipital lobes, and internal capsule",
+            "Frontal, parietal and occipital lobes, and internal capsule (nondominant)",
+            "Frontal, parietal lobes and internal capsule"
+        ],
+        "arteries": [
+            "Middle cerebral artery (stem)",
+            "Middle cerebral artery (after M1)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Aphasia (global)": "yes",
+            "Aphasia (impaired fluency)": "",
+            "Conjugate deviation of the eyes": "yes",
+            "Hemineglect": "no",
+            "Hemiparesis / Hemiplegia": "no",
+            "Homonymous hemianopia": "no",
+            "Sensory loss": "no"
+        },
+        "local_name": [
+            "Frontal_parietal_occipital_lobes_and_internal_capsule.png",
+            "Frontal_parietal_lobes_and_internal_capsule.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "AcmAFTERM1_PNG1.png"
+        ],
+        "registered_at": [
+            "05:49.0",
+            "05:50.0",
+            "05:51.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Ventrolateral cerebellum syndrome": {
+        "signs": [
+            "Dysmetria",
+            "Lateropulsion",
+            "Vertigo"
+        ],
+        "locals": [
+            "Ventrolateral cerebellum"
+        ],
+        "arteries": [
+            "Superior Cerebellar Artery (SCA)"
+        ],
+        "notes": [
+            "The SCAs divide into medial and lateral branches (mSCA and lSCA) and supply the superior half of the cerebellar hemispheres and vermis as well as the dentate nucleus."
+        ],
+        "is_ipsilateral": {
+            "Dysmetria": "yes",
+            "Lateropulsion": "yes",
+            "Vertigo": "yes"
+        },
+        "local_name": [
+            "Superior_cerebellar_artery_SCA.png"
+        ],
+        "vessel_name": [
+            "Superior_Cerebellar_Artery_(SCA)(1).png"
+        ],
+        "registered_at": [
+            "05:41.0"
+        ],
+        "updated_at": [
+            "50:03.0"
+        ]
+    },
+    "Oculopalatal myoclonus ": {
+        "signs": [
+            "Oculopalatal tremor"
+        ],
+        "locals": [
+            "Dentate-rubro-olivary triangle"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (penetrating branches)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Oculopalatal tremor": "no"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "NA"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Facial colliculus syndrome": {
+        "signs": [
+            "Facial palsy",
+            "Horizontal gaze palsy",
+            "Abducens palsy (VI)",
+            "Diplopia",
+            "Internuclear ophthalmoplegia (INO)"
+        ],
+        "locals": [
+            "Pons (dorsolateral / Lower)",
+            "Pons"
+        ],
+        "arteries": [
+            "Basilar perforating branches"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Facial palsy": "no",
+            "Horizontal gaze palsy": "no",
+            "Abducens palsy (VI)": "NA",
+            "Diplopia": "no",
+            "Internuclear ophthalmoplegia (INO)": "no"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_perforating_branches7.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Gasperini Syndrome": {
+        "signs": [
+            "Facial palsy",
+            "Abducens palsy (VI)",
+            "Hearing loss",
+            "Sensory loss (face)",
+            "Sensory loss (pain and temperature)"
+        ],
+        "locals": [
+            "Lateral pons"
+        ],
+        "arteries": [
+            "Anterior Inferior Cerebellar Artery (AICA)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Facial palsy": "no",
+            "Abducens palsy (VI)": "NA",
+            "Hearing loss": "no",
+            "Sensory loss (face)": "no",
+            "Sensory loss (pain and temperature)": "no"
+        },
+        "local_name": [
+            "Anterior_inferior_cerebellar_artery_AICA3.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Anterior_inferior_cerebellar_artery_AICA4.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Raymond syndrome": {
+        "signs": [
+            "Hemiparesis / Hemiplegia",
+            "Abducens palsy (VI)",
+            "Facial palsy"
+        ],
+        "locals": [
+            "Pons (basal paramedian)"
+        ],
+        "arteries": [
+            "Basilar perforating branches"
+        ],
+        "notes": [
+            "NA",
+            "Raymond syndrome is a posterior circulatory stroke syndrome due to a lesion in the ventral medial mid-pons. Classic Raymond syndrome consists of ipsilateral abducens impairment, contralateral central facial paresis, and contralateral hemiparesis. Raymond syndrome was first described in 1895 by Fulgence Raymond."
+        ],
+        "is_ipsilateral": {
+            "Hemiparesis / Hemiplegia": "no",
+            "Abducens palsy (VI)": "yes",
+            "Facial palsy": "no"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_perforating_branches1.png",
+            "NA"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Grenet syndrome": {
+        "signs": [
+            "Sensory loss (face)",
+            "Mastication muscles paralysis",
+            "Ataxia",
+            "Tremor",
+            "Hemiparesis / Hemiplegia",
+            "Sensory loss (except face)"
+        ],
+        "locals": [
+            "Pons (tegmental paramedian)"
+        ],
+        "arteries": [
+            "Basilar perforating branches"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Sensory loss (face)": "no",
+            "Mastication muscles paralysis": "no",
+            "Ataxia": "NA",
+            "Tremor": "no",
+            "Hemiparesis / Hemiplegia": "no",
+            "Sensory loss (except face)": "no"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_perforating_branches8.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Gellé syndrome": {
+        "signs": [
+            "Hearing loss",
+            "Tinnitus",
+            "Vertigo",
+            "Earache",
+            "Facial palsy",
+            "Hemiparesis / Hemiplegia"
+        ],
+        "locals": [
+            "Pons (anterolateral and inferior)"
+        ],
+        "arteries": [
+            "Basilar perforating branches"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Hearing loss": "no",
+            "Tinnitus": "no",
+            "Vertigo": "no",
+            "Earache": "NA",
+            "Facial palsy": "no",
+            "Hemiparesis / Hemiplegia": "no"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_perforating_branches9.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Wernekinck comissure syndrome": {
+        "signs": [
+            "Ataxia (truncal)",
+            "Ataxia (limb bilateral)",
+            "Dysartrhria",
+            "Dysdiadochokinesis (bilateral)",
+            "Internuclear ophthalmoplegia (INO)",
+            "Holmes tremor (bilateral)",
+            "Palatal myoclonus",
+            "Ataxia"
+        ],
+        "locals": [
+            "Midbrain (anteromedial)"
+        ],
+        "arteries": [
+            "Basilar perforating branches",
+            "Posterior cerebral artery (penetrating branches)",
+            "Superior Cerebellar Artery (SCA)"
+        ],
+        "notes": [
+            "Caused by lesions in the decussation of the superior cerebellar peduncles, located in the caudal paramedian midbrain, ventral to the cerebral aqueduct",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Ataxia (truncal)": "NA",
+            "Ataxia (limb bilateral)": "no",
+            "Dysartrhria": "no",
+            "Dysdiadochokinesis (bilateral)": "no",
+            "Internuclear ophthalmoplegia (INO)": "no",
+            "Holmes tremor (bilateral)": "no",
+            "Palatal myoclonus": "no",
+            "Ataxia": "NA"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_perforating_branches10.png",
+            "Superior_cerebellar_artery_SCA1.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Tapia syndrome": {
+        "signs": [
+            "Trapezius and sternocleidomastoid palsy",
+            "Tongue paralysis",
+            "Dysphagia",
+            "Dysphonia",
+            "Hemiparesis / Hemiplegia"
+        ],
+        "locals": [
+            "Medial Medulla"
+        ],
+        "arteries": [
+            "Posterior inferior cerebellar artery",
+            "Distal intracranial vertebral artery",
+            "Anterior spinal artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Trapezius and sternocleidomastoid palsy": "no",
+            "Tongue paralysis": "no",
+            "Dysphagia": "NA",
+            "Dysphonia": "NA",
+            "Hemiparesis / Hemiplegia": "no"
+        },
+        "local_name": [
+            "Medial_medulla_anterior_spinal_artery1.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Posterior_inferior_cerebellar_artery1.png",
+            "Distal_intracranial_vertebral_artery3.png",
+            "anterior_spinal_artery__png.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Spiller syndrome": {
+        "signs": [
+            "Tongue paralysis",
+            "Hemiparesis / Hemiplegia",
+            "Sensory loss (proprioception and vibration)",
+            "Sensory loss (pain and temperature; except face)"
+        ],
+        "locals": [
+            "Medial Medulla"
+        ],
+        "arteries": [
+            "Distal intracranial vertebral artery",
+            "Anterior spinal artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Tongue paralysis": "no",
+            "Hemiparesis / Hemiplegia": "NA",
+            "Sensory loss (proprioception and vibration)": "no",
+            "Sensory loss (pain and temperature; except face)": "NA"
+        },
+        "local_name": [
+            "Medial_medulla_anterior_spinal_artery2.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "anterior_spinal_artery__png2.png",
+            "Distal_intracranial_vertebral_artery6.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Schmidt syndrome": {
+        "signs": [
+            "Trapezius and sternocleidomastoid palsy",
+            "Vocal chord paralysis",
+            "Palatal palsy",
+            "Hemiparesis / Hemiplegia"
+        ],
+        "locals": [
+            "Lateral Medulla"
+        ],
+        "arteries": [
+            "Distal intracranial vertebral artery",
+            "Posterior inferior cerebellar artery",
+            "Anterior spinal artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Trapezius and sternocleidomastoid palsy": "no",
+            "Vocal chord paralysis": "no",
+            "Palatal palsy": "no",
+            "Hemiparesis / Hemiplegia": "NA"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "anterior_spinal_artery2.png",
+            "Distal_intracranial_vertebral_artery1.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Jackson syndrome": {
+        "signs": [
+            "Tongue paralysis",
+            "Hemiparesis / Hemiplegia (except face)"
+        ],
+        "locals": [
+            "Medial Medulla"
+        ],
+        "arteries": [
+            "Anterior spinal artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Tongue paralysis": "no",
+            "Hemiparesis / Hemiplegia (except face)": "yes"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "anterior_spinal_artery1.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Avellis syndrome": {
+        "signs": [
+            "Palatal palsy",
+            "Hemiparesis / Hemiplegia (except face)",
+            "Sensory loss (pain and temperature; except face)"
+        ],
+        "locals": [
+            "Lateral Medulla"
+        ],
+        "arteries": [
+            "Distal intracranial vertebral artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Palatal palsy": "NA",
+            "Hemiparesis / Hemiplegia (except face)": "yes",
+            "Sensory loss (pain and temperature; except face)": "yes"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "Distal_intracranial_vertebral_artery8.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Hemimedullary syndrome (Reinhold syndrome)": {
+        "signs": [
+            "Horner syndrome",
+            "Sensory loss (pain and temperature; face)",
+            "Palatal palsy",
+            "Dysphonia",
+            "Dysarthria",
+            "Tongue paralysis",
+            "Ataxia",
+            "Hemiparesis / Hemiplegia (except face)",
+            "Sensory loss (pain and temperature; except face)"
+        ],
+        "locals": [
+            "Hemimedulla"
+        ],
+        "arteries": [
+            "Distal intracranial vertebral artery",
+            "Posterior inferior cerebellar artery",
+            "Anterior spinal artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Horner syndrome": "no",
+            "Sensory loss (pain and temperature; face)": "no",
+            "Palatal palsy": "no",
+            "Dysphonia": "no",
+            "Dysarthria": "no",
+            "Tongue paralysis": "no",
+            "Ataxia": "NA",
+            "Hemiparesis / Hemiplegia (except face)": "no",
+            "Sensory loss (pain and temperature; except face)": "no"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "Distal_intracranial_vertebral_artery7.png",
+            "anterior_spinal_artery__png3.png",
+            "Posterior_inferior_cerebellar_artery_(1)1.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Cestan-Chenais syndrome": {
+        "signs": [
+            "Horner syndrome",
+            "Sensory loss (pain and temperature; face)",
+            "Palatal palsy",
+            "Dysarthria",
+            "Dysphonia",
+            "Hemiparesis / Hemiplegia (except face)",
+            "Sensory loss (pain and temperature; except face)"
+        ],
+        "locals": [
+            "Hemimedulla"
+        ],
+        "arteries": [
+            "Distal intracranial vertebral artery",
+            "Posterior inferior cerebellar artery"
+        ],
+        "notes": [
+            "Differs from Hemimedullary syndrome because it lacks tongue palsy",
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Horner syndrome": "no",
+            "Sensory loss (pain and temperature; face)": "no",
+            "Palatal palsy": "NA",
+            "Dysarthria": "NA",
+            "Dysphonia": "no",
+            "Hemiparesis / Hemiplegia (except face)": "no",
+            "Sensory loss (pain and temperature; except face)": "no"
+        },
+        "local_name": [
+            "Distal_intracranial_vertebral_artery4.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Distal_intracranial_vertebral_artery5.png",
+            "Posterior_inferior_cerebellar_artery_(1).png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Babinski-Nageotte syndrome": {
+        "signs": [
+            "Horner syndrome",
+            "Sensory loss (pain and temperature; face)",
+            "Palatal palsy",
+            "Dysarthria",
+            "Dysphonia",
+            "Ataxia",
+            "Hemiparesis / Hemiplegia (except face)",
+            "Sensory loss (pain and temperature; except face)"
+        ],
+        "locals": [
+            "Lateral Medulla"
+        ],
+        "arteries": [
+            "Distal intracranial vertebral artery",
+            "Posterior inferior cerebellar artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Horner syndrome": "no",
+            "Sensory loss (pain and temperature; face)": "no",
+            "Palatal palsy": "no",
+            "Dysarthria": "no",
+            "Dysphonia": "no",
+            "Ataxia": "NA",
+            "Hemiparesis / Hemiplegia (except face)": "no",
+            "Sensory loss (pain and temperature; except face)": "no"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "Distal_intracranial_vertebral_artery2.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Anterior spinal artery syndrome (cervical portion)": {
+        "signs": [
+            "Acute back pain",
+            "Quadriparesis",
+            "Bilateral sensory loss (pain and temperature)",
+            "Autonomic dysfunction (hypotension, bradycardia, impaired temperature regulation)",
+            "Respiratory failure"
+        ],
+        "locals": [
+            "Anterior two-thirds of the cervical and thoracic spinal cord"
+        ],
+        "arteries": [
+            "Anterior spinal artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Acute back pain": "NA",
+            "Quadriparesis": "no",
+            "Bilateral sensory loss (pain and temperature)": "no",
+            "Autonomic dysfunction (hypotension, bradycardia, impaired temperature regulation)": "no",
+            "Respiratory failure": "no"
+        },
+        "local_name": [
+            "Screenshot_2024-02-28_143049.jpg"
+        ],
+        "vessel_name": [
+            "anterior_spinal_artery.png",
+            "NA"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Foville syndrome": {
+        "signs": [
+            "Hemiparesis / Hemiplegia",
+            "Sensory loss (proprioception and vibration)",
+            "Ataxia",
+            "Facial palsy (CN VII - nucleus)",
+            "Abducens palsy (VI - nucleus)",
+            "Abducens palsy (VI)",
+            "Facial palsy"
+        ],
+        "locals": [
+            "Pons"
+        ],
+        "arteries": [
+            "Basilar paramedian arteries"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Hemiparesis / Hemiplegia": "no",
+            "Sensory loss (proprioception and vibration)": "no",
+            "Ataxia": "NA",
+            "Facial palsy (CN VII - nucleus)": "NA",
+            "Abducens palsy (VI - nucleus)": "no",
+            "Abducens palsy (VI)": "yes",
+            "Facial palsy": "yes"
+        },
+        "local_name": [
+            "Fovilles_syndrome1.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "paramedian_branch_(1).png",
+            "NA"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Locked-in Syndrome": {
+        "signs": [
+            "Total immobility (all voluntary muscles)",
+            "Horizontal gaze impairment ",
+            "Preservation of vertical gaze ",
+            "Preservation of cortical funcion",
+            "Horizontal gaze impairment"
+        ],
+        "locals": [
+            "Pons (anterior, bilaterally)"
+        ],
+        "arteries": [
+            "Basilar artery"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Total immobility (all voluntary muscles)": "no",
+            "Horizontal gaze impairment ": "no",
+            "Preservation of vertical gaze ": "no",
+            "Preservation of cortical funcion": "no",
+            "Horizontal gaze impairment": "NA"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "Basilar_artery1.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Anterior inferior cerebellar artery (AICA) syndrome": {
+        "signs": [
+            "Facial palsy (lower motor neuron) ",
+            "Deafness",
+            "Hemiataxia ",
+            "Sensory loss",
+            "Sensory loss (face)",
+            "Ataxia (limb unilateral)",
+            "Ataxia",
+            "Dysarthria",
+            "Hearing loss"
+        ],
+        "locals": [
+            "cerebellum (anterior inferior); middle cerebellar peduncle;  lateral pons; inner ear. ",
+            "cerebellum (anterior inferior); middle cerebellar peduncle;  lateral pons; inner ear."
+        ],
+        "arteries": [
+            "Anterior Inferior Cerebellar Artery (AICA)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Facial palsy (lower motor neuron) ": "no",
+            "Deafness": "yes",
+            "Hemiataxia ": "no",
+            "Sensory loss": "no",
+            "Sensory loss (face)": "yes",
+            "Ataxia (limb unilateral)": "yes",
+            "Ataxia": "yes",
+            "Dysarthria": "NA",
+            "Hearing loss": "NA"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "Anterior_inferior_cerebellar_artery_AICA2.png",
+            "NA"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Middle cerebral artery (M1)": {
+        "signs": [
+            "Brachiofacial hemiparesis",
+            "Aphasia",
+            "Sensory loss",
+            "Visual field defect",
+            "Gaze deviation"
+        ],
+        "locals": [
+            "Brain (superolateral surface)",
+            "Brain (superolateral surface - dominant hemisphere)"
+        ],
+        "arteries": [
+            "Middle Cerebral Artery (M1)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Brachiofacial hemiparesis": "no",
+            "Aphasia": "yes",
+            "Sensory loss": "no",
+            "Visual field defect": "no",
+            "Gaze deviation": "no"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "middle_cerebral_artery_(M1)_left.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Middle cerebral artery, anterior division": {
+        "signs": [
+            "Brachiofacial hemiparesis",
+            "Broca aphasia (dominant hemisphere)"
+        ],
+        "locals": [
+            "Brain (superolateral surface)"
+        ],
+        "arteries": [
+            "Middle Cerebral Artery (M1)",
+            "Middle cerebral artery (M2) - anterior division"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Brachiofacial hemiparesis": "no",
+            "Broca aphasia (dominant hemisphere)": "NA"
+        },
+        "local_name": [
+            "brain_superolateral_surface.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "middlecerebralarteryM1_PNG.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Middle cerebral artery, posterior division": {
+        "signs": [
+            "Sensory loss",
+            "Wernicke's aphasia (dominant hemisphere)",
+            "Acalculia",
+            "Agraphia",
+            "Finger agnosia",
+            "Right-left confusion",
+            "Gerstmann's syndrome",
+            "Cortical sensory loss",
+            "Visual field defect"
+        ],
+        "locals": [
+            "Brain (superolateral surface)",
+            "Brain (superolateral surface - dominant hemisphere)",
+            "Brain (superolateral surface - nondominant hemisphere)"
+        ],
+        "arteries": [
+            "Middle cerebral artery (M2) - posterior division"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Sensory loss": "no",
+            "Wernicke's aphasia (dominant hemisphere)": "no",
+            "Acalculia": "no",
+            "Agraphia": "no",
+            "Finger agnosia": "no",
+            "Right-left confusion": "no",
+            "Gerstmann's syndrome": "no",
+            "Cortical sensory loss": "no",
+            "Visual field defect": "no"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "NA"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Anterior cerebral artery": {
+        "signs": [
+            "Contralateral leg weakness",
+            "Leg sensory loss",
+            "Apraxia",
+            "Abulia"
+        ],
+        "locals": [
+            "brain (medial surface)",
+            "brain (medial surface - bilateral)"
+        ],
+        "arteries": [
+            "Anterior Cerebral Artery (ACA)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Contralateral leg weakness": "no",
+            "Leg sensory loss": "no",
+            "Apraxia": "no",
+            "Abulia": "NA"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "Anterior_Cerebral_Artery_ACA1.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Posterior cerebral artery (PCA) - precommunicating part": {
+        "signs": [
+            "Sensory loss",
+            "Cognitive dysfunction",
+            "Thalamic aphasia",
+            "Visual field defect"
+        ],
+        "locals": [
+            "Thalamus",
+            "Occipital lobe"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (P1)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Sensory loss": "no",
+            "Cognitive dysfunction": "NA",
+            "Thalamic aphasia": "no",
+            "Visual field defect": "no"
+        },
+        "local_name": [
+            "Occipital_lobe1.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "Posterior_cerebral__artery_P15.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Posterior cerebral artery (PCA) - postcommunicating part": {
+        "signs": [
+            "Visual field defect",
+            "VIsual agnosia"
+        ],
+        "locals": [
+            "Occipital lobe"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (P2)"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Visual field defect": "no",
+            "VIsual agnosia": "NA"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "P2.png"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Basilar perforators ": {
+        "signs": [
+            "Limb weakness (contralateral or bilateral)",
+            "Hemiataxia",
+            "Abducens palsy (VI)",
+            "Facial palsy",
+            "Internuclear ophthalmoplegia (INO)"
+        ],
+        "locals": [
+            "Pons",
+            "Crossing pontocerebellar fibers",
+            "Pons (nucleus) or fibers",
+            "Medial longitudinal fasciculus"
+        ],
+        "arteries": [
+            "Basilar perforating branches, median and paramedian pontine perforators"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Limb weakness (contralateral or bilateral)": "no",
+            "Hemiataxia": "no",
+            "Abducens palsy (VI)": "no",
+            "Facial palsy": "no",
+            "Internuclear ophthalmoplegia (INO)": "no"
+        },
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "NA"
+        ],
+        "registered_at": [],
+        "updated_at": []
+    },
+    "Basilar perforators": {
+        "signs": [
+            "Facial palsy",
+            "Abducens palsy (VI)"
+        ],
+        "locals": [
+            "Pons"
+        ],
+        "arteries": [
+            "Basilar perforating branches",
+            "Basilar perforating branches, median and paramedian pontine perforators"
+        ],
+        "local_name": [
+            "Pons.png",
+            "Pons1.png",
+            "Pons2.png",
+            "NA"
+        ],
+        "vessel_name": [
+            "basilar_perforating_branches2.png"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Facial palsy": "NA",
+            "Abducens palsy (VI)": "NA"
+        }
+    },
+    "Oculopalatal myoclonus": {
+        "signs": [
+            "Oculopalatal tremor"
+        ],
+        "locals": [
+            "Dentate-rubro-olivary triangle"
+        ],
+        "arteries": [
+            "Posterior cerebral artery (penetrating branches)"
+        ],
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "perfurantesACP1.png"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Oculopalatal tremor": "NA"
+        }
+    },
+    "Inferolateral Thalamic Syndrome": {
+        "signs": [
+            "Sensory loss",
+            "Paresthesia"
+        ],
+        "locals": [
+            "Thalamus"
+        ],
+        "arteries": [
+            "Inferolateral (thalamogeniculate) artery (P2)"
+        ],
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "NA"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Sensory loss": "no",
+            "Paresthesia": "no"
+        }
+    },
+    "Thalamus (tuberothalamic) syndrome": {
+        "signs": [
+            "Confusion and/or Agitation",
+            "Memory loss"
+        ],
+        "locals": [
+            "Thalamus (paramedian)"
+        ],
+        "arteries": [
+            "Tuberotothalamic (polar) artery (Posterior communicating artery)"
+        ],
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "NA"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Confusion and/or Agitation": "NA",
+            "Memory loss": "NA"
+        }
+    },
+    "Mixed Sensorymotor Syndrome": {
+        "signs": [
+            "Hemiparesis / Hemiplegia",
+            "Sensory loss",
+            "Ataxia"
+        ],
+        "locals": [
+            "Thalamus (ventrolateral and ventroposterior)"
+        ],
+        "arteries": [
+            "Inferolateral (thalamogeniculate) artery (P2)"
+        ],
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "NA"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Hemiparesis / Hemiplegia": "no",
+            "Sensory loss": "no",
+            "Ataxia": "no"
+        }
+    },
+    "Anton's Syndrome": {
+        "signs": [
+            "Cortical blindness",
+            "Anosognosia",
+            "Visual Confabulation"
+        ],
+        "locals": [
+            "Bilateral Occipital Lobe"
+        ],
+        "arteries": [
+            "Bilateral Posterior Cerebral Artery"
+        ],
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "NA"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Cortical blindness": "NA",
+            "Anosognosia": "NA",
+            "Visual Confabulation": "NA"
+        }
+    },
+    "Ondine's Syndrome": {
+        "signs": [
+            "Central hypoventilation / Apnea"
+        ],
+        "locals": [
+            "Lateral Medulla (more rostrally)"
+        ],
+        "arteries": [
+            "Posterior inferior cerebellar artery"
+        ],
+        "local_name": [
+            "NA"
+        ],
+        "vessel_name": [
+            "NA"
+        ],
+        "notes": [
+            "NA"
+        ],
+        "is_ipsilateral": {
+            "Central hypoventilation / Apnea": "NA"
+        }
+    }
+}

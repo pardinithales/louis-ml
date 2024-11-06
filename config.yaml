@@ -1,0 +1,6 @@
+﻿theme:
+  primaryColor: "#00638f"
+  backgroundColor: "#ffffff"
+  secondaryBackgroundColor: "#f0f2f6"
+  textColor: "#262730"
+  font: "sans serif"

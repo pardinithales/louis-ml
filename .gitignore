@@ -16,3 +16,4 @@ dvc-storage/
 # Ambiente virtual
 venv/
 .venv/
+.vercel

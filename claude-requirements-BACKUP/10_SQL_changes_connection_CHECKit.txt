@@ -1,0 +1,141 @@
+
+
+Vejo que houve um erro ao criar o arquivo porque a estrutura de pastas não existe. Vamos criar primeiro a estrutura completa e depois os arquivos:
+
+```powershell
+$basePath = "louis-ml"
+$folders = @(
+    "src/config",
+    "src/database",
+    "src/models",
+    "src/utils",
+    "src/logs"
+)
+
+foreach ($folder in $folders) {
+    $fullPath = Join-Path $basePath $folder
+    if (!(Test-Path $fullPath)) {
+        New-Item -ItemType Directory -Path $fullPath -Force
+    }
+}
+```
+
+Agora vamos criar os arquivos de configuração e conexão:
+
+```powershell
+# Criar arquivo de configuração do banco
+$dbConfig = @"
+# Configurações do banco de dados
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': '',  # Preencha sua senha
+    'database': 'louis_db'
+}
+"@
+
+Set-Content -Path "louis-ml/src/config/db_config.py" -Value $dbConfig
+
+# Criar arquivo de conexão
+$dbConnection = @"
+import mysql.connector
+from mysql.connector import Error
+import logging
+from config.db_config import DB_CONFIG
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def get_db_connection():
+    try:
+        connection = mysql.connector.connect(**DB_CONFIG)
+        if connection.is_connected():
+            logger.info('Conexão com MySQL estabelecida com sucesso')
+            return connection
+    except Error as e:
+        logger.error(f'Erro ao conectar ao MySQL: {e}')
+        return None
+
+def close_connection(connection):
+    if connection and connection.is_connected():
+        connection.close()
+        logger.info('Conexão com MySQL fechada')
+"@
+
+Set-Content -Path "louis-ml/src/database/db_connection.py" -Value $dbConnection
+```
+
+Por favor, execute estes comandos em sequência e me diga se funcionou. Depois disso, preciso saber:
+
+1. Você já tem o MySQL instalado localmente?
+2. Qual a senha do seu usuário root?
+3. Quer que eu crie o script SQL para as tabelas do banco?
+
+___
+
+ etapas:
+
+1. Primeiro, criar o banco:
+
+```sql
+CREATE DATABASE IF NOT EXISTS louis_db;
+USE louis_db;
+```
+
+2. Agora a tabela com a sintaxe correta do MySQL:
+
+```sql
+CREATE TABLE IF NOT EXISTS syndromes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    syndrome_name VARCHAR(255) NOT NULL,
+    signs TEXT,
+    locals TEXT,
+    arteries TEXT,
+    notes TEXT,
+    is_ipsilateral TEXT,
+    local_name TEXT,
+    vessel_name TEXT,
+    registered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+3. Vamos atualizar o arquivo de conexão para incluir uma função de teste:
+
+```python:src/database/db_connection.py
+import mysql.connector
+from mysql.connector import Error
+import logging
+from config.db_config import DB_CONFIG
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def get_db_connection():
+    try:
+        connection = mysql.connector.connect(**DB_CONFIG)
+        if connection.is_connected():
+            logger.info('Conexão com MySQL estabelecida com sucesso')
+            return connection
+    except Error as e:
+        logger.error(f'Erro ao conectar ao MySQL: {e}')
+        return None
+
+def test_connection():
+    conn = get_db_connection()
+    if conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM syndromes")
+        count = cursor.fetchone()[0]
+        logger.info(f"Banco conectado - {count} síndromes")
+        close_connection(conn)
+        return True
+    return False
+
+def close_connection(connection):
+    if connection and connection.is_connected():
+        connection.close()
+        logger.info('Conexão com MySQL fechada')
+```
+
+Por favor, execute primeiro os comandos SQL no MySQL e depois me avise para prosseguirmos com a migração dos dados do SQLite.

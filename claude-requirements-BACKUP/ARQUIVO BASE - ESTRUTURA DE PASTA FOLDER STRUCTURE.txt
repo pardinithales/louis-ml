@@ -1,0 +1,117 @@
+PS C:\Users\fagun\louis-ml> tree /F
+Listagem de caminhos de pasta para o volume Acer
+O número de série do volume é 8C21-E9E2
+C:.
+│   .dockerignore
+│   .dvcignore
+│   .env.example
+│   .gitignore
+│   config.yaml
+│   docker-compose.yml
+│   Dockerfile
+│   dvc.yaml
+│   requirements.txt
+│   setup.py
+│   vercel.json
+│
+├───.dvc
+│   │   .gitignore
+│   │   config
+│   │
+│   └───tmp
+│           btime
+│           lock
+│
+├───.pytest_cache
+│   │   .gitignore
+│   │   CACHEDIR.TAG
+│   │   README.md
+│   │
+│   └───v
+│       └───cache
+│               lastfailed
+│               nodeids
+│               stepwise
+│
+├───claude-requirements-BACKUP
+│       # LOUIS BACKUP - VERSAO QUE FUNCION.txt
+│       10_SQL_changes_connection_CHECKit.txt
+│       11_confusion about SQL.txt
+│       12_new_modifications_SQL_and_app.txt
+│       13_new_changes_in_DB_SQLITE_testing_database - Copia.txt
+│       13_new_changes_in_DB_SQLITE_testing_database.txt
+│       14_COMMITS.txt
+│       15_test_conducted.txt
+│       16_melhor-versao_app_resumo_generativo_melhor-funcao_ENTER.txt
+│       17_versao_atual_OpenAI_extrai_sintomas_LLAMA3.2_resumoGenerativo.txt
+│       1_original_javascript_louiS_no_machine_learning.txt
+│       2_original_frontEnd_louiS_no_machineLearning.txt
+│       3_database_structure_SQL.txt
+│       4_louis_sample_code_last_version.txt
+│       5_error_file4_louis_sample_code.txt
+│       6_tree_structure_file_list_project.txt
+│       7_requirements.txt
+│       8_docker_definitions.txt
+│       9_folder_structure_AFTER_new_app-py.txt
+│       Criacao do VERCEL JSON.txt
+│       folder_structure_current_05-11-2024-23_44_AM.txt
+│       folder_structure_current_06-11-2024_02-04.txt
+│       initial_decisions_for_starting_theProject-update.txt
+│       instructions_to_project_LOUIS.txt
+│       louis_versao_que_quase_funcionou_.txt
+│       rename_files.bat
+│
+├───data
+│       3_database_structure_SQL.txt
+│       db_json.json
+│       syndrome_data.db
+│
+├───docs
+├───logs
+│       5_error_file4_louis_sample_code.txt
+│       app.log
+│
+├───louis-ml
+│   └───src
+│       ├───config
+│       │       db_config.py
+│       │
+│       ├───database
+│       │       db_connection.py
+│       │
+│       ├───logs
+│       ├───models
+│       └───utils
+├───src
+│   │   app.py
+│   │   frontend.js
+│   │   index.html
+│   │   original_app.py
+│   │
+│   ├───database
+│   │   │   .gitignore
+│   │   │   check_db.py
+│   │   │   db_connection.py
+│   │   │   __init__.py
+│   │   │
+│   │   └───__pycache__
+│   │           db_connection.cpython-312.pyc
+│   │           __init__.cpython-312.pyc
+│   │
+│   ├───logs
+│   │       app.log
+│   │
+│   └───__pycache__
+│           app.cpython-312.pyc
+│
+└───tests
+    │   conftest.py
+    │   test_app.py
+    │   test_request.json
+    │
+    └───__pycache__
+            conftest.cpython-312-pytest-8.3.3.pyc
+            test_app.cpython-312-pytest-8.3.3.pyc
+            test_app.cpython-312.pyc
+
+PS C:\Users\fagun\louis-ml>

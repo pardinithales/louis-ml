@@ -1,0 +1,5 @@
+[core]
+    remote = storage
+    autostage = true
+['remote "storage"']
+    url = C:/Users/fagun/louis-ml/dvc-storage

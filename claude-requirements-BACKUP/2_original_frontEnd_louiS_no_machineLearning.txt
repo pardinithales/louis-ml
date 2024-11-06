@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Louis">
+
+	<title>Louis</title>
+
+	<link rel="stylesheet" type="text/css" href="https://louis-stroke.com/assets/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="https://louis-stroke.com/assets/css/style.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"> -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+
+	<link id="pagestyle" rel="stylesheet" type="text/css" href="https://louis-stroke.com/assets/css/material-dashboard.min.css?v=3.0.4">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+
+	<link rel="manifest" href="/manifest.webmanifest">
+
+	<link rel="apple-touch-icon" sizes="57x57" href="https://louis-stroke.com/assets/manifest//apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="https://louis-stroke.com/assets/manifest//apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="https://louis-stroke.com/assets/manifest//apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="https://louis-stroke.com/assets/manifest//apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="https://louis-stroke.com/assets/manifest//apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="https://louis-stroke.com/assets/manifest//apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="https://louis-stroke.com/assets/manifest//apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="https://louis-stroke.com/assets/manifest//apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://louis-stroke.com/assets/manifest//apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="https://louis-stroke.com/assets/manifest//android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://louis-stroke.com/assets/manifest//favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="https://louis-stroke.com/assets/manifest//favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://louis-stroke.com/assets/manifest//favicon-16x16.png">
+	<meta name="msapplication-TileColor" content="#2196f3">
+	<meta name="msapplication-TileImage" content="https://louis-stroke.com/assets/manifest//ms-icon-144x144.png">
+	<meta name="theme-color" content="#2196f3">
+
+</head>
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+	<div id="toastNotification" class="toast d-none" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="5000">
+		<div class="toast-header">
+			<strong class="me-auto">Mensagem</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+		</div>
+		<div class="toast-body"></div>
+	</div>
+</div>
+<style>
+	label {
+		display: block;
+	}
+
+	h1 {
+		color: #4169e1;
+	}
+
+	.bg-gradient-primary {
+		background-image: linear-gradient(195deg, #92adff 0%, #4169e1 100%);
+	}
+
+	.btn-feedback-topo {
+		float: right;
+	}
+
+	@media (max-width: 700px) {
+		.btn-feedback-topo {
+			float: none;
+		}
+	}
+</style>
+
+<body class="background-view-1">
+	<main>
+
+		<div class="container-fluid py-4">
+			<div class="row">
+				<div class="col-lg-12 position-relative z-index-2">
+
+					<div class="row">
+						<div class="col-md-4" style="text-align: center;">
+							<img class="logo_pequeno" src="https://louis-stroke.com/assets/images/logo/newlogo.png">
+						</div>
+						<div class="col-md-3">
+
+						</div>
+						<div class="col-md-5 d-flex justify-content-around">
+							<button class="btn btn-icon btn-3 btn-primary reset-selects" style="background-color: #00638f; margin-top: 1rem;" type="button" onclick="limparSelects();">
+								<span class="btn-inner--icon"><i class="fa fa-refresh"></i></span>
+								<span class="btn-inner--text">reset</span>
+							</button>
+							<button class="btn btn-icon btn-3 btn-primary btn-feedback-topo" style="background-color: #00638f; margin-top: 1rem;" type="button" data-bs-toggle="modal" data-bs-target="#suggestionModal">
+								<span class="btn-inner--icon"><i class="far fa-comments"></i></span>
+								<span class="btn-inner--text">leave your comment</span>
+							</button>
+						</div>
+					</div>
+
+										
+					<div class="row">
+						<div class="col-md-12" style="text-align: center;">
+							<h1 style="margin-top: 2.5rem; margin-bottom: -1rem; color: #00638f;">Type your patients signs and symptoms here</h1>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-3 col-md-3 mt-5">
+							<div class="card card-signs mb-2" id="">
+								<div class="mb-5 p-3 pt-2" id="">
+									<div class="position-absolute align-numbers">
+										<img src="https://louis-stroke.com/assets/images/icons/grip.png" style="height: 27px; width: 21px;" alt="logotipo">
+										<span class="style-numbers">#1</span>
+									</div>
+									<div class="text-end pt-1">
+										<!-- <p class="text-sm mb-0 text-capitalize">.</p> -->
+									</div>
+								</div>
+
+								<div class="p-3">
+									<label for="symptom1" class="label-symptom" style="margin-top: 10px; margin-bottom: 0px;">Sign or symptom</label>
+									<select class="form-control select2 symptoms" name="symptom1" id="symptom1" onchange="validaSintomas(); validaSide(this);">
+										<option value="-">Choose a sign or symptom</option>
+																					<option value="4458">Abducens palsy (VI - nucleus)</option>
+																					<option value="395">Abducens palsy (VI)</option>
+																					<option value="4559">Abulia</option>
+																					<option value="377">Abulia and/or disinhibition</option>
+																					<option value="4531">Acalculia</option>
+																					<option value="2832">Achromatopsia (inability to perceive color)</option>
+																					<option value="4432">Acute back pain</option>
+																					<option value="861">Agraphia</option>
+																					<option value="865">Alexia</option>
+																					<option value="1131">Alexia Pure (reading difficulty)</option>
+																					<option value="1127">Alexia with agraphia</option>
+																					<option value="1998">Altered consciousness</option>
+																					<option value="4627">Anosognosia</option>
+																					<option value="2282">Anterograde amnesia</option>
+																					<option value="3096">Apathy</option>
+																					<option value="1932">Aphasia</option>
+																					<option value="1900">Aphasia (global)</option>
+																					<option value="2002">Aphasia (impaired comprehension and fluency)</option>
+																					<option value="1980">Aphasia (impaired comprehension)</option>
+																					<option value="1990">Aphasia (impaired fluency)</option>
+																					<option value="3160">Apraxia</option>
+																					<option value="217">Apraxia of gaze</option>
+																					<option value="257">Ataxia</option>
+																					<option value="4086">Ataxia (limb bilateral)</option>
+																					<option value="365">Ataxia (limb unilateral)</option>
+																					<option value="2827">Ataxia (truncal)</option>
+																					<option value="2018">Ataxic hemiparesis</option>
+																					<option value="2034">Auditory hallucination</option>
+																					<option value="4438">Autonomic dysfunction (hypotension, bradycardia, impaired temperature regulation)</option>
+																					<option value="1876">Bilateral Lid retraction</option>
+																					<option value="4436">Bilateral sensory loss (pain and temperature)</option>
+																					<option value="4511">Brachiofacial hemiparesis</option>
+																					<option value="4525">Broca aphasia (dominant hemisphere)</option>
+																					<option value="4629">Central hypoventilation / Apnea</option>
+																					<option value="2020">Cheiro-oral sensory disturbances</option>
+																					<option value="269">Chorea</option>
+																					<option value="2266">Cognitive dysfunction</option>
+																					<option value="881">Confusão direita - esquerda</option>
+																					<option value="403">Confusion and/or Agitation</option>
+																					<option value="1828">Conjugate deviation of the eyes</option>
+																					<option value="4556">Contralateral leg weakness</option>
+																					<option value="1840">Convergence impaired</option>
+																					<option value="2110">Corneal hyperesthesia</option>
+																					<option value="222">Cortical blindness</option>
+																					<option value="457">Cortical sensory loss</option>
+																					<option value="4477">Deafness</option>
+																					<option value="1168">Diplopia</option>
+																					<option value="2010">Disorientation</option>
+																					<option value="353">Dysarthria</option>
+																					<option value="1264">Dysarthria-ataxia</option>
+																					<option value="2113">Dysartrhria</option>
+																					<option value="877">Dyscalculia</option>
+																					<option value="4098">Dysdiadochokinesis (bilateral)</option>
+																					<option value="851">Dysfagia</option>
+																					<option value="400">Dysmetria</option>
+																					<option value="785">Dysphagia</option>
+																					<option value="4182">Dysphonia</option>
+																					<option value="329">Dystonia</option>
+																					<option value="4077">Earache</option>
+																					<option value="405">Emotional Disturbances</option>
+																					<option value="3176">Euphoria</option>
+																					<option value="849">Facial and pharyngeal hypotonia</option>
+																					<option value="383">Facial cramps</option>
+																					<option value="2111">Facial pain</option>
+																					<option value="57">Facial palsy</option>
+																					<option value="33">Facial palsy (bilateral)</option>
+																					<option value="4454">Facial palsy (CN VII - nucleus)</option>
+																					<option value="4475">Facial palsy (lower motor neuron)</option>
+																					<option value="869">Finger agnosia</option>
+																					<option value="1126">Gait ataxia</option>
+																					<option value="902">Gait instability</option>
+																					<option value="4515">Gaze deviation</option>
+																					<option value="4535">Gerstmann's syndrome</option>
+																					<option value="910">Headache</option>
+																					<option value="1159">Hearing loss</option>
+																					<option value="4479">Hemiataxia</option>
+																					<option value="1982">Hemineglect</option>
+																					<option value="41">Hemiparesis / Hemiplegia</option>
+																					<option value="1204">Hemiparesis / Hemiplegia (except face)</option>
+																					<option value="918">Hiccups</option>
+																					<option value="926">Hoarseness</option>
+																					<option value="293">Holmes tremor</option>
+																					<option value="4110">Holmes tremor (bilateral)</option>
+																					<option value="9">Homonymous hemianopia</option>
+																					<option value="4471">Horizontal gaze impairment</option>
+																					<option value="391">Horizontal gaze palsy</option>
+																					<option value="2298">Horizontal Sectoranopia</option>
+																					<option value="934">Horner syndrome</option>
+																					<option value="1156">Hyperalgesia</option>
+																					<option value="3208">Hypophonia</option>
+																					<option value="1362">Internuclear ophthalmoplegia (INO)</option>
+																					<option value="305">Large pupils (mydriasis)</option>
+																					<option value="401">Lateropulsion</option>
+																					<option value="4557">Leg sensory loss</option>
+																					<option value="4582">Limb weakness (contralateral or bilateral)</option>
+																					<option value="2070">Locked-in</option>
+																					<option value="2900">Loss of taste sensation</option>
+																					<option value="1422">Macropsia (objects appear larger)</option>
+																					<option value="4069">Mastication muscles paralysis</option>
+																					<option value="2014">Memory loss</option>
+																					<option value="1426">Metamorphopsia (distorted in size)</option>
+																					<option value="1430">Micropsia (objects appear smaller)</option>
+																					<option value="49">Monoparesis (inferior limb)</option>
+																					<option value="25">Muteness</option>
+																					<option value="950">Nausea/vomiting</option>
+																					<option value="1852">Nystagmus (convergence-retraction)</option>
+																					<option value="966">Nystagmus (horizontal-rotational)</option>
+																					<option value="958">Nystagmus (horizontal)</option>
+																					<option value="1216">Nystagmus (upbeat)</option>
+																					<option value="2074">Ocular bobbing</option>
+																					<option value="281">Oculomotor palsy (III)</option>
+																					<option value="4041">Oculopalatal tremor</option>
+																					<option value="2078">One-and-a-half syndrome</option>
+																					<option value="252">opic ataxia</option>
+																					<option value="1151">Optic aphasia</option>
+																					<option value="227">Optic ataxia</option>
+																					<option value="2202">Optokinetic response impaired</option>
+																					<option value="2916">Pain in extremities</option>
+																					<option value="2082">Palatal myoclonus</option>
+																					<option value="4262">Palatal palsy</option>
+																					<option value="379">Paraparesis</option>
+																					<option value="3240">Paraphasia</option>
+																					<option value="1222">Paresthesia</option>
+																					<option value="317">Parkinsonism</option>
+																					<option value="232">Peripheral visual inattention</option>
+																					<option value="3256">Perseveration</option>
+																					<option value="2086">Pinpoint pupils</option>
+																					<option value="1434">Polyopia (multiple images)</option>
+																					<option value="4473">Preservation of cortical funcion</option>
+																					<option value="4472">Preservation of vertical gaze</option>
+																					<option value="381">Prosopagnosia (inability to recognize previously familiar faces)</option>
+																					<option value="974">Ptosis</option>
+																					<option value="1864">Pupillary light-near dissociation</option>
+																					<option value="1984">Quadrantanopia</option>
+																					<option value="1993">Quadrantanopia (inferior)</option>
+																					<option value="2834">Quadrantanopia (superior)</option>
+																					<option value="2094">Quadriparesis</option>
+																					<option value="65">Quadruple Sectoranopia</option>
+																					<option value="4440">Respiratory failure</option>
+																					<option value="873">Right-left confusion</option>
+																					<option value="237">Saccades impairment (except vestibular quick phases)</option>
+																					<option value="2234">Sectoranopia</option>
+																					<option value="17">Sensory loss</option>
+																					<option value="1228">Sensory loss (deep)</option>
+																					<option value="1598">Sensory loss (except face)</option>
+																					<option value="1610">Sensory loss (face)</option>
+																					<option value="4242">Sensory loss (pain and temperature; except face)</option>
+																					<option value="4288">Sensory loss (pain and temperature; face)</option>
+																					<option value="1157">Sensory loss (pain and temperature)</option>
+																					<option value="4234">Sensory loss (proprioception and vibration)</option>
+																					<option value="242">Simultanagnosia</option>
+																					<option value="1888">Skew deviation</option>
+																					<option value="247">Smooth pursuit deficits</option>
+																					<option value="2830">Sphinecter dysfunction</option>
+																					<option value="4568">Thalamic aphasia</option>
+																					<option value="2098">Tinnitus</option>
+																					<option value="801">Tongue paralysis</option>
+																					<option value="2794">Topographagnosia (Topographic Disorientation)</option>
+																					<option value="4470">Total immobility (all voluntary muscles)</option>
+																					<option value="4128">Trapezius and sternocleidomastoid palsy</option>
+																					<option value="2824">Tremor</option>
+																					<option value="1">Uncontrollable crying and laughing</option>
+																					<option value="402">Vertigo</option>
+																					<option value="1145">VIsual agnosia</option>
+																					<option value="2840">Visual agnosia (apperceptive)</option>
+																					<option value="1139">Visual agnosia (associative)</option>
+																					<option value="4628">Visual Confabulation</option>
+																					<option value="4514">Visual field defect</option>
+																					<option value="1438">Visual hallucination</option>
+																					<option value="998">Vocal chord paralysis</option>
+																					<option value="4530">Wernicke's aphasia (dominant hemisphere)</option>
+																			</select>
+
+									<div id="id-side-symptom1" style="display: none;">
+										<label for="side-symptom1" class="label-symptom-2" style="margin-top: 10px; margin-bottom: 0px;">Side</label>
+										<select class="form-control select2" name="side-symptom1" id="side-symptom1" onchange="validaSintomas()">
+											<option value="-">Which side?</option>
+											<option value="Left">Left</option>
+											<option value="Right">Right</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-3 mt-5">
+							<div class="card card-signs mb-2" id="">
+								<div class="mb-5 p-3 pt-2" id="">
+									<div class="position-absolute align-numbers">
+										<img src="https://louis-stroke.com/assets/images/icons/grip.png" style="height: 27px; width: 21px;" alt="logotipo">
+										<span class="style-numbers">#2</span>
+									</div>
+									<div class="text-end pt-1">
+										<!-- <p class="text-sm mb-0 text-capitalize">.</p> -->
+									</div>
+								</div>
+
+								<div class="card-footer p-3">
+									<label for="symptom2" class="label-symptom" style="margin-top: 10px; margin-bottom: 0px;">Sign or symptom</label>
+									<select class="form-control select2 symptoms" name="symptom2" id="symptom2" onchange="validaSintomas(); validaSide(this);">
+										<option value="-">Choose a sign or symptom</option>
+																					<option value="4458">Abducens palsy (VI - nucleus)</option>
+																					<option value="395">Abducens palsy (VI)</option>
+																					<option value="4559">Abulia</option>
+																					<option value="377">Abulia and/or disinhibition</option>
+																					<option value="4531">Acalculia</option>
+																					<option value="2832">Achromatopsia (inability to perceive color)</option>
+																					<option value="4432">Acute back pain</option>
+																					<option value="861">Agraphia</option>
+																					<option value="865">Alexia</option>
+																					<option value="1131">Alexia Pure (reading difficulty)</option>
+																					<option value="1127">Alexia with agraphia</option>
+																					<option value="1998">Altered consciousness</option>
+																					<option value="4627">Anosognosia</option>
+																					<option value="2282">Anterograde amnesia</option>
+																					<option value="3096">Apathy</option>
+																					<option value="1932">Aphasia</option>
+																					<option value="1900">Aphasia (global)</option>
+																					<option value="2002">Aphasia (impaired comprehension and fluency)</option>
+																					<option value="1980">Aphasia (impaired comprehension)</option>
+																					<option value="1990">Aphasia (impaired fluency)</option>
+																					<option value="3160">Apraxia</option>
+																					<option value="217">Apraxia of gaze</option>
+																					<option value="257">Ataxia</option>
+																					<option value="4086">Ataxia (limb bilateral)</option>
+																					<option value="365">Ataxia (limb unilateral)</option>
+																					<option value="2827">Ataxia (truncal)</option>
+																					<option value="2018">Ataxic hemiparesis</option>
+																					<option value="2034">Auditory hallucination</option>
+																					<option value="4438">Autonomic dysfunction (hypotension, bradycardia, impaired temperature regulation)</option>
+																					<option value="1876">Bilateral Lid retraction</option>
+																					<option value="4436">Bilateral sensory loss (pain and temperature)</option>
+																					<option value="4511">Brachiofacial hemiparesis</option>
+																					<option value="4525">Broca aphasia (dominant hemisphere)</option>
+																					<option value="4629">Central hypoventilation / Apnea</option>
+																					<option value="2020">Cheiro-oral sensory disturbances</option>
+																					<option value="269">Chorea</option>
+																					<option value="2266">Cognitive dysfunction</option>
+																					<option value="881">Confusão direita - esquerda</option>
+																					<option value="403">Confusion and/or Agitation</option>
+																					<option value="1828">Conjugate deviation of the eyes</option>
+																					<option value="4556">Contralateral leg weakness</option>
+																					<option value="1840">Convergence impaired</option>
+																					<option value="2110">Corneal hyperesthesia</option>
+																					<option value="222">Cortical blindness</option>
+																					<option value="457">Cortical sensory loss</option>
+																					<option value="4477">Deafness</option>
+																					<option value="1168">Diplopia</option>
+																					<option value="2010">Disorientation</option>
+																					<option value="353">Dysarthria</option>
+																					<option value="1264">Dysarthria-ataxia</option>
+																					<option value="2113">Dysartrhria</option>
+																					<option value="877">Dyscalculia</option>
+																					<option value="4098">Dysdiadochokinesis (bilateral)</option>
+																					<option value="851">Dysfagia</option>
+																					<option value="400">Dysmetria</option>
+																					<option value="785">Dysphagia</option>
+																					<option value="4182">Dysphonia</option>
+																					<option value="329">Dystonia</option>
+																					<option value="4077">Earache</option>
+																					<option value="405">Emotional Disturbances</option>
+																					<option value="3176">Euphoria</option>
+																					<option value="849">Facial and pharyngeal hypotonia</option>
+																					<option value="383">Facial cramps</option>
+																					<option value="2111">Facial pain</option>
+																					<option value="57">Facial palsy</option>
+																					<option value="33">Facial palsy (bilateral)</option>
+																					<option value="4454">Facial palsy (CN VII - nucleus)</option>
+																					<option value="4475">Facial palsy (lower motor neuron)</option>
+																					<option value="869">Finger agnosia</option>
+																					<option value="1126">Gait ataxia</option>
+																					<option value="902">Gait instability</option>
+																					<option value="4515">Gaze deviation</option>
+																					<option value="4535">Gerstmann's syndrome</option>
+																					<option value="910">Headache</option>
+																					<option value="1159">Hearing loss</option>
+																					<option value="4479">Hemiataxia</option>
+																					<option value="1982">Hemineglect</option>
+																					<option value="41">Hemiparesis / Hemiplegia</option>
+																					<option value="1204">Hemiparesis / Hemiplegia (except face)</option>
+																					<option value="918">Hiccups</option>
+																					<option value="926">Hoarseness</option>
+																					<option value="293">Holmes tremor</option>
+																					<option value="4110">Holmes tremor (bilateral)</option>
+																					<option value="9">Homonymous hemianopia</option>
+																					<option value="4471">Horizontal gaze impairment</option>
+																					<option value="391">Horizontal gaze palsy</option>
+																					<option value="2298">Horizontal Sectoranopia</option>
+																					<option value="934">Horner syndrome</option>
+																					<option value="1156">Hyperalgesia</option>
+																					<option value="3208">Hypophonia</option>
+																					<option value="1362">Internuclear ophthalmoplegia (INO)</option>
+																					<option value="305">Large pupils (mydriasis)</option>
+																					<option value="401">Lateropulsion</option>
+																					<option value="4557">Leg sensory loss</option>
+																					<option value="4582">Limb weakness (contralateral or bilateral)</option>
+																					<option value="2070">Locked-in</option>
+																					<option value="2900">Loss of taste sensation</option>
+																					<option value="1422">Macropsia (objects appear larger)</option>
+																					<option value="4069">Mastication muscles paralysis</option>
+																					<option value="2014">Memory loss</option>
+																					<option value="1426">Metamorphopsia (distorted in size)</option>
+																					<option value="1430">Micropsia (objects appear smaller)</option>
+																					<option value="49">Monoparesis (inferior limb)</option>
+																					<option value="25">Muteness</option>
+																					<option value="950">Nausea/vomiting</option>
+																					<option value="1852">Nystagmus (convergence-retraction)</option>
+																					<option value="966">Nystagmus (horizontal-rotational)</option>
+																					<option value="958">Nystagmus (horizontal)</option>
+																					<option value="1216">Nystagmus (upbeat)</option>
+																					<option value="2074">Ocular bobbing</option>
+																					<option value="281">Oculomotor palsy (III)</option>
+																					<option value="4041">Oculopalatal tremor</option>
+																					<option value="2078">One-and-a-half syndrome</option>
+																					<option value="252">opic ataxia</option>
+																					<option value="1151">Optic aphasia</option>
+																					<option value="227">Optic ataxia</option>
+																					<option value="2202">Optokinetic response impaired</option>
+																					<option value="2916">Pain in extremities</option>
+																					<option value="2082">Palatal myoclonus</option>
+																					<option value="4262">Palatal palsy</option>
+																					<option value="379">Paraparesis</option>
+																					<option value="3240">Paraphasia</option>
+																					<option value="1222">Paresthesia</option>
+																					<option value="317">Parkinsonism</option>
+																					<option value="232">Peripheral visual inattention</option>
+																					<option value="3256">Perseveration</option>
+																					<option value="2086">Pinpoint pupils</option>
+																					<option value="1434">Polyopia (multiple images)</option>
+																					<option value="4473">Preservation of cortical funcion</option>
+																					<option value="4472">Preservation of vertical gaze</option>
+																					<option value="381">Prosopagnosia (inability to recognize previously familiar faces)</option>
+																					<option value="974">Ptosis</option>
+																					<option value="1864">Pupillary light-near dissociation</option>
+																					<option value="1984">Quadrantanopia</option>
+																					<option value="1993">Quadrantanopia (inferior)</option>
+																					<option value="2834">Quadrantanopia (superior)</option>
+																					<option value="2094">Quadriparesis</option>
+																					<option value="65">Quadruple Sectoranopia</option>
+																					<option value="4440">Respiratory failure</option>
+																					<option value="873">Right-left confusion</option>
+																					<option value="237">Saccades impairment (except vestibular quick phases)</option>
+																					<option value="2234">Sectoranopia</option>
+																					<option value="17">Sensory loss</option>
+																					<option value="1228">Sensory loss (deep)</option>
+																					<option value="1598">Sensory loss (except face)</option>
+																					<option value="1610">Sensory loss (face)</option>
+																					<option value="4242">Sensory loss (pain and temperature; except face)</option>
+																					<option value="4288">Sensory loss (pain and temperature; face)</option>
+																					<option value="1157">Sensory loss (pain and temperature)</option>
+																					<option value="4234">Sensory loss (proprioception and vibration)</option>
+																					<option value="242">Simultanagnosia</option>
+																					<option value="1888">Skew deviation</option>
+																					<option value="247">Smooth pursuit deficits</option>
+																					<option value="2830">Sphinecter dysfunction</option>
+																					<option value="4568">Thalamic aphasia</option>
+																					<option value="2098">Tinnitus</option>
+																					<option value="801">Tongue paralysis</option>
+																					<option value="2794">Topographagnosia (Topographic Disorientation)</option>
+																					<option value="4470">Total immobility (all voluntary muscles)</option>
+																					<option value="4128">Trapezius and sternocleidomastoid palsy</option>
+																					<option value="2824">Tremor</option>
+																					<option value="1">Uncontrollable crying and laughing</option>
+																					<option value="402">Vertigo</option>
+																					<option value="1145">VIsual agnosia</option>
+																					<option value="2840">Visual agnosia (apperceptive)</option>
+																					<option value="1139">Visual agnosia (associative)</option>
+																					<option value="4628">Visual Confabulation</option>
+																					<option value="4514">Visual field defect</option>
+																					<option value="1438">Visual hallucination</option>
+																					<option value="998">Vocal chord paralysis</option>
+																					<option value="4530">Wernicke's aphasia (dominant hemisphere)</option>
+																			</select>
+
+									<div id="id-side-symptom2" style="display: none;">
+										<label for="side-symptom2" class="label-symptom-2" style="margin-top: 10px; margin-bottom: 0px;">Side</label>
+										<select class="form-control select2" name="side-symptom2" id="side-symptom2" onchange="validaSintomas()">
+											<option value="-">Which side?</option>
+											<option value="Left">Left</option>
+											<option value="Right">Right</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-3 mt-5">
+							<div class="card card-signs mb-2" id="">
+								<div class="mb-5 p-3 pt-2" id="">
+									<div class="position-absolute align-numbers">
+										<img src="https://louis-stroke.com/assets/images/icons/grip.png" style="height: 27px; width: 21px;" alt="logotipo">
+										<span class="style-numbers">#3</span>
+									</div>
+									<div class="text-end pt-1">
+										<!-- <p class="text-sm mb-0 text-capitalize">.</p> -->
+									</div>
+								</div>
+
+								<div class="card-footer p-3">
+									<label for="symptom3" class="label-symptom" style="margin-top: 10px; margin-bottom: 0px;">Sign or symptom</label>
+									<select class="form-control select2 symptoms" name="symptom3" id="symptom3" onchange="validaSintomas(); validaSide(this);">
+										<option value="-">Choose a sign or symptom</option>
+																					<option value="4458">Abducens palsy (VI - nucleus)</option>
+																					<option value="395">Abducens palsy (VI)</option>
+																					<option value="4559">Abulia</option>
+																					<option value="377">Abulia and/or disinhibition</option>
+																					<option value="4531">Acalculia</option>
+																					<option value="2832">Achromatopsia (inability to perceive color)</option>
+																					<option value="4432">Acute back pain</option>
+																					<option value="861">Agraphia</option>
+																					<option value="865">Alexia</option>
+																					<option value="1131">Alexia Pure (reading difficulty)</option>
+																					<option value="1127">Alexia with agraphia</option>
+																					<option value="1998">Altered consciousness</option>
+																					<option value="4627">Anosognosia</option>
+																					<option value="2282">Anterograde amnesia</option>
+																					<option value="3096">Apathy</option>
+																					<option value="1932">Aphasia</option>
+																					<option value="1900">Aphasia (global)</option>
+																					<option value="2002">Aphasia (impaired comprehension and fluency)</option>
+																					<option value="1980">Aphasia (impaired comprehension)</option>
+																					<option value="1990">Aphasia (impaired fluency)</option>
+																					<option value="3160">Apraxia</option>
+																					<option value="217">Apraxia of gaze</option>
+																					<option value="257">Ataxia</option>
+																					<option value="4086">Ataxia (limb bilateral)</option>
+																					<option value="365">Ataxia (limb unilateral)</option>
+																					<option value="2827">Ataxia (truncal)</option>
+																					<option value="2018">Ataxic hemiparesis</option>
+																					<option value="2034">Auditory hallucination</option>
+																					<option value="4438">Autonomic dysfunction (hypotension, bradycardia, impaired temperature regulation)</option>
+																					<option value="1876">Bilateral Lid retraction</option>
+																					<option value="4436">Bilateral sensory loss (pain and temperature)</option>
+																					<option value="4511">Brachiofacial hemiparesis</option>
+																					<option value="4525">Broca aphasia (dominant hemisphere)</option>
+																					<option value="4629">Central hypoventilation / Apnea</option>
+																					<option value="2020">Cheiro-oral sensory disturbances</option>
+																					<option value="269">Chorea</option>
+																					<option value="2266">Cognitive dysfunction</option>
+																					<option value="881">Confusão direita - esquerda</option>
+																					<option value="403">Confusion and/or Agitation</option>
+																					<option value="1828">Conjugate deviation of the eyes</option>
+																					<option value="4556">Contralateral leg weakness</option>
+																					<option value="1840">Convergence impaired</option>
+																					<option value="2110">Corneal hyperesthesia</option>
+																					<option value="222">Cortical blindness</option>
+																					<option value="457">Cortical sensory loss</option>
+																					<option value="4477">Deafness</option>
+																					<option value="1168">Diplopia</option>
+																					<option value="2010">Disorientation</option>
+																					<option value="353">Dysarthria</option>
+																					<option value="1264">Dysarthria-ataxia</option>
+																					<option value="2113">Dysartrhria</option>
+																					<option value="877">Dyscalculia</option>
+																					<option value="4098">Dysdiadochokinesis (bilateral)</option>
+																					<option value="851">Dysfagia</option>
+																					<option value="400">Dysmetria</option>
+																					<option value="785">Dysphagia</option>
+																					<option value="4182">Dysphonia</option>
+																					<option value="329">Dystonia</option>
+																					<option value="4077">Earache</option>
+																					<option value="405">Emotional Disturbances</option>
+																					<option value="3176">Euphoria</option>
+																					<option value="849">Facial and pharyngeal hypotonia</option>
+																					<option value="383">Facial cramps</option>
+																					<option value="2111">Facial pain</option>
+																					<option value="57">Facial palsy</option>
+																					<option value="33">Facial palsy (bilateral)</option>
+																					<option value="4454">Facial palsy (CN VII - nucleus)</option>
+																					<option value="4475">Facial palsy (lower motor neuron)</option>
+																					<option value="869">Finger agnosia</option>
+																					<option value="1126">Gait ataxia</option>
+																					<option value="902">Gait instability</option>
+																					<option value="4515">Gaze deviation</option>
+																					<option value="4535">Gerstmann's syndrome</option>
+																					<option value="910">Headache</option>
+																					<option value="1159">Hearing loss</option>
+																					<option value="4479">Hemiataxia</option>
+																					<option value="1982">Hemineglect</option>
+																					<option value="41">Hemiparesis / Hemiplegia</option>
+																					<option value="1204">Hemiparesis / Hemiplegia (except face)</option>
+																					<option value="918">Hiccups</option>
+																					<option value="926">Hoarseness</option>
+																					<option value="293">Holmes tremor</option>
+																					<option value="4110">Holmes tremor (bilateral)</option>
+																					<option value="9">Homonymous hemianopia</option>
+																					<option value="4471">Horizontal gaze impairment</option>
+																					<option value="391">Horizontal gaze palsy</option>
+																					<option value="2298">Horizontal Sectoranopia</option>
+																					<option value="934">Horner syndrome</option>
+																					<option value="1156">Hyperalgesia</option>
+																					<option value="3208">Hypophonia</option>
+																					<option value="1362">Internuclear ophthalmoplegia (INO)</option>
+																					<option value="305">Large pupils (mydriasis)</option>
+																					<option value="401">Lateropulsion</option>
+																					<option value="4557">Leg sensory loss</option>
+																					<option value="4582">Limb weakness (contralateral or bilateral)</option>
+																					<option value="2070">Locked-in</option>
+																					<option value="2900">Loss of taste sensation</option>
+																					<option value="1422">Macropsia (objects appear larger)</option>
+																					<option value="4069">Mastication muscles paralysis</option>
+																					<option value="2014">Memory loss</option>
+																					<option value="1426">Metamorphopsia (distorted in size)</option>
+																					<option value="1430">Micropsia (objects appear smaller)</option>
+																					<option value="49">Monoparesis (inferior limb)</option>
+																					<option value="25">Muteness</option>
+																					<option value="950">Nausea/vomiting</option>
+																					<option value="1852">Nystagmus (convergence-retraction)</option>
+																					<option value="966">Nystagmus (horizontal-rotational)</option>
+																					<option value="958">Nystagmus (horizontal)</option>
+																					<option value="1216">Nystagmus (upbeat)</option>
+																					<option value="2074">Ocular bobbing</option>
+																					<option value="281">Oculomotor palsy (III)</option>
+																					<option value="4041">Oculopalatal tremor</option>
+																					<option value="2078">One-and-a-half syndrome</option>
+																					<option value="252">opic ataxia</option>
+																					<option value="1151">Optic aphasia</option>
+																					<option value="227">Optic ataxia</option>
+																					<option value="2202">Optokinetic response impaired</option>
+																					<option value="2916">Pain in extremities</option>
+																					<option value="2082">Palatal myoclonus</option>
+																					<option value="4262">Palatal palsy</option>
+																					<option value="379">Paraparesis</option>
+																					<option value="3240">Paraphasia</option>
+																					<option value="1222">Paresthesia</option>
+																					<option value="317">Parkinsonism</option>
+																					<option value="232">Peripheral visual inattention</option>
+																					<option value="3256">Perseveration</option>
+																					<option value="2086">Pinpoint pupils</option>
+																					<option value="1434">Polyopia (multiple images)</option>
+																					<option value="4473">Preservation of cortical funcion</option>
+																					<option value="4472">Preservation of vertical gaze</option>
+																					<option value="381">Prosopagnosia (inability to recognize previously familiar faces)</option>
+																					<option value="974">Ptosis</option>
+																					<option value="1864">Pupillary light-near dissociation</option>
+																					<option value="1984">Quadrantanopia</option>
+																					<option value="1993">Quadrantanopia (inferior)</option>
+																					<option value="2834">Quadrantanopia (superior)</option>
+																					<option value="2094">Quadriparesis</option>
+																					<option value="65">Quadruple Sectoranopia</option>
+																					<option value="4440">Respiratory failure</option>
+																					<option value="873">Right-left confusion</option>
+																					<option value="237">Saccades impairment (except vestibular quick phases)</option>
+																					<option value="2234">Sectoranopia</option>
+																					<option value="17">Sensory loss</option>
+																					<option value="1228">Sensory loss (deep)</option>
+																					<option value="1598">Sensory loss (except face)</option>
+																					<option value="1610">Sensory loss (face)</option>
+																					<option value="4242">Sensory loss (pain and temperature; except face)</option>
+																					<option value="4288">Sensory loss (pain and temperature; face)</option>
+																					<option value="1157">Sensory loss (pain and temperature)</option>
+																					<option value="4234">Sensory loss (proprioception and vibration)</option>
+																					<option value="242">Simultanagnosia</option>
+																					<option value="1888">Skew deviation</option>
+																					<option value="247">Smooth pursuit deficits</option>
+																					<option value="2830">Sphinecter dysfunction</option>
+																					<option value="4568">Thalamic aphasia</option>
+																					<option value="2098">Tinnitus</option>
+																					<option value="801">Tongue paralysis</option>
+																					<option value="2794">Topographagnosia (Topographic Disorientation)</option>
+																					<option value="4470">Total immobility (all voluntary muscles)</option>
+																					<option value="4128">Trapezius and sternocleidomastoid palsy</option>
+																					<option value="2824">Tremor</option>
+																					<option value="1">Uncontrollable crying and laughing</option>
+																					<option value="402">Vertigo</option>
+																					<option value="1145">VIsual agnosia</option>
+																					<option value="2840">Visual agnosia (apperceptive)</option>
+																					<option value="1139">Visual agnosia (associative)</option>
+																					<option value="4628">Visual Confabulation</option>
+																					<option value="4514">Visual field defect</option>
+																					<option value="1438">Visual hallucination</option>
+																					<option value="998">Vocal chord paralysis</option>
+																					<option value="4530">Wernicke's aphasia (dominant hemisphere)</option>
+																			</select>
+
+									<div id="id-side-symptom3" style="display: none;">
+										<label for="side-symptom3" class="label-symptom-2" style="margin-top: 10px; margin-bottom: 0px;">Side</label>
+										<select class="form-control select2" name="side-symptom3" id="side-symptom3" onchange="validaSintomas()">
+											<option value="-">Which side?</option>
+											<option value="Left">Left</option>
+											<option value="Right">Right</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-3 mt-5">
+							<div class="card card-signs mb-2" id="">
+								<div class="mb-5 p-3 pt-2" id="">
+									<div class="position-absolute align-numbers">
+										<img src="https://louis-stroke.com/assets/images/icons/grip.png" style="height: 27px; width: 21px;" alt="logotipo">
+										<span class="style-numbers">#4</span>
+									</div>
+									<div class="text-end pt-1">
+										<!-- <p class="text-sm mb-0 text-capitalize">.</p> -->
+									</div>
+								</div>
+
+								<div class="card-footer p-3">
+									<label for="symptom4" class="label-symptom" style="margin-top: 10px; margin-bottom: 0px;">Sign or symptom</label>
+									<select class="form-control select2 symptoms" name="symptom4" id="symptom4" onchange="validaSintomas(); validaSide(this);">
+										<option value="-">Choose a sign or symptom</option>
+																					<option value="4458">Abducens palsy (VI - nucleus)</option>
+																					<option value="395">Abducens palsy (VI)</option>
+																					<option value="4559">Abulia</option>
+																					<option value="377">Abulia and/or disinhibition</option>
+																					<option value="4531">Acalculia</option>
+																					<option value="2832">Achromatopsia (inability to perceive color)</option>
+																					<option value="4432">Acute back pain</option>
+																					<option value="861">Agraphia</option>
+																					<option value="865">Alexia</option>
+																					<option value="1131">Alexia Pure (reading difficulty)</option>
+																					<option value="1127">Alexia with agraphia</option>
+																					<option value="1998">Altered consciousness</option>
+																					<option value="4627">Anosognosia</option>
+																					<option value="2282">Anterograde amnesia</option>
+																					<option value="3096">Apathy</option>
+																					<option value="1932">Aphasia</option>
+																					<option value="1900">Aphasia (global)</option>
+																					<option value="2002">Aphasia (impaired comprehension and fluency)</option>
+																					<option value="1980">Aphasia (impaired comprehension)</option>
+																					<option value="1990">Aphasia (impaired fluency)</option>
+																					<option value="3160">Apraxia</option>
+																					<option value="217">Apraxia of gaze</option>
+																					<option value="257">Ataxia</option>
+																					<option value="4086">Ataxia (limb bilateral)</option>
+																					<option value="365">Ataxia (limb unilateral)</option>
+																					<option value="2827">Ataxia (truncal)</option>
+																					<option value="2018">Ataxic hemiparesis</option>
+																					<option value="2034">Auditory hallucination</option>
+																					<option value="4438">Autonomic dysfunction (hypotension, bradycardia, impaired temperature regulation)</option>
+																					<option value="1876">Bilateral Lid retraction</option>
+																					<option value="4436">Bilateral sensory loss (pain and temperature)</option>
+																					<option value="4511">Brachiofacial hemiparesis</option>
+																					<option value="4525">Broca aphasia (dominant hemisphere)</option>
+																					<option value="4629">Central hypoventilation / Apnea</option>
+																					<option value="2020">Cheiro-oral sensory disturbances</option>
+																					<option value="269">Chorea</option>
+																					<option value="2266">Cognitive dysfunction</option>
+																					<option value="881">Confusão direita - esquerda</option>
+																					<option value="403">Confusion and/or Agitation</option>
+																					<option value="1828">Conjugate deviation of the eyes</option>
+																					<option value="4556">Contralateral leg weakness</option>
+																					<option value="1840">Convergence impaired</option>
+																					<option value="2110">Corneal hyperesthesia</option>
+																					<option value="222">Cortical blindness</option>
+																					<option value="457">Cortical sensory loss</option>
+																					<option value="4477">Deafness</option>
+																					<option value="1168">Diplopia</option>
+																					<option value="2010">Disorientation</option>
+																					<option value="353">Dysarthria</option>
+																					<option value="1264">Dysarthria-ataxia</option>
+																					<option value="2113">Dysartrhria</option>
+																					<option value="877">Dyscalculia</option>
+																					<option value="4098">Dysdiadochokinesis (bilateral)</option>
+																					<option value="851">Dysfagia</option>
+																					<option value="400">Dysmetria</option>
+																					<option value="785">Dysphagia</option>
+																					<option value="4182">Dysphonia</option>
+																					<option value="329">Dystonia</option>
+																					<option value="4077">Earache</option>
+																					<option value="405">Emotional Disturbances</option>
+																					<option value="3176">Euphoria</option>
+																					<option value="849">Facial and pharyngeal hypotonia</option>
+																					<option value="383">Facial cramps</option>
+																					<option value="2111">Facial pain</option>
+																					<option value="57">Facial palsy</option>
+																					<option value="33">Facial palsy (bilateral)</option>
+																					<option value="4454">Facial palsy (CN VII - nucleus)</option>
+																					<option value="4475">Facial palsy (lower motor neuron)</option>
+																					<option value="869">Finger agnosia</option>
+																					<option value="1126">Gait ataxia</option>
+																					<option value="902">Gait instability</option>
+																					<option value="4515">Gaze deviation</option>
+																					<option value="4535">Gerstmann's syndrome</option>
+																					<option value="910">Headache</option>
+																					<option value="1159">Hearing loss</option>
+																					<option value="4479">Hemiataxia</option>
+																					<option value="1982">Hemineglect</option>
+																					<option value="41">Hemiparesis / Hemiplegia</option>
+																					<option value="1204">Hemiparesis / Hemiplegia (except face)</option>
+																					<option value="918">Hiccups</option>
+																					<option value="926">Hoarseness</option>
+																					<option value="293">Holmes tremor</option>
+																					<option value="4110">Holmes tremor (bilateral)</option>
+																					<option value="9">Homonymous hemianopia</option>
+																					<option value="4471">Horizontal gaze impairment</option>
+																					<option value="391">Horizontal gaze palsy</option>
+																					<option value="2298">Horizontal Sectoranopia</option>
+																					<option value="934">Horner syndrome</option>
+																					<option value="1156">Hyperalgesia</option>
+																					<option value="3208">Hypophonia</option>
+																					<option value="1362">Internuclear ophthalmoplegia (INO)</option>
+																					<option value="305">Large pupils (mydriasis)</option>
+																					<option value="401">Lateropulsion</option>
+																					<option value="4557">Leg sensory loss</option>
+																					<option value="4582">Limb weakness (contralateral or bilateral)</option>
+																					<option value="2070">Locked-in</option>
+																					<option value="2900">Loss of taste sensation</option>
+																					<option value="1422">Macropsia (objects appear larger)</option>
+																					<option value="4069">Mastication muscles paralysis</option>
+																					<option value="2014">Memory loss</option>
+																					<option value="1426">Metamorphopsia (distorted in size)</option>
+																					<option value="1430">Micropsia (objects appear smaller)</option>
+																					<option value="49">Monoparesis (inferior limb)</option>
+																					<option value="25">Muteness</option>
+																					<option value="950">Nausea/vomiting</option>
+																					<option value="1852">Nystagmus (convergence-retraction)</option>
+																					<option value="966">Nystagmus (horizontal-rotational)</option>
+																					<option value="958">Nystagmus (horizontal)</option>
+																					<option value="1216">Nystagmus (upbeat)</option>
+																					<option value="2074">Ocular bobbing</option>
+																					<option value="281">Oculomotor palsy (III)</option>
+																					<option value="4041">Oculopalatal tremor</option>
+																					<option value="2078">One-and-a-half syndrome</option>
+																					<option value="252">opic ataxia</option>
+																					<option value="1151">Optic aphasia</option>
+																					<option value="227">Optic ataxia</option>
+																					<option value="2202">Optokinetic response impaired</option>
+																					<option value="2916">Pain in extremities</option>
+																					<option value="2082">Palatal myoclonus</option>
+																					<option value="4262">Palatal palsy</option>
+																					<option value="379">Paraparesis</option>
+																					<option value="3240">Paraphasia</option>
+																					<option value="1222">Paresthesia</option>
+																					<option value="317">Parkinsonism</option>
+																					<option value="232">Peripheral visual inattention</option>
+																					<option value="3256">Perseveration</option>
+																					<option value="2086">Pinpoint pupils</option>
+																					<option value="1434">Polyopia (multiple images)</option>
+																					<option value="4473">Preservation of cortical funcion</option>
+																					<option value="4472">Preservation of vertical gaze</option>
+																					<option value="381">Prosopagnosia (inability to recognize previously familiar faces)</option>
+																					<option value="974">Ptosis</option>
+																					<option value="1864">Pupillary light-near dissociation</option>
+																					<option value="1984">Quadrantanopia</option>
+																					<option value="1993">Quadrantanopia (inferior)</option>
+																					<option value="2834">Quadrantanopia (superior)</option>
+																					<option value="2094">Quadriparesis</option>
+																					<option value="65">Quadruple Sectoranopia</option>
+																					<option value="4440">Respiratory failure</option>
+																					<option value="873">Right-left confusion</option>
+																					<option value="237">Saccades impairment (except vestibular quick phases)</option>
+																					<option value="2234">Sectoranopia</option>
+																					<option value="17">Sensory loss</option>
+																					<option value="1228">Sensory loss (deep)</option>
+																					<option value="1598">Sensory loss (except face)</option>
+																					<option value="1610">Sensory loss (face)</option>
+																					<option value="4242">Sensory loss (pain and temperature; except face)</option>
+																					<option value="4288">Sensory loss (pain and temperature; face)</option>
+																					<option value="1157">Sensory loss (pain and temperature)</option>
+																					<option value="4234">Sensory loss (proprioception and vibration)</option>
+																					<option value="242">Simultanagnosia</option>
+																					<option value="1888">Skew deviation</option>
+																					<option value="247">Smooth pursuit deficits</option>
+																					<option value="2830">Sphinecter dysfunction</option>
+																					<option value="4568">Thalamic aphasia</option>
+																					<option value="2098">Tinnitus</option>
+																					<option value="801">Tongue paralysis</option>
+																					<option value="2794">Topographagnosia (Topographic Disorientation)</option>
+																					<option value="4470">Total immobility (all voluntary muscles)</option>
+																					<option value="4128">Trapezius and sternocleidomastoid palsy</option>
+																					<option value="2824">Tremor</option>
+																					<option value="1">Uncontrollable crying and laughing</option>
+																					<option value="402">Vertigo</option>
+																					<option value="1145">VIsual agnosia</option>
+																					<option value="2840">Visual agnosia (apperceptive)</option>
+																					<option value="1139">Visual agnosia (associative)</option>
+																					<option value="4628">Visual Confabulation</option>
+																					<option value="4514">Visual field defect</option>
+																					<option value="1438">Visual hallucination</option>
+																					<option value="998">Vocal chord paralysis</option>
+																					<option value="4530">Wernicke's aphasia (dominant hemisphere)</option>
+																			</select>
+
+									<div id="id-side-symptom4" style="display: none;">
+										<label for="side-symptom4" class="label-symptom-2" style="margin-top: 10px; margin-bottom: 0px;">Side</label>
+										<select class="form-control select2" name="side-symptom4" id="side-symptom4" onchange="validaSintomas()">
+											<option value="-">Which side?</option>
+											<option value="Left">Left</option>
+											<option value="Right">Right</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="brain" style="display: none; margin: 0 auto;">
+						<img id="loading" class="icon">
+					</div>
+
+					<div id="responses" style="display: none;">
+
+						<div class="row mt-6">
+							<div class="col-md-12" style="text-align: center;">
+								<h1 style="color: #00638f">Answers</h1>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-7 col-md-7 mt-6">
+								<div class="card box-answres mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/thunder-icon.png" style="height: 27px; width: 21px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-titulo mb-0 text-capitalize" id="probable-syndrome-first">1st probable syndrome</p>
+
+										</div>
+									</div>
+
+									<div class="card-footer footer-ajusted">
+										<div class="d-none">
+											<p class="text-sm mb-0 text-capitalize">Clinical Syndrome</p>
+											<span id="clinical-syndrome-first"></span>
+										</div>
+
+										<p class="text-sm mb-0 text-capitalize">Side of the lesion</p>
+										<span id="lesion-side-first" style="display: block;"></span>
+
+										<p class="text-sm mb-0 text-capitalize" style="margin-top: 10px;">Signs or symptoms</p>
+										<ul id="sign-or-symptom-first"></ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-5 col-md-5 mt-6">
+								<div class="card box-answres mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/frequencia.png" style="height: 56px; width: 42px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-sm mb-0 text-capitalize">1st Reference image</p>
+										</div>
+									</div>
+									<div class="image-container">
+										<a href="#" class="pop" id="container-image-reference-first">
+											<img src="" style="height: 75px;" id="image-reference-first">
+										</a>
+										<a href="#" class="pop" id="container-image-reference-first-vessel">
+											<img src="" style="height: 75px;" id="image-reference-first-vessel">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row" id="second-response">
+							<div class="col-lg-7 col-md-7 mt-6">
+								<div class="card box-answres mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/thunder-icon.png" style="height: 27px; width: 21px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-titulo mb-0 text-capitalize" id="probable-syndrome-second">2nd probable syndrome</p>
+
+										</div>
+									</div>
+
+									<div class="card-footer footer-ajusted">
+										<div class="d-none">
+											<p class="text-sm mb-0 text-capitalize">Clinical Syndrome</p>
+											<span id="clinical-syndrome-second"></span>
+										</div>
+										
+
+										<p class="text-sm mb-0 text-capitalize">Side of the lesion</p>
+										<span id="lesion-side-second" style="display: block;"></span>
+
+										<p class="text-sm mb-0 text-capitalize" style="margin-top: 10px;">Signs or symptoms</p>
+										<ul id="sign-or-symptom-second"></ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-5 col-md-5 mt-6">
+								<div class="card box-answres mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/frequencia.png" style="height: 56px; width: 42px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-sm mb-0 text-capitalize">2nd Reference image</p>
+										</div>
+									</div>
+									<div class="image-container">
+										<a href="#" class="pop" id="container-image-reference-second">
+											<img src="" style="height: 75px;" id="image-reference-second">
+										</a>
+										<a href="#" class="pop" id="container-image-reference-second-vessel">
+											<img src="" style="height: 75px;" id="image-reference-second-vessel">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row" id="third-response">
+							<div class="col-lg-7 col-md-7 mt-6">
+								<div class="card box-answres mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/thunder-icon.png" style="height: 27px; width: 21px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-titulo mb-0 text-capitalize" id="probable-syndrome-third">3th probable syndrome</p>
+
+										</div>
+									</div>
+									<div class="card-footer footer-ajusted">
+									<div class="d-none">
+											<p class="text-sm mb-0 text-capitalize">Clinical Syndrome</p>
+											<span id="clinical-syndrome-third"></span>
+										</div>
+
+										<p class="text-sm mb-0 text-capitalize">Side of the lesion</p>
+										<span id="lesion-side-third" style="display: block;"></span>
+
+										<p class="text-sm mb-0 text-capitalize" style="margin-top: 10px;">Signs or symptoms</p>
+										<ul id="sign-or-symptom-third"></ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-5 col-md-5 mt-6">
+								<div class="card box-answres mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/frequencia.png" style="height: 56px; width: 42px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-sm mb-0 text-capitalize">3rd Reference image</p>
+
+										</div>
+									</div>
+									<div class="image-container">
+										<a href="#" class="pop" id="container-image-reference-third">
+											<img src="" style="height: 75px;" id="image-reference-third">
+										</a>
+										<a href="#" class="pop" id="container-image-reference-third-vessel">
+											<img src="" style="height: 75px;" id="image-reference-third-vessel">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row" id="fourth-response">
+							<div class="col-lg-7 col-md-7 mt-6">
+								<div class="card box-answres mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/thunder-icon.png" style="height: 27px; width: 21px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-titulo mb-0 text-capitalize" id="probable-syndrome-fourth">4th probable syndrome</p>
+
+										</div>
+									</div>
+
+									<div class="card-footer footer-ajusted">
+										<div class="d-none">
+											<p class="text-sm mb-0 text-capitalize">Clinical Syndrome</p>
+											<span id="clinical-syndrome-fourth"></span>
+										</div>
+
+										<p class="text-sm mb-0 text-capitalize">Side of the lesion</p>
+										<span id="lesion-side-fourth" style="display: block;"></span>
+
+										<p class="text-sm mb-0 text-capitalize" style="margin-top: 10px;">Signs or symptoms</p>
+										<ul id="sign-or-symptom-fourth"></ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-5 col-md-5 mt-6">
+								<div class="card box-answres mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/frequencia.png" style="height: 56px; width: 42px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-sm mb-0 text-capitalize">4th Reference image</p>
+
+										</div>
+									</div>
+									<div class="image-container">
+										<a href="#" class="pop" id="container-image-reference-fourth">
+											<img src="" style="height: 75px;" id="image-reference-fourth">
+										</a>
+										<a href="#" class="pop" id="container-image-reference-fourth-vessel">
+											<img src="" style="height: 75px;" id="image-reference-fourth-vessel">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-4 col-md-4 mt-6">
+								<div class="card card-adjusts mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/thunder-icon.png" style="height: 27px; width: 21px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-sm mb-0 text-capitalize">Brainstem Location</p>
+
+										</div>
+									</div>
+									<div class="card-body adjust-notes p-3">
+										<span id="brainstem-location"></span>
+									</div>
+									<div class="card-footer adjust-resize">
+										<!-- <img src="https://louis-stroke.com/assets/images/icons/resize.png" style="height: 27px; width: 21px;" alt="logotipo"> -->
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 mt-6">
+								<div class="card card-adjusts mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/thunder-icon.png" style="height: 27px; width: 21px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-sm mb-0 text-capitalize">Arteries involved</p>
+
+										</div>
+									</div>
+									<div class="card-body adjust-notes p-3">
+										<span id="arteries-involved"></span>
+									</div>
+									<div class="card-footer adjust-resize">
+										<!-- <img src="https://louis-stroke.com/assets/images/icons/resize.png" style="height: 27px; width: 21px;" alt="logotipo"> -->
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 mt-6">
+								<div class="card card-adjusts mb-2">
+									<div class="card-header p-3 pt-2">
+										<div class="new-icons icon-shape shadow text-center border-radius-xl mt-n4 position-absolute">
+											<img src="https://louis-stroke.com/assets/images/icons/thunder-icon.png" style="height: 27px; width: 21px;" alt="logotipo">
+										</div>
+										<div class="text-end pt-1">
+											<p class="text-sm mb-0 text-capitalize">Important notes</p>
+
+										</div>
+									</div>
+									<div class="card-body adjust-notes p-3">
+										<span id="important-notes"></span>
+									</div>
+									<div class="card-footer adjust-resize">
+										<!-- <img src="https://louis-stroke.com/assets/images/icons/resize.png" style="height: 27px; width: 21px;" alt="logotipo"> -->
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row mt-6">
+							<div class="col-md-12" style="text-align: center; margin-top: 1rem;">
+								<button class="btn btn-icon btn-3 btn-primary reset-selects" style="background-color: #00638f;" type="button" onclick="limparSelects();">
+									<span class="btn-inner--icon"><i class="fa fa-refresh"></i></span>
+									<span class="btn-inner--text">reset</span>
+								</button>
+								<button class="btn btn-icon btn-3 btn-primary" style="background-color: #00638f;" type="button" data-bs-toggle="modal" data-bs-target="#suggestionModal">
+									<span class="btn-inner--icon"><i class="far fa-comments"></i></span>
+									<span class="btn-inner--text">leave your comment</span>
+								</button>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						
+					</div>
+					<div class="modal-body">
+					<img src="" class="imagepreview" style="width: 100%;">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="suggestionModal" tabindex="-1" role="dialog" aria-labelledby="suggestionModalLabel" aria-hidden="true">
+			<form action="https://louis-stroke.com/home/sendFeedback" method="post" accept-charset="utf-8" role="form" id="suggestion-form">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="suggestionModalLabel">Feedback</h5>
+							<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<h3>Send your suggestion/feedback</h3>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="input-group input-group-dynamic">
+										<textarea class="form-control" rows="5" placeholder="Write a few words about how we can improve" spellcheck="false" name="feedback"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<input type="hidden" name="source" id="source" value="search/signs">
+						<input type="hidden" name="payload" id="payload" value="">
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary" id="suggestion-send">Send</button>
+						</div>
+					</div>
+				</div>
+		</div>
+		</div>
+
+	</main>
+
+</body>
+
+<footer class="footer py-4  ">
+
+	<!-- <div class="container-fluid"> -->
+
+		<!-- <div class="row align-items-center justify-content-lg-between" style="text-align: center;">
+			<div class="col-lg-12 mb-lg-0 mb-4">
+				<div class="copyright text-center text-sm text-muted text-lg-start">
+					© <script>
+						document.write(new Date().getFullYear())
+					</script>,
+					made by
+					<a href="#" class="font-weight-bold" target="_blank">Link créditos</a>
+				</div>
+			</div>
+		</div> -->
+
+	<!-- </div> -->
+
+	<script src="https://louis-stroke.com/assets/js/jquery-3.3.1.min.js"></script>
+
+	<script src="https://louis-stroke.com/assets/js/popper.min.js"></script>
+
+	<!-- <script src="https://louis-stroke.com/assets/js/bootstrap.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://louis-stroke.com/assets/css/select2.min.css">
+	<script src="https://louis-stroke.com/assets/js/select2.min.js"></script>
+	
+	<script src="https://louis-stroke.com/assets/js/plugins/perfect-scrollbar.min.js" ></script>
+	<script src="https://louis-stroke.com/assets/js/plugins/smooth-scrollbar.min.js" ></script>
+
+	<script async defer src="https://louis-stroke.com/assets/js/buttons.js"></script>
+	<script src="https://louis-stroke.com/assets/js/material-dashboard.min.js?v=3.0.4"></script>
+
+	<script type="text/javascript" src="https://louis-stroke.com/assets/js/jquery.dataTables.min.js"></script>
+	<script src="https://louis-stroke.com/assets/js/cleave.min.js"></script>
+	<script src="https://louis-stroke.com/assets/js/maskmoney.min.js?"></script>

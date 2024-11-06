@@ -1,0 +1,13 @@
+2024-11-05 22:25:24,311 [DEBUG] Botão 'Analisar Sintomas' pressionado.
+2024-11-05 22:25:24,312 [DEBUG] Identificando sintomas do texto livre usando LLaMA.
+2024-11-05 22:25:24,312 [DEBUG] Preparando requisição para Ollama.
+2024-11-05 22:25:24,321 [DEBUG] Starting new HTTP connection (1): localhost:11434
+2024-11-05 22:25:32,764 [DEBUG] http://localhost:11434 "POST /api/generate HTTP/1.1" 200 None
+2024-11-05 22:25:32,765 [DEBUG] Resposta recebida do Ollama.
+2024-11-05 22:25:32,765 [DEBUG] LLaMA response for symptom identification: ["dizziness", "nausea"]
+2024-11-05 22:25:32,767 [DEBUG] Sintomas identificados: []
+2024-11-05 22:25:32,777 [DEBUG] Sintomas identificados via regex: []
+2024-11-05 22:25:32,777 [DEBUG] Sintomas identificados pelo LLaMA: []
+2024-11-05 22:25:32,777 [DEBUG] Sintomas finais após validação: []
+2024-11-05 22:25:32,778 [DEBUG] Nenhum sintoma válido identificado na entrada do usuário.
+2024-11-05 22:25:32,779 [DEBUG] Aplicação finalizada.

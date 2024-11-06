@@ -1,0 +1,157 @@
+# 06-11-24
+# Cheque antes de verificar qualquer coisa sobre o DOCKER
+
+
+powershellCopy# Remover .git se existir
+Remove-Item -Path .git -Recurse -Force -ErrorAction SilentlyContinue
+
+# Inicializar Git
+git init
+git add .
+git commit -m "Initial commit"
+
+Criar os arquivos Docker no local correto:
+
+powershellCopy# Criar Dockerfile
+@"
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 8501
+ENTRYPOINT ["streamlit", "run", "src/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+"@ | Out-File -FilePath "Dockerfile" -Encoding utf8
+
+# Criar docker-compose.yml
+@"
+services:
+  louis-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    environment:
+      - OLLAMA_API_URL=http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+"@ | Out-File -FilePath "docker-compose.yml" -Encoding utf8
+
+# Criar .dockerignore mais detalhado
+@"
+.git
+.gitignore
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+pip-log.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+.env
+.venv
+.DS_Store
+logs/*
+!logs/.gitkeep
+"@ | Out-File -FilePath ".dockerignore" -Encoding utf8
+
+Agora tente construir:
+
+powershellCopydocker-compose up --build
+O contexto agora deve ser muito menor pois:
+
+Limpamos o cache do Docker
+Os arquivos Docker estão no diretório correto
+Temos um .dockerignore mais restritivo
+
+Me avise se funcionou ou se ainda aparece algo muito grande no upload do contexto. CopyRetryTF"@ | Out-File -FilePath ".dockerignore" -Encoding utf8
+PS C:\Users\fagun\louis-ml> docker-compose up --build
+[+] Building 12.3s (9/10)                                                                          docker:desktop-linux
+ => [louis-app internal] load build definition from Dockerfile                                                     0.1s
+ => => transferring dockerfile: 269B                                                                               0.0s
+ => [louis-app internal] load metadata for docker.io/library/python:3.9-slim                                       3.2s
+ => [louis-app auth] library/python:pull token for registry-1.docker.io                                            0.0s
+ => [louis-app internal] load .dockerignore                                                                        0.0s
+ => => transferring context: 264B                                                                                  0.0s
+ => [louis-app 1/5] FROM docker.io/library/python:3.9-slim@sha256:7a9cd42706c174cdcf578880ab9ae3b6551323a7ddbc2a8  0.1s
+ => => resolve docker.io/library/python:3.9-slim@sha256:7a9cd42706c174cdcf578880ab9ae3b6551323a7ddbc2a89ad6e5b20a  0.0s
+ => [louis-app internal] load build context                                                                        0.1s
+ => => transferring context: 364.80kB                                                                              0.0s
+ => [louis-app 2/5] WORKDIR /app                                                                                   0.1s
+ => [louis-app 3/5] COPY requirements.txt .                                                                        0.0s
+ => ERROR [louis-app 4/5] RUN pip install --no-cache-dir -r requirements.txt                                       8.7s
+------
+[louis-app 4/5] RUN pip install --no-cache-dir -r requirements.txt:
+4.979 Collecting streamlit==1.28.2
+5.095   Downloading streamlit-1.28.2-py2.py3-none-any.whl (8.4 MB)
+5.681      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.4/8.4 MB 14.5 MB/s eta 0:00:00
+6.088 Collecting pandas==2.1.3
+6.115   Downloading pandas-2.1.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+6.841      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 17.1 MB/s eta 0:00:00
+7.040 Collecting langchain==0.0.335
+7.248   Downloading langchain-0.0.335-py3-none-any.whl (2.0 MB)
+7.352      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 20.2 MB/s eta 0:00:00
+7.417 Collecting requests==2.31.0
+7.442   Downloading requests-2.31.0-py3-none-any.whl (62 kB)
+7.449      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 31.8 MB/s eta 0:00:00
+7.487 Collecting python-dotenv==1.0.0
+7.511   Downloading python_dotenv-1.0.0-py3-none-any.whl (19 kB)
+7.895 Collecting dvc==3.30.1
+8.039   Downloading dvc-3.30.1-py3-none-any.whl (430 kB)
+8.062      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 430.3/430.3 kB 22.0 MB/s eta 0:00:00
+8.201 ERROR: Ignored the following versions that require a different python version: 0.55.2 Requires-Python <3.5
+8.201 ERROR: Could not find a version that satisfies the requirement SQLite3==3.4.1 (from versions: none)
+8.202 ERROR: No matching distribution found for SQLite3==3.4.1
+8.385
+8.385 [notice] A new release of pip is available: 23.0.1 -> 24.3.1
+8.385 [notice] To update, run: pip install --upgrade pip
+------
+failed to solve: process "/bin/sh -c pip install --no-cache-dir -r requirements.txt" did not complete successfully: exit code: 1
+PS C:\Users\fagun\louis-ml>EditAh! Encontramos o erro. O problema é que SQLite3 é um pacote nativo do Python, não precisamos instalá-lo via pip.
+Vamos corrigir o requirements.txt:
+powershellCopy# Criar novo requirements.txt
+@"
+streamlit==1.28.2
+pandas==2.1.3
+langchain==0.0.335
+requests==2.31.0
+python-dotenv==1.0.0
+dvc==3.30.1
+"@ | Out-File -FilePath "requirements.txt" -Encoding utf8
+E vamos atualizar o Dockerfile também para incluir as dependências do sistema:
+powershellCopy# Atualizar Dockerfile
+@"
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Instalar dependências do sistema
+RUN apt-get update && apt-get install -y \
+    gcc \
+    sqlite3 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8501
+
+ENTRYPOINT ["streamlit", "run", "src/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+"@ | Out-File -FilePath "Dockerfile" -Encoding utf8
+Agora tente novamente:
+powershellCopydocker-compose up --build
