@@ -1,4 +1,4 @@
-import streamlit as st
+﻿import streamlit as st
 import requests
 import json
 import logging
@@ -26,11 +26,12 @@ logging.basicConfig(
 os.environ["STREAMLIT_SERVER_PORT"] = "8080"
 os.environ["STREAMLIT_SERVER_ADDRESS"] = "0.0.0.0"
 
-
-# Configurar a chave de API da OpenAI
-openai.api_key = st.secrets["OPENAI_API_KEY"]
-if not openai.api_key:
-    logging.error("OPENAI_API_KEY não encontrada nas variáveis de ambiente")
+# Configurar a chave de API da OpenAI com fallback
+try:
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
+except Exception as e:
+    st.error("⚠️ OPENAI_API_KEY não configurada. Configure nas secrets do Streamlit Cloud.")
+    st.stop()
 
 # URL da API do Ollama
 # OLLAMA_API_URL = "http://localhost:11434/api/generate"
