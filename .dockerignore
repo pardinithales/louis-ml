@@ -1,0 +1,19 @@
+﻿# Ignorar tudo
+*
+
+# Permitir apenas arquivos necessários
+!requirements.txt
+!src/**
+!data/syndrome_data.db
+
+# Ignorar dentro das pastas permitidas
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.Python
+**/.env
+**/.venv
+**/.git
+**/logs/*
+!**/logs/.gitkeep

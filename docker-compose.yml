@@ -1,0 +1,23 @@
+﻿services:
+  louis-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./src:/app/src
+    environment:
+      - OLLAMA_API_URL=http://host.docker.internal:11434
+      - PYTHONPATH=/app
+      - DB_PATH=/app/data/syndrome_data.db
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
