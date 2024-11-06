@@ -14,11 +14,11 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()]
 )
 
-# Verifica se a chave da API está configurada
-if "OPENAI_API_KEY" not in st.secrets:
-    st.error("⚠️ OPENAI_API_KEY não configurada. Configure nas secrets do Streamlit Cloud.")
-else:
-    openai.api_key = st.secrets["OPENAI_API_KEY"]
+# Deve ser o primeiro comando Streamlit
+st.set_page_config(layout="wide", page_title="Louis - Sistema de Análise Neurológica")
+
+st.write("Conteúdo das secrets:", st.secrets)
+
 
 @st.cache_data
 def get_llm_response(prompt):
@@ -34,8 +34,18 @@ def get_llm_response(prompt):
         logging.error(f"Erro ao conectar com OpenAI: {e}")
         return None
 
+
+
 # Configurar API key
-openai.api_key = setup_openai()
+
+# Verificar se a chave da API está configurada
+if "OPENAI_API_KEY" not in st.secrets:
+    st.error("⚠️ OPENAI_API_KEY não configurada. Configure nas secrets do Streamlit Cloud.")
+    st.stop()  # Opcional: interrompe a execução se a chave não estiver configurada
+else:
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
+    # Continue com o restante do seu código
+
 
 # URL da API do Ollama
 # OLLAMA_API_URL = "http://localhost:11434/api/generate"
@@ -178,7 +188,7 @@ def get_syndromes():
     return load_syndromes()
 
 def main():
-    st.set_page_config(layout="wide")  # Melhor utilização do espaço na tela
+
     st.title("Louis - Sistema de Análise Neurológica")
 
     symptoms = get_symptoms()
