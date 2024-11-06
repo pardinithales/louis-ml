@@ -9,21 +9,20 @@ from database.db_connection import load_symptoms, load_syndromes
 from dotenv import load_dotenv
 import openai
 
-# Carregar variáveis de ambiente do arquivo .env
+# Carregar variÃ¡veis de ambiente do arquivo .env
 load_dir = Path(__file__).resolve().parent.parent
 load_dotenv(load_dir / '.env')
 
-# Configuração de Logging
+# ConfiguraÃ§Ã£o de Logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(message)s',
     handlers=[
-        logging.FileHandler('logs/app.log'),
         logging.StreamHandler()
     ]
 )
 
-# Configurações do Streamlit para Vercel
+# Configuraï¿½ï¿½es do Streamlit para Vercel
 os.environ["STREAMLIT_SERVER_PORT"] = "8080"
 os.environ["STREAMLIT_SERVER_ADDRESS"] = "0.0.0.0"
 
@@ -31,15 +30,15 @@ os.environ["STREAMLIT_SERVER_ADDRESS"] = "0.0.0.0"
 # Configurar a chave de API da OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
 if not openai.api_key:
-    logging.error("OPENAI_API_KEY não encontrada nas variáveis de ambiente")
+    logging.error("OPENAI_API_KEY nï¿½o encontrada nas variï¿½veis de ambiente")
 
 # URL da API do Ollama
 # OLLAMA_API_URL = "http://localhost:11434/api/generate"
 
 def get_llm_symptoms(texto_caso, lista_sintomas):
-    logging.info("Enviando texto para o OpenAI GPT-4 para extração de sintomas")
+    logging.info("Enviando texto para o OpenAI GPT-4 para extraï¿½ï¿½o de sintomas")
     try:
-        # Formatar a lista de sintomas para exibição no prompt
+        # Formatar a lista de sintomas para exibiï¿½ï¿½o no prompt
         formatted_symptom_list = '\n'.join(lista_sintomas)
 
         # Construir o prompt conforme seu exemplo
@@ -54,7 +53,7 @@ Respond with the identified symptoms separated by commas, NO OTHER ADDITIONAL TE
 {texto_caso}
 """
 
-        # Chamada à API da OpenAI
+        # Chamada ï¿½ API da OpenAI
         response = openai.ChatCompletion.create(
             model="gpt-4",
             messages=[
@@ -69,14 +68,14 @@ Respond with the identified symptoms separated by commas, NO OTHER ADDITIONAL TE
 
         llm_output = response.choices[0].message.content.strip()
 
-        # Processar a saída para extrair os sintomas
+        # Processar a saï¿½da para extrair os sintomas
         extracted_symptoms = [s.strip() for s in llm_output.split(',')]
 
-        # Normalizar os sintomas para comparação
+        # Normalizar os sintomas para comparaï¿½ï¿½o
         lista_sintomas_normalized = [s.lower().strip() for s in lista_sintomas]
         extracted_symptoms_normalized = [s.lower().strip() for s in extracted_symptoms]
 
-        # Filtrar sintomas que estão na lista
+        # Filtrar sintomas que estï¿½o na lista
         matched_symptoms = []
         for symptom in extracted_symptoms_normalized:
             if symptom in lista_sintomas_normalized:
@@ -96,18 +95,18 @@ Respond with the identified symptoms separated by commas, NO OTHER ADDITIONAL TE
 def get_llm_response(prompt):
     logging.info("Enviando prompt para o LLaMA via Ollama para gerar resumo comparativo")
     try:
-        # Verificar se o resultado para este prompt já está em cache
+        # Verificar se o resultado para este prompt jï¿½ estï¿½ em cache
         cache_key = f"llm_response_{hash(prompt)}"
         if cache_key in st.session_state:
             return st.session_state[cache_key]
 
-        # Chamada à API do Ollama
+        # Chamada ï¿½ API do Ollama
         response = requests.post(
             OLLAMA_API_URL,
             json={
                 "model": "llama3.2",
                 "prompt": prompt,
-                "temperature": 0.7,  # Temperatura padrão para geração de texto
+                "temperature": 0.7,  # Temperatura padrï¿½o para geraï¿½ï¿½o de texto
                 "stream": False
             }
         )
@@ -123,7 +122,7 @@ def get_llm_response(prompt):
         return None
 
 def analyze_symptoms_progressive(symptoms_list, syndromes):
-    # Cachear o resultado desta função
+    # Cachear o resultado desta funï¿½ï¿½o
     cache_key = f"analyze_{','.join(symptoms_list)}"
     if cache_key in st.session_state:
         return st.session_state[cache_key]
@@ -155,11 +154,11 @@ def normalize_symptoms(symptoms):
     normalized = set()
     for symptom in symptoms:
         if isinstance(symptom, str):
-            # Remove aspas, colchetes e espaços extras
+            # Remove aspas, colchetes e espaï¿½os extras
             clean_symptom = symptom.strip('[]"\'').strip()
             # Remove aspas internas
             clean_symptom = clean_symptom.replace('"', '').replace("'", "")
-            # Divide se houver múltiplos sintomas
+            # Divide se houver mï¿½ltiplos sintomas
             individual_symptoms = [s.strip() for s in clean_symptom.split(',')]
             normalized.update(individual_symptoms)
         else:
@@ -175,8 +174,8 @@ def get_syndromes():
     return load_syndromes()
 
 def main():
-    st.set_page_config(layout="wide")  # Melhor utilização do espaço na tela
-    st.title("Louis - Sistema de Análise Neurológica")
+    st.set_page_config(layout="wide")  # Melhor utilizaï¿½ï¿½o do espaï¿½o na tela
+    st.title("Louis - Sistema de Anï¿½lise Neurolï¿½gica")
 
     symptoms = get_symptoms()
     syndromes = get_syndromes()
@@ -185,9 +184,9 @@ def main():
         st.error("Erro ao carregar banco de dados")
         return
 
-    st.sidebar.success(f"Banco conectado - {len(syndromes)} síndromes")
+    st.sidebar.success(f"Banco conectado - {len(syndromes)} sï¿½ndromes")
 
-    # Inicializar lista de sintomas no estado da sessão
+    # Inicializar lista de sintomas no estado da sessï¿½o
     if 'symptoms_list' not in st.session_state:
         st.session_state.symptoms_list = []
 
@@ -195,28 +194,28 @@ def main():
     col_main, col_info = st.columns([2, 1])
 
     with col_main:
-        # Campo de texto para o caso clínico
-        st.subheader("Digite o caso clínico do paciente:")
-        clinical_case = st.text_area("Insira aqui o caso clínico do paciente.", key="clinical_case_input")
+        # Campo de texto para o caso clï¿½nico
+        st.subheader("Digite o caso clï¿½nico do paciente:")
+        clinical_case = st.text_area("Insira aqui o caso clï¿½nico do paciente.", key="clinical_case_input")
         if st.button("Extrair Sintomas"):
             if clinical_case:
                 # Usar o OpenAI GPT-4 para extrair sintomas
                 with st.spinner("Extraindo sintomas..."):
                     extracted_symptoms = get_llm_symptoms(clinical_case, symptoms)
                 if extracted_symptoms:
-                    # Adicionar sintomas extraídos à lista de sintomas selecionados
+                    # Adicionar sintomas extraï¿½dos ï¿½ lista de sintomas selecionados
                     for symptom in extracted_symptoms:
                         if symptom not in st.session_state.symptoms_list:
                             if len(st.session_state.symptoms_list) < 6:
                                 st.session_state.symptoms_list.append(symptom)
                             else:
-                                st.warning("Você pode adicionar no máximo 6 sintomas.")
+                                st.warning("Vocï¿½ pode adicionar no mï¿½ximo 6 sintomas.")
                                 break
-                    st.success(f"Sintomas extraídos: {', '.join(extracted_symptoms)}")
+                    st.success(f"Sintomas extraï¿½dos: {', '.join(extracted_symptoms)}")
                 else:
                     st.warning("Nenhum sintoma foi identificado no texto fornecido.")
             else:
-                st.warning("Por favor, insira o caso clínico antes de extrair os sintomas.")
+                st.warning("Por favor, insira o caso clï¿½nico antes de extrair os sintomas.")
 
         # Multiselect para adicionar sintomas
         st.subheader("Ou selecione os sintomas manualmente:")
@@ -226,13 +225,13 @@ def main():
             options=cleaned_symptoms,
             default=st.session_state.symptoms_list,
             key="symptoms_multiselect",
-            help="Digite para filtrar os sintomas disponíveis"
+            help="Digite para filtrar os sintomas disponï¿½veis"
         )
-        # Atualizar lista de sintomas com seleção do multiselect
+        # Atualizar lista de sintomas com seleï¿½ï¿½o do multiselect
         if selected_symptoms != st.session_state.symptoms_list:
             st.session_state.symptoms_list = selected_symptoms[:6]  # Limita a 6 sintomas
 
-        # Botão para limpar todos os sintomas
+        # Botï¿½o para limpar todos os sintomas
         if st.button("Limpar Todos"):
             st.session_state.symptoms_list = []
             st.experimental_rerun()
@@ -241,8 +240,8 @@ def main():
         if st.session_state.symptoms_list:
             st.write("**Sintomas atuais:**", ", ".join(st.session_state.symptoms_list))
 
-            # Análise progressiva
-            with st.spinner("Analisando síndromes..."):
+            # Anï¿½lise progressiva
+            with st.spinner("Analisando sï¿½ndromes..."):
                 matched_syndromes = analyze_symptoms_progressive(
                     st.session_state.symptoms_list,
                     syndromes
@@ -253,7 +252,7 @@ def main():
 
             with col1:
                 # Exibir resultados na primeira sub-coluna
-                st.subheader("Síndromes Prováveis")
+                st.subheader("Sï¿½ndromes Provï¿½veis")
                 for match in matched_syndromes:
                     syndrome = match['syndrome']
                     expander_key = f"expander_{syndrome['syndrome_name']}"
@@ -289,22 +288,22 @@ def main():
                         locals_clean = ', '.join([item.strip('[]"\'') for item in locals_list])
                         arteries_clean = ', '.join([item.strip('[]"\'') for item in arteries_list])
 
-                        # Aumentar tamanho da fonte e exibir informações formatadas
+                        # Aumentar tamanho da fonte e exibir informaï¿½ï¿½es formatadas
                         st.markdown(
                             f"<p style='font-size:16px;'><strong>Sintomas:</strong> {', '.join(highlighted_signs)}</p>",
                             unsafe_allow_html=True
                         )
                         st.markdown(
-                            f"<p style='font-size:16px;'><strong>Localização:</strong> {locals_clean}</p>",
+                            f"<p style='font-size:16px;'><strong>Localizaï¿½ï¿½o:</strong> {locals_clean}</p>",
                             unsafe_allow_html=True
                         )
                         st.markdown(
-                            f"<p style='font-size:16px;'><strong>Artérias:</strong> {arteries_clean}</p>",
+                            f"<p style='font-size:16px;'><strong>Artï¿½rias:</strong> {arteries_clean}</p>",
                             unsafe_allow_html=True
                         )
 
             with col2:
-                # Gerar resumo comparativo das três primeiras síndromes usando LLaMA
+                # Gerar resumo comparativo das trï¿½s primeiras sï¿½ndromes usando LLaMA
                 st.subheader("Resumo Comparativo")
                 if matched_syndromes:
                     # Preparar o prompt para o modelo de IA
@@ -335,17 +334,17 @@ def main():
 
                             signs_clean = ', '.join(signs)
 
-                            syndrome_info.append(f"""Síndrome: {syndrome_name}
-Localização: {locals_clean}
+                            syndrome_info.append(f"""Sï¿½ndrome: {syndrome_name}
+Localizaï¿½ï¿½o: {locals_clean}
 Sintomas principais: {signs_clean}
-Artéria afetada: {arteries_clean}""")
+Artï¿½ria afetada: {arteries_clean}""")
 
                         # Construir o prompt
-                        prompt = f"""Como um neurologista experiente, compare e contraste as seguintes síndromes neurológicas, destacando suas semelhanças e diferenças clínicas e anatômicas em até 15 linhas:
+                        prompt = f"""Como um neurologista experiente, compare e contraste as seguintes sï¿½ndromes neurolï¿½gicas, destacando suas semelhanï¿½as e diferenï¿½as clï¿½nicas e anatï¿½micas em atï¿½ 15 linhas:
 
 {"\n\n".join(syndrome_info)}
 
-Use linguagem técnica e termos neurológicos avançados."""
+Use linguagem tï¿½cnica e termos neurolï¿½gicos avanï¿½ados."""
 
                         # Obter a resposta do modelo de IA
                         with st.spinner("Gerando resumo..."):
@@ -358,22 +357,22 @@ Use linguagem técnica e termos neurológicos avançados."""
                     if ai_response:
                         st.markdown(f"<p style='font-size:14px;'>{ai_response}</p>", unsafe_allow_html=True)
                 else:
-                    st.write("Nenhuma síndrome encontrada para gerar resumo.")
+                    st.write("Nenhuma sï¿½ndrome encontrada para gerar resumo.")
         else:
             st.write("Nenhum sintoma adicionado.")
 
     with col_info:
-        st.subheader("Consulta de Síndromes")
-        # Dropdown para selecionar uma síndrome para mais informações
+        st.subheader("Consulta de Sï¿½ndromes")
+        # Dropdown para selecionar uma sï¿½ndrome para mais informaï¿½ï¿½es
         syndrome_names = [syndrome['syndrome_name'] for syndrome in syndromes]
-        selected_syndrome = st.selectbox("Selecione uma síndrome para mais informações:", [""] + syndrome_names, key="syndrome_selectbox")
+        selected_syndrome = st.selectbox("Selecione uma sï¿½ndrome para mais informaï¿½ï¿½es:", [""] + syndrome_names, key="syndrome_selectbox")
 
         if selected_syndrome:
-            # Encontrar a síndrome selecionada
+            # Encontrar a sï¿½ndrome selecionada
             syndrome = next((s for s in syndromes if s['syndrome_name'] == selected_syndrome), None)
             if syndrome:
-                with st.expander(f"Detalhes da Síndrome: {syndrome['syndrome_name']}", expanded=True):
-                    # Processar e exibir informações de forma sintética
+                with st.expander(f"Detalhes da Sï¿½ndrome: {syndrome['syndrome_name']}", expanded=True):
+                    # Processar e exibir informaï¿½ï¿½es de forma sintï¿½tica
                     signs = syndrome['signs']
                     locals_raw = syndrome['locals']
                     arteries_raw = syndrome['arteries']
@@ -390,15 +389,15 @@ Use linguagem técnica e termos neurológicos avançados."""
                         arteries_list = [arteries_raw]
                     arteries_clean = ', '.join([item.strip('[]"\'') for item in arteries_list])
 
-                    st.markdown(f"**Localização:** {locals_clean}")
-                    st.markdown(f"**Artérias Afetadas:** {arteries_clean}")
+                    st.markdown(f"**Localizaï¿½ï¿½o:** {locals_clean}")
+                    st.markdown(f"**Artï¿½rias Afetadas:** {arteries_clean}")
                     st.markdown(f"**Sintomas Principais:** {', '.join(signs)}")
             else:
-                st.error("Síndrome não encontrada.")
+                st.error("Sï¿½ndrome nï¿½o encontrada.")
 
-    # Quadro informativo adicional: Lista completa de síndromes
-    st.sidebar.header("Consulta Rápida de Síndromes")
-    with st.sidebar.expander("Ver todas as síndromes"):
+    # Quadro informativo adicional: Lista completa de sï¿½ndromes
+    st.sidebar.header("Consulta Rï¿½pida de Sï¿½ndromes")
+    with st.sidebar.expander("Ver todas as sï¿½ndromes"):
         for syndrome in syndromes:
             st.markdown(f"### {syndrome['syndrome_name']}")
             try:
@@ -413,8 +412,8 @@ Use linguagem técnica e termos neurológicos avançados."""
                 arteries_list = [syndrome['arteries']]
             arteries_clean = ', '.join([item.strip('[]"\'') for item in arteries_list])
 
-            st.markdown(f"- **Localização:** {locals_clean}")
-            st.markdown(f"- **Artérias Afetadas:** {arteries_clean}")
+            st.markdown(f"- **Localizaï¿½ï¿½o:** {locals_clean}")
+            st.markdown(f"- **Artï¿½rias Afetadas:** {arteries_clean}")
             st.markdown(f"- **Sintomas Principais:** {', '.join(syndrome['signs'])}")
             st.markdown("---")
 
