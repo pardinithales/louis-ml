@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 from database.db_connection import load_symptoms, load_syndromes
 import ast
-import openai
+from openai import OpenAI
 
 # Configuração de Logging
 logging.basicConfig(
@@ -18,16 +18,12 @@ logging.basicConfig(
 # Deve ser o primeiro comando Streamlit
 st.set_page_config(layout="wide", page_title="Louis - Sistema de Análise Neurológica")
 
-# Configurar API key
-if "OPENAI_API_KEY" not in st.secrets:
-    st.error("⚠️ OPENAI_API_KEY não configurada. Configure nas secrets do Streamlit Cloud.")
-    st.stop()
-else:
-    openai.api_key = st.secrets["OPENAI_API_KEY"]
+# Inicializar cliente OpenAI
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 def test_openai_connection():
     try:
-        openai.ChatCompletion.create(
+        client.chat.completions.create(
             model="gpt-4",
             messages=[{"role": "user", "content": "Test connection"}],
             max_tokens=5
@@ -59,7 +55,7 @@ Respond with the identified symptoms separated by commas, NO OTHER ADDITIONAL TE
 {texto_caso}
 """
 
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": system_prompt},
