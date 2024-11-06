@@ -1,3 +1,5 @@
+db_connection que deu certo
+
 import sqlite3
 import logging
 from pathlib import Path

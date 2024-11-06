@@ -1,0 +1,17 @@
+﻿def analyze_symptoms_progressive(symptoms_list, syndromes):
+    logging.info(f"Analisando lista de sintomas: {symptoms_list}")
+    
+    symptoms_set = set(s.lower().strip() for s in symptoms_list)
+    matched_syndromes = []
+    
+    for syndrome in syndromes:
+        syndrome_signs_set = set(s.lower().strip() for s in syndrome['signs'])
+        matches = len(symptoms_set.intersection(syndrome_signs_set))
+        if matches > 0:
+            matched_syndromes.append({
+                'syndrome': syndrome,
+                'score': matches / len(syndrome_signs_set),
+                'matched_count': matches
+            })
+    
+    return sorted(matched_syndromes, key=lambda x: (-x['score'], -x['matched_count']))[:4]

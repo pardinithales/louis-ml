@@ -1,4 +1,6 @@
-﻿import streamlit as st
+APP.PY que deu certo
+
+import streamlit as st
 import requests
 import json
 import logging
@@ -374,3 +376,6 @@ Artéria afetada: {arteries_clean}""")
 
 if __name__ == "__main__":
     main()
+
+
+
