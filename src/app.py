@@ -421,3 +421,11 @@ Use linguagem técnica e termos neurológicos avançados."""
 if __name__ == "__main__":
     main()
 
+# ConfiguraÃ§Ã£o de Logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    handlers=[
+        logging.StreamHandler()
+    ]
+)
