@@ -249,6 +249,15 @@ def main():
         if st.button("Limpar Todos"):
             st.session_state.symptoms_list = []
             st.experimental_rerun()
+        
+        # Adicione este trecho para listar os arquivos na pasta 'data'
+        st.write("Arquivos no diretório 'data':")
+        data_dir = Path(__file__).parent.parent / "data"
+        if data_dir.exists():
+            files_in_data = os.listdir(data_dir)
+            st.write(files_in_data)
+        else:
+            st.write("O diretório 'data' não existe.")
 
         # Mostrar sintomas atuais
         if st.session_state.symptoms_list:

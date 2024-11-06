@@ -3,16 +3,19 @@ import logging
 import json
 import unicodedata
 import streamlit as st
+from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Usando o caminho absoluto que está funcionando
-DB_PATH = r"C:\Users\fagun\OneDrive\Desktop\louiS_2.0\syndrome_data.db"
+def get_db_path():
+    # Caminho relativo ao diretório atual
+    return Path(__file__).parent.parent.parent / "data" / "syndrome_data.db"
 
 def get_db_connection():
     try:
-        conn = sqlite3.connect(DB_PATH)
+        db_path = get_db_path()
+        conn = sqlite3.connect(db_path)
         logger.info('Conexão com SQLite estabelecida com sucesso')
         return conn
     except sqlite3.Error as e:
@@ -45,7 +48,7 @@ def load_symptoms():
             conn.close()
     return []
 
-@st.cache_data(ttl=3600)  # Cache por 1 hora
+@st.cache_data
 def load_syndromes():
     logger.debug("Carregando todas as síndromes do banco de dados.")
     conn = get_db_connection()
@@ -76,6 +79,6 @@ def load_syndromes():
         except Exception as e:
             logger.error(f"Erro ao processar síndromes: {e}")
             return []
-        finally:
-            conn.close()
-    return []
+            finally:
+                conn.close()
+        return []

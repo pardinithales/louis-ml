@@ -9,8 +9,6 @@ logs/*
 !logs/.gitkeep
 
 # Dados
-*.db
-data/*.db
 dvc-storage/
 
 # Ambiente virtual
