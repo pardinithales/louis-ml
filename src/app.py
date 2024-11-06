@@ -15,6 +15,9 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()]
 )
 
+logging.info(f"Current working directory: {os.getcwd()}")
+logging.info(f"Files in current directory: {os.listdir('.')}")
+
 # Deve ser o primeiro comando Streamlit
 st.set_page_config(layout="wide", page_title="Louis - Sistema de Análise Neurológica")
 

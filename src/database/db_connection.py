@@ -3,31 +3,31 @@ import logging
 import json
 import unicodedata
 import streamlit as st
+import os
 from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# def get_db_path():
-#     # Caminho relativo ao diretório atual
-#     return Path(__file__).parent.parent.parent / "data" / "syndrome_data.db"
-#ANTES
-
 def get_db_path():
-    # Ajuste para usar os.path
-    import os
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    db_path = os.path.join(os.path.dirname(os.path.dirname(current_dir)), "data", "syndrome_data.db")
-    return db_path
+    """Get the database path based on the environment"""
+    if 'STREAMLIT_SHARING_MODE' in os.environ:
+        return os.path.join('/mount/src/louis-ml/data', 'syndrome_data.db')
+    else:
+        return Path(__file__).parent.parent.parent / "data" / "syndrome_data.db"
 
 def get_db_connection():
+    """Create database connection"""
     try:
         db_path = get_db_path()
+        if not os.path.exists(db_path):
+            logger.error(f"Database file not found at: {db_path}")
+            return None
         conn = sqlite3.connect(db_path)
-        logger.info('Conexão com SQLite estabelecida com sucesso')
+        logger.info(f'SQLite connection established successfully at {db_path}')
         return conn
     except sqlite3.Error as e:
-        logger.error(f'Erro ao conectar ao SQLite: {e}')
+        logger.error(f'Error connecting to SQLite: {e}')
         return None
 
 @st.cache_data(ttl=3600)  # Cache por 1 hora
