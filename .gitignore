@@ -17,3 +17,13 @@ dvc-storage/
 venv/
 .venv/
 .vercel
+.env
+.streamlit/secrets.toml
+
+# Secrets e ambiente
+.env
+.env.*
+!*.example
+*.toml
+*.toml.*
+!*.example

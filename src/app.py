@@ -2,36 +2,40 @@
 import requests
 import json
 import logging
-import ast
 import os
 from pathlib import Path
 from database.db_connection import load_symptoms, load_syndromes
-from dotenv import load_dotenv
 import openai
-
-# Carregar variáveis de ambiente do arquivo .env
-load_dir = Path(__file__).resolve().parent.parent
-load_dotenv(load_dir / '.env')
 
 # Configuração de Logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(message)s',
-    handlers=[
-        logging.StreamHandler()
-    ]
+    handlers=[logging.StreamHandler()]
 )
 
-# Configurações do Streamlit para Vercel
-os.environ["STREAMLIT_SERVER_PORT"] = "8080"
-os.environ["STREAMLIT_SERVER_ADDRESS"] = "0.0.0.0"
-
-# Configurar a chave de API da OpenAI com fallback
-try:
-    openai.api_key = st.secrets["OPENAI_API_KEY"]
-except Exception as e:
+# Verifica se a chave da API está configurada
+if "OPENAI_API_KEY" not in st.secrets:
     st.error("⚠️ OPENAI_API_KEY não configurada. Configure nas secrets do Streamlit Cloud.")
-    st.stop()
+else:
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
+
+@st.cache_data
+def get_llm_response(prompt):
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.1,
+            max_tokens=500
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as e:
+        logging.error(f"Erro ao conectar com OpenAI: {e}")
+        return None
+
+# Configurar API key
+openai.api_key = setup_openai()
 
 # URL da API do Ollama
 # OLLAMA_API_URL = "http://localhost:11434/api/generate"
@@ -121,7 +125,6 @@ def get_llm_response(prompt):
     except Exception as e:
         logging.error(f"Erro ao conectar com o Ollama LLaMA: {e}")
         return None
-
 def analyze_symptoms_progressive(symptoms_list, syndromes):
     # Cachear o resultado desta função
     cache_key = f"analyze_{','.join(symptoms_list)}"
@@ -429,3 +432,4 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+

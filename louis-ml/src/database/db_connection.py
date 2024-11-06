@@ -1,15 +1,26 @@
 import sqlite3
 import logging
+import streamlit as st
 from pathlib import Path
 
-DB_PATH = r"C:\Users\fagun\OneDrive\Desktop\louiS_2.0\syndrome_data.db"
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def get_db_path():
+    try:
+        # Tenta pegar do secrets primeiro
+        return st.secrets["database"]["PATH"]
+    except:
+        # Fallback para caminho local
+        return Path(__file__).parent.parent.parent / "data" / "syndrome_data.db"
 
 def get_db_connection():
     try:
-        conn = sqlite3.connect(DB_PATH)
+        conn = sqlite3.connect(get_db_path())
+        logger.info("Conexão com SQLite estabelecida com sucesso")
         return conn
     except Exception as e:
-        logging.error(f"Erro ao conectar ao banco: {e}")
+        logger.error(f"Erro ao conectar ao SQLite: {e}")
         return None
 
 def load_symptoms():
