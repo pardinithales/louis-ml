@@ -8,9 +8,17 @@ from pathlib import Path
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# def get_db_path():
+#     # Caminho relativo ao diretório atual
+#     return Path(__file__).parent.parent.parent / "data" / "syndrome_data.db"
+#ANTES
+
 def get_db_path():
-    # Caminho relativo ao diretório atual
-    return Path(__file__).parent.parent.parent / "data" / "syndrome_data.db"
+    # Ajuste para usar os.path
+    import os
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(os.path.dirname(os.path.dirname(current_dir)), "data", "syndrome_data.db")
+    return db_path
 
 def get_db_connection():
     try:
@@ -79,6 +87,6 @@ def load_syndromes():
         except Exception as e:
             logger.error(f"Erro ao processar síndromes: {e}")
             return []
-            finally:
-                conn.close()
-        return []
+        finally:
+            conn.close()
+    return []

@@ -4,7 +4,8 @@ import json
 import logging
 import os
 from pathlib import Path
-from database.db_connection import load_symptoms, load_syndromes
+from database.db_connection import load_symptoms, load_syndromes #antiga
+from src.database.db_connection import load_symptoms, load_syndromes # nova
 import openai
 
 # Configuração de Logging
