@@ -1,0 +1,84 @@
+# 06/11/2024
+# 17:00
+# Reunião #2
+
+METABOLICA - DIVIDIREMOS ENTRE SUBGRUPOS --> MELHOR DETALHAR.
+
+
+
+EM
+
+•	Miopatias metabólicas 
+o	Mitocondriais, subdividas em defeitos da fosforilação oxidativa e distúrbios da oxidação de ácidos graxos
+o	Glicogenoses
+
+--> adicionada subdivisão
+
+
+
+Em
+Objetivo Geral
+Desenvolver um modelo de aprendizado de máquina para predizer o grupo diagnóstico mais provável em pacientes com intolerância ao exercício atendidos em centros especializados, diferenciando entre miopatias metabólicas (incluindo glicogenoses, e mitocondriais
+--> adicionado  	Mitocondriais, subdividas em defeitos da fosforilação oxidativa e distúrbios da oxidação de ácidos graxos
+
+
+EM
+Pacientes com diagnóstico definitivo confirmado por ao menos um dos seguintes critérios:
+•	Teste molecular positivo
+•	Biópsia muscular diagnóstica
+•	Teste enzimático confirmatório
+Serão distribuídos nos seguintes grupos:
+•	Miopatias metabólicas 
+o	Defeitos da fosforilação oxidativa
+o	Distúrbios da oxidação de ácidos graxos
+o	Glicogenoses
+
+--> tirei mitocondrial, passei para •	Miopatias metabólicas 
+o	Defeitos da fosforilação oxidativa
+
+
+Para calcular numero amostral 
+
+
+Retirado com "idade igual ou superior a 18 anos"
+--> colocado acima de 8 anos
+
+
+Pendência: ver a idade 
+
+Crianças (4 a 7 anos): Nessa faixa etária, instrumentos como o AUQEI (Autoquestionnaire Qualité de Vie Enfant Imagé) são aplicados, permitindo que as próprias crianças relatem sua percepção de qualidade de vida de forma lúdica e acessível.
+
+Crianças e adolescentes (8 a 18 anos): Para esse grupo, o CHQ (Child Health Questionnaire) é frequentemente utilizado, avaliando a qualidade de vida sob a perspectiva dos pais ou cuidadores, abrangendo aspectos físicos, emocionais e sociais.
+
+Adolescentes e adultos jovens (acima de 12 anos): O LSI-A (Life Satisfaction Index for Adolescents) é uma ferramenta direcionada a adolescentes e adultos jovens, permitindo que eles próprios avaliem sua satisfação com a vida em diversos domínios.
+
+
+Em
+•	Consumo abusivo de álcool ou drogas ilícitas com potencial miotóxico.
+•	Incapacidade de fornecer consentimento ou assentimento informado ou responder adequadamente ao questionário devido a limitações cognitivas, sensoriais ou linguísticas
+
+Consentimento --> assentimento
+
+
+# Adiconado:
+Caracterização da Intolerância ao Exercício (anexo 1)
+
+
+MRC --> escala de força 
+•	Escalas de força muscular e funcionalidade: Utilização de escalas padronizadas como o Medical Research Council (MRC) e o teste de caminhada de 6 minutos e avaliação de atividades de vida diária (AVDs): Avaliação da independência para realizar tarefas cotidianas.
+
+
+Obs.: a ênfase é a anamnese! 
+Chega com intolerância ao exercício e não tem nada no exame quero acertar  para que lado vou acertar...
+se tiver fraqueza de cintura ao exame, por exemplo, não preciso de app!
+Não incluir portanto isso nos modelos! ele deve ser treinado em pa
+
+
+TESTES CRONOMETRADOS
+- Teste de Percorrer 10 metros
+- Teste de levantar do chão cronometrado # mas a pessoa deve estar deitada!
+
+
+
+ADICIONADO
+teste t de Student

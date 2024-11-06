@@ -1,0 +1,2 @@
+﻿.tables
+.schema
