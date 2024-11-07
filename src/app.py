@@ -180,7 +180,7 @@ Use linguagem técnica e termos neurológicos avançados."""
     # Adiciona logs para debug
     st.write("Debug - Gerando resumo para:", syndrome_info)
     
-    ai_response = get_ai_response(prompt)
+    ai_response = get_claude_response(prompt)  # Aqui está a correção
     
     if ai_response:
         st.write("Debug - Resumo gerado com sucesso!")
