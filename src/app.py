@@ -7,7 +7,7 @@ from pathlib import Path
 from database.db_connection import load_symptoms, load_syndromes
 import ast
 from openai import OpenAI
-from @anthropic-ai/sdk import Anthropic
+from anthropic import Anthropic
 
 # Configuração de Logging
 logging.basicConfig(
