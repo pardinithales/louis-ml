@@ -176,17 +176,12 @@ def generate_summary(syndrome_info):
 {"\n\n".join(syndrome_info)}
 
 Use linguagem técnica e termos neurológicos avançados."""
-
-    # Adiciona logs para debug
-    st.write("Debug - Gerando resumo para:", syndrome_info)
     
-    ai_response = get_claude_response(prompt)  # Aqui está a correção
+    ai_response = get_claude_response(prompt)
     
     if ai_response:
-        st.write("Debug - Resumo gerado com sucesso!")
         return ai_response
     else:
-        st.write("Debug - Falha ao gerar resumo")
         return None
 
 def main():
