@@ -85,8 +85,11 @@ Respond with the identified symptoms separated by commas, NO OTHER ADDITIONAL TE
 
 @st.cache_data
 def get_ollama_response(prompt):
-    logging.info("Enviando prompt para o LLaMA via Ollama para gerar resumo comparativo")
+    logging.info("Enviando prompt para o LLaMA 3.2 via Ollama para gerar resumo comparativo")
     try:
+        # Log do prompt para debug
+        logging.info(f"Prompt sendo enviado: {prompt}")
+        
         response = requests.post(
             OLLAMA_API_URL,
             json={
@@ -96,12 +99,21 @@ def get_ollama_response(prompt):
                 "stream": False
             }
         )
-        response.raise_for_status()
-        llm_response = response.json().get('response', '').strip()
-        return llm_response
+        
+        # Log da resposta HTTP
+        logging.info(f"Status code da resposta Ollama: {response.status_code}")
+        
+        if response.status_code == 200:
+            response_json = response.json()
+            llm_response = response_json.get('response', '').strip()
+            logging.info(f"Resposta recebida do Ollama: {llm_response[:100]}...")  # Log dos primeiros 100 caracteres
+            return llm_response
+        else:
+            logging.error(f"Erro na resposta do Ollama. Status: {response.status_code}, Resposta: {response.text}")
+            return None
 
     except Exception as e:
-        logging.error(f"Erro ao conectar com o Ollama LLaMA: {e}")
+        logging.error(f"Erro ao conectar com o Ollama LLaMA 3.2: {str(e)}")
         return None
 
 def analyze_symptoms_progressive(symptoms_list_lower, syndromes):
@@ -159,13 +171,27 @@ def get_syndromes():
 
 @st.cache_data
 def generate_summary(syndrome_info):
+    if not syndrome_info:
+        logging.error("Nenhuma informação de síndrome fornecida para gerar resumo")
+        return None
+        
     prompt = f"""Como um neurologista experiente, compare e contraste as seguintes síndromes neurológicas, destacando suas semelhanças e diferenças clínicas e anatômicas em até 15 linhas:
 
 {"\n\n".join(syndrome_info)}
 
 Use linguagem técnica e termos neurológicos avançados."""
+
+    # Adiciona logs para debug
+    st.write("Debug - Gerando resumo para:", syndrome_info)
+    
     ai_response = get_ollama_response(prompt)
-    return ai_response
+    
+    if ai_response:
+        st.write("Debug - Resumo gerado com sucesso!")
+        return ai_response
+    else:
+        st.write("Debug - Falha ao gerar resumo")
+        return None
 
 def main():
 
