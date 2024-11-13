@@ -5,11 +5,26 @@ from pathlib import Path
 
 def get_db_path():
     """Retorna o caminho do banco de dados"""
-    return str(Path(__file__).parent.parent / "data" / "syndromes.db")
+    db_path = Path(__file__).parent.parent / "data" / "syndromes.db"
+    
+    # Criar diretório data se não existir
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    return str(db_path)
 
 def get_db_connection():
     """Retorna uma conexão com o banco de dados"""
-    return sqlite3.connect(get_db_path())
+    try:
+        db_path = get_db_path()
+        conn = sqlite3.connect(db_path)
+        
+        # Inicializar banco se não existir
+        init_db()
+        
+        return conn
+    except Exception as e:
+        logging.error(f"Erro ao conectar ao banco: {str(e)}")
+        raise
 
 def init_db():
     """Inicializa o banco de dados"""
