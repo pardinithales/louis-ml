@@ -100,11 +100,6 @@ def load_syndromes():
         conn = get_db_connection()
         cursor = conn.cursor()
         
-        # Primeiro, vamos ver a estrutura da tabela
-        cursor.execute("PRAGMA table_info(syndromes)")
-        columns = cursor.fetchall()
-        logging.info(f"Estrutura da tabela: {columns}")
-        
         cursor.execute("SELECT * FROM syndromes")
         results = cursor.fetchall()
         
@@ -112,30 +107,29 @@ def load_syndromes():
             logging.warning("Nenhuma síndrome encontrada no banco")
             return []
             
-        # Log do primeiro resultado para debug
-        if results:
-            logging.info(f"Exemplo de registro: {results[0]}")
-            
         syndromes = []
         for row in results:
             try:
-                # Mapear colunas dinamicamente
-                syndrome = {}
+                # Tratamento seguro para o campo notes
+                notes = []
+                if row[5]:  # índice do campo notes
+                    try:
+                        notes = json.loads(row[5])
+                    except json.JSONDecodeError:
+                        notes = [row[5]] if row[5] else []
                 
-                for i, col in enumerate(columns):
-                    col_name = col[1]  # Nome da coluna
-                    if i < len(row):  # Verificar se o índice existe
-                        value = row[i]
-                        
-                        # Tentar converter JSON se necessário
-                        if col_name in ['signs', 'notes', 'is_ipsilateral', 'local_name', 'vessel_name']:
-                            try:
-                                value = json.loads(value) if value else []
-                            except:
-                                value = []
-                                
-                        syndrome[col_name] = value
-                
+                syndrome = {
+                    'syndrome_name': row[1],
+                    'signs': json.loads(row[2]) if row[2] else [],
+                    'locals': row[3],
+                    'arteries': row[4],
+                    'notes': notes,  # Usando o notes tratado
+                    'is_ipsilateral': json.loads(row[6]) if row[6] else {},
+                    'local_name': json.loads(row[7]) if row[7] else [],
+                    'vessel_name': json.loads(row[8]) if row[8] else [],
+                    'registered_at': row[9],
+                    'updated_at': row[10]
+                }
                 syndromes.append(syndrome)
                 
             except Exception as e:
