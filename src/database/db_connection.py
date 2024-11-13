@@ -56,13 +56,6 @@ def load_symptoms():
     finally:
         if conn:
             conn.close()
-        
-    except sqlite3.Error as e:
-        logging.error(f"Erro ao carregar sintomas: {e}")
-        return []
-    finally:
-        if conn:
-            conn.close()
 
 def load_syndromes():
     conn = get_db_connection()
