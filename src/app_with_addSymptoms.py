@@ -268,8 +268,6 @@ class SymptomAnalyzer:
 
     def analyze_symptoms(self, symptoms_text: str) -> dict:
         """Analisa sintomas e sinais com Claude"""
-        logging.info(f"\n=== Análise de Sintomas com {self.model} ===")
-        
         try:
             response = anthropic_client.messages.create(
                 model=self.model,
@@ -277,49 +275,45 @@ class SymptomAnalyzer:
                 temperature=0,
                 messages=[{
                     "role": "user",
-                    "content": f'''Você é um especialista em síndromes neurológicas vasculares. 
+                    "content": f'''Você é um especialista em síndromes neurológicas vasculares.
                     IMPORTANTE: Responda APENAS com o formato JSON solicitado, identificando TODAS as síndromes possíveis relacionadas aos sintomas descritos.
 
                     [ANÁLISE REQUERIDA]
                     Analise o texto fornecido e identifique TODAS as síndromes vasculares possíveis, considerando:
-
                     1. Território vascular afetado exato
                     2. Sinais e sintomas neurológicos específicos
                     3. Localizações anatômicas precisas
                     4. Detalhes do suprimento arterial
                     5. Lateralidade dos sintomas
-                    6. Referências de imagem anatômica
-                    7. Timestamps críticos
+                    6. Notas clínicas importantes
+                    7. Referências de imagem anatômica
 
-                    [FORMATO DE SAÍDA]
+                    [FORMATO DE SAÍDA OBRIGATÓRIO]
                     {{
                         "syndromes": [
                             {{
                                 "syndrome_data": {{
-                                    "syndrome_name": "nome da síndrome 1",
+                                    "syndrome_name": "nome da síndrome",
                                     "signs": ["sinal 1", "sinal 2"],
                                     "locals": ["local 1", "local 2"],
                                     "arteries": ["artéria 1", "artéria 2"],
-                                    "notes": ["nota 1", "nota 2"],
-                                    "is_ipsilateral": {{"sinal1": "sim/não/NA"}},
+                                    "notes": ["Observação clínica 1", "Característica importante 2"],
+                                    "is_ipsilateral": {{"sinal1": "sim/não"}},
                                     "local_name": ["imagem1.png"],
                                     "vessel_name": ["vaso1.png"],
                                     "registered_at": ["2024-01-01 00:00:00"],
                                     "updated_at": ["2024-01-01 00:00:00"]
                                 }}
-                            }},
-                            {{
-                                "syndrome_data": {{
-                                    "syndrome_name": "nome da síndrome 2",
-                                    ...
-                                }}
                             }}
                         ]
                     }}
 
-                    IMPORTANTE: Retorne TODAS as síndromes relacionadas, não apenas uma.
+                    IMPORTANTE: 
+                    1. O campo "notes" é OBRIGATÓRIO e deve conter observações clínicas relevantes
+                    2. Retorne TODAS as síndromes relacionadas
+                    3. Mantenha EXATAMENTE este formato JSON
 
-                    [SÍNDROME PARA ANÁLISE]
+                    [TEXTO PARA ANÁLISE]
                     {symptoms_text}'''
                 }]
             )
