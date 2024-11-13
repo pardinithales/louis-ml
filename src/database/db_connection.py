@@ -6,9 +6,7 @@ import json
 logger = logging.getLogger(__name__)
 
 def get_db_path():
-    project_root = Path(__file__).resolve().parent.parent.parent
-    db_path = r"C:\Users\fagun\louis-ml\data\syndrome_data.db"
-    return str(db_path)
+    return "data/syndrome_data.db"
 
 def get_db_connection():
     try:
@@ -26,7 +24,7 @@ def load_symptoms():
     Carrega todos os sintomas únicos do banco de dados
     """
     try:
-        conn = sqlite3.connect("data/syndrome_data.db")
+        conn = get_db_connection()  # Use a mesma conexão
         cursor = conn.cursor()
         
         # Pega todas as linhas
@@ -63,7 +61,14 @@ def load_syndromes():
     conn = get_db_connection()
     if conn:
         try:
-            cursor = conn.execute('''
+            # Primeiro, vamos verificar as tabelas
+            cursor = conn.cursor()
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+            tables = cursor.fetchall()
+            logger.info(f"Tabelas encontradas: {tables}")
+            
+            # Depois tenta carregar as síndromes
+            cursor.execute('''
                 SELECT syndrome_name, signs, locals, arteries, 
                        notes, is_ipsilateral, local_name, vessel_name 
                 FROM syndromes
