@@ -61,7 +61,7 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
         symptom1, symptom2, symptom3
         
         [CLINICAL CASE FOR ANALYSIS]
-        {syndrome_text}
+        {texto_caso}
         '''
 
         response = client.chat.completions.create(
