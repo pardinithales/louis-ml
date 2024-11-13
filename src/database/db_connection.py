@@ -6,6 +6,7 @@ from pathlib import Path
 def get_db_path():
     """Retorna o caminho do banco de dados"""
     db_path = Path(__file__).parent.parent.parent / "data" / "syndrome_data.db"
+    logging.info(f"Tentando acessar banco em: {db_path}")
     
     if not db_path.exists():
         logging.warning(f"Banco não encontrado em: {db_path}")
@@ -52,12 +53,10 @@ def init_db():
 def get_db_connection():
     """Retorna uma conexão com o banco de dados"""
     try:
-        # Inicializar banco primeiro
-        init_db()
-        
-        # Então criar nova conexão
-        return sqlite3.connect(get_db_path())
-        
+        db_path = get_db_path()
+        logging.info(f"Conectando ao banco: {db_path}")
+        conn = sqlite3.connect(db_path)
+        return conn
     except Exception as e:
         logging.error(f"Erro ao conectar ao banco: {str(e)}")
         raise
@@ -71,16 +70,25 @@ def load_symptoms():
         cursor.execute("SELECT DISTINCT signs FROM syndromes")
         results = cursor.fetchall()
         
+        if not results:
+            logging.warning("Nenhum sintoma encontrado no banco")
+            return []
+            
         all_symptoms = set()
         for result in results:
             if result[0]:
                 try:
                     signs = json.loads(result[0])
                     all_symptoms.update(signs)
-                except json.JSONDecodeError:
+                except json.JSONDecodeError as e:
+                    logging.error(f"Erro ao decodificar sintomas: {str(e)}")
                     continue
                     
         return sorted(list(all_symptoms))
+        
+    except Exception as e:
+        logging.error(f"Erro ao carregar sintomas: {str(e)}")
+        return []
         
     finally:
         if 'conn' in locals():
@@ -88,43 +96,43 @@ def load_symptoms():
 
 def load_syndromes():
     """Carrega todas as síndromes do banco"""
-    conn = get_db_connection()
-    cursor = conn.cursor()
     try:
-        cursor.execute("""
-            SELECT 
-                syndrome_name, 
-                signs, 
-                locals, 
-                arteries, 
-                notes,
-                is_ipsilateral,
-                local_name,
-                vessel_name,
-                registered_at,
-                updated_at
-            FROM syndromes
-        """)
+        conn = get_db_connection()
+        cursor = conn.cursor()
         
+        cursor.execute("SELECT * FROM syndromes")
+        results = cursor.fetchall()
+        
+        if not results:
+            logging.warning("Nenhuma síndrome encontrada no banco")
+            return []
+            
         syndromes = []
-        for row in cursor.fetchall():
+        for row in results:
             try:
                 syndrome = {
-                    'syndrome_name': row[0],
-                    'signs': json.loads(row[1]) if row[1] else [],
-                    'locals': row[2],
-                    'arteries': row[3],
-                    'notes': json.loads(row[4]) if row[4] else [],
-                    'is_ipsilateral': json.loads(row[5]) if row[5] else {},
-                    'local_name': json.loads(row[6]) if row[6] else [],
-                    'vessel_name': json.loads(row[7]) if row[7] else [],
-                    'registered_at': row[8],
-                    'updated_at': row[9]
+                    'syndrome_name': row[1],  # Ajustado para incluir o ID
+                    'signs': json.loads(row[2]) if row[2] else [],
+                    'locals': row[3],
+                    'arteries': row[4],
+                    'notes': json.loads(row[5]) if row[5] else [],
+                    'is_ipsilateral': json.loads(row[6]) if row[6] else {},
+                    'local_name': json.loads(row[7]) if row[7] else [],
+                    'vessel_name': json.loads(row[8]) if row[8] else [],
+                    'registered_at': row[9],
+                    'updated_at': row[10]
                 }
                 syndromes.append(syndrome)
-            except json.JSONDecodeError:
+            except Exception as e:
+                logging.error(f"Erro ao processar síndrome: {str(e)}")
                 continue
                 
         return syndromes
+        
+    except Exception as e:
+        logging.error(f"Erro ao carregar síndromes: {str(e)}")
+        return []
+        
     finally:
-        conn.close()
+        if 'conn' in locals():
+            conn.close()
