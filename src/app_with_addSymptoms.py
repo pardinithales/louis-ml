@@ -278,10 +278,10 @@ class SymptomAnalyzer:
                 messages=[{
                     "role": "user",
                     "content": f'''Você é um especialista em síndromes neurológicas vasculares. 
-                    IMPORTANTE: Responda APENAS com o formato JSON solicitado, focando em territórios vasculares específicos e seus sinais e sintomas associados.
+                    IMPORTANTE: Responda APENAS com o formato JSON solicitado, identificando TODAS as síndromes possíveis relacionadas aos sintomas descritos.
 
                     [ANÁLISE REQUERIDA]
-                    Analise a seguinte síndrome vascular considerando:
+                    Analise o texto fornecido e identifique TODAS as síndromes vasculares possíveis, considerando:
 
                     1. Território vascular afetado exato
                     2. Sinais e sintomas neurológicos específicos
@@ -296,7 +296,7 @@ class SymptomAnalyzer:
                         "syndromes": [
                             {{
                                 "syndrome_data": {{
-                                    "syndrome_name": "nome exato da síndrome",
+                                    "syndrome_name": "nome da síndrome 1",
                                     "signs": ["sinal 1", "sinal 2"],
                                     "locals": ["local 1", "local 2"],
                                     "arteries": ["artéria 1", "artéria 2"],
@@ -307,9 +307,17 @@ class SymptomAnalyzer:
                                     "registered_at": ["2024-01-01 00:00:00"],
                                     "updated_at": ["2024-01-01 00:00:00"]
                                 }}
+                            }},
+                            {{
+                                "syndrome_data": {{
+                                    "syndrome_name": "nome da síndrome 2",
+                                    ...
+                                }}
                             }}
                         ]
                     }}
+
+                    IMPORTANTE: Retorne TODAS as síndromes relacionadas, não apenas uma.
 
                     [SÍNDROME PARA ANÁLISE]
                     {symptoms_text}'''
@@ -488,8 +496,8 @@ def add_syndrome(sd: Dict):
             # Limpar cache do Streamlit
             st.cache_data.clear()
             
-            # Recarregar página (método correto)
-            st.rerun()  # Substituir experimental_rerun por rerun
+            # Recarregar dados
+            st.rerun()  # Atualizado de experimental_rerun para rerun
         else:
             logging.error("Erro: síndrome não foi adicionada")
             st.error("Erro: síndrome não foi adicionada")
@@ -559,7 +567,7 @@ def main():
 
             if st.button("Limpar Todos"):
                 st.session_state.symptoms_list = []
-                st.experimental_rerun()
+                st.rerun()  # Atualizado de experimental_rerun para rerun
 
             if st.session_state.symptoms_list:
                 st.write("**Sintomas atuais:**", ", ".join(st.session_state.symptoms_list))
