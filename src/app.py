@@ -1,4 +1,6 @@
 ﻿import streamlit as st
+st.cache_data.clear()
+st.cache_resource.clear()
 import requests
 import json
 import logging
@@ -189,7 +191,7 @@ def normalize_symptoms(symptoms):
             normalized.add(symptom)
     return list(normalized)
 
-@st.cache_data(show_spinner=False)
+@st.cache_data(ttl=3600, show_spinner=False, version="1.0")  # Incremente a versão quando fizer mudanças
 def get_symptoms():
     symptoms_list = normalize_symptoms(load_symptoms())
     normalized_symptoms_list = [s.lower().strip('[]"\' ') for s in symptoms_list]
