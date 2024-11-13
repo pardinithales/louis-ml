@@ -30,26 +30,32 @@ def load_symptoms():
         cursor = conn.cursor()
         
         # Pega todos os signs do banco
-        cursor.execute("SELECT signs FROM syndromes WHERE signs IS NOT NULL")
-        signs_rows = cursor.fetchall()
+        cursor.execute("SELECT signs FROM syndromes")
+        rows = cursor.fetchall()
         
-        # Lista para armazenar todos os sintomas únicos
         all_symptoms = []
-        
-        # Processa cada linha
-        for row in signs_rows:
+        for row in rows:
             try:
-                # Converte string JSON para lista
-                signs = json.loads(row[0]) if row[0] else []
-                if isinstance(signs, list):
-                    all_symptoms.extend(signs)
-            except json.JSONDecodeError:
+                if row[0]:  # verifica se não é None
+                    signs = json.loads(row[0])
+                    if isinstance(signs, list):
+                        all_symptoms.extend([s.strip() for s in signs])
+            except (json.JSONDecodeError, AttributeError) as e:
+                logging.error(f"Erro ao processar sintomas: {e}")
                 continue
-                
+        
         # Remove duplicatas mantendo a ordem
         unique_symptoms = list(dict.fromkeys(all_symptoms))
         
+        logging.info(f"Sintomas carregados do banco: {unique_symptoms}")
         return unique_symptoms
+        
+    except sqlite3.Error as e:
+        logging.error(f"Erro ao carregar sintomas: {e}")
+        return []
+    finally:
+        if conn:
+            conn.close()
         
     except sqlite3.Error as e:
         logging.error(f"Erro ao carregar sintomas: {e}")
