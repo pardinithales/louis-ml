@@ -51,18 +51,24 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
     try:
         formatted_symptom_list = '\n'.join(lista_sintomas)
 
-        system_prompt = f'''
-        [SYSTEM: You are a specialist in vascular neurological syndromes. IMPORTANT: Use ONLY symptoms from the provided list. RESPOND ONLY WITH COMMA-SEPARATED SYMPTOMS IN ENGLISH, WITH NO ADDITIONAL TEXT.]
+        system_prompt = f"""You are a specialist in vascular neurological syndromes. 
+        IMPORTANT: Extract ONLY symptoms that match the following list. Output as comma-separated values.
         
-        [AVAILABLE SYMPTOMS]
+        Available symptoms list:
         {formatted_symptom_list}
         
-        [REQUIRED OUTPUT FORMAT]
-        symptom1, symptom2, symptom3
+        RESPONSE FORMAT EXAMPLE:
+        headache, weakness, diplopia
         
-        [CLINICAL CASE FOR ANALYSIS]
-        {texto_caso}
-        '''
+        RULES:
+        1. Use ONLY symptoms from the provided list
+        2. Output ONLY comma-separated symptoms
+        3. NO additional text or explanations
+        4. Must be in English
+        5. Do not include symptoms not present in the list"""
+
+        user_prompt = f"""Extract matching symptoms from this case:
+        {syndrome_text}"""
 
         response = client.chat.completions.create(
             model="gpt-4",
