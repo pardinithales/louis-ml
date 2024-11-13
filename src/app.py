@@ -19,8 +19,17 @@ logging.basicConfig(
 # Deve ser o primeiro comando Streamlit
 st.set_page_config(layout="wide", page_title="Louis - Sistema de Análise Neurológica")
 
-# Inicializar cliente OpenAI
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+def initialize_openai_client():
+    try:
+        if "OPENAI_API_KEY" not in st.secrets:
+            st.error("OPENAI_API_KEY não encontrada nos secrets.")
+            st.stop()
+            
+        client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+        return client
+    except Exception as e:
+        st.error(f"Erro ao inicializar cliente OpenAI: {e}")
+        st.stop()
 
 # Inicializar o cliente Anthropic com sua API key
 anthropic_client = Anthropic(
@@ -28,20 +37,25 @@ anthropic_client = Anthropic(
 )
 
 
-def test_openai_connection():
+def test_openai_connection(client):
     try:
-        client.chat.completions.create(
+        response = client.chat.completions.create(
             model="gpt-4",
             messages=[{"role": "user", "content": "Test connection"}],
             max_tokens=5
         )
-        logging.info("Conexão com a OpenAI estabelecida com sucesso.")
+        if response:
+            logging.info("Conexão com a OpenAI estabelecida com sucesso.")
+            return True
     except Exception as e:
         logging.error(f"Erro ao conectar com a OpenAI: {e}")
         st.error("Não foi possível conectar com a OpenAI. Verifique sua chave da API.")
-        st.stop()
+        return False
 
-test_openai_connection()
+# Inicialização
+client = initialize_openai_client()
+if not test_openai_connection(client):
+    st.stop()
 
 # URL da API do Ollama
 OLLAMA_API_URL = "http://localhost:11434/api/generate"
@@ -68,7 +82,7 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
         5. Do not include symptoms not present in the list"""
 
         user_prompt = f"""Extract matching symptoms from this case:
-        {syndrome_text}"""
+        {texto_caso}"""
 
         response = client.chat.completions.create(
             model="gpt-4",
@@ -82,20 +96,30 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
             presence_penalty=0
         )
 
-        llm_output = response.choices[0].message.content.strip()
-        extracted_symptoms = [s.strip().lower() for s in llm_output.split(',')]
+        if not response or not response.choices:
+            logging.error("Resposta vazia da OpenAI")
+            return []
 
+        llm_output = response.choices[0].message.content.strip()
+        
+        if not llm_output:
+            logging.error("Output vazio da OpenAI")
+            return []
+
+        extracted_symptoms = [s.strip().lower() for s in llm_output.split(',')]
+        
         matched_symptoms = []
         for symptom in extracted_symptoms:
             if symptom in normalized_to_original:
                 matched_symptoms.append(normalized_to_original[symptom])
 
         matched_symptoms = list(set(matched_symptoms))
-
+        
         return matched_symptoms
 
     except Exception as e:
-        logging.error(f"Erro ao conectar com a OpenAI GPT-4: {e}")
+        logging.error(f"Erro ao conectar com a OpenAI GPT-4: {str(e)}")
+        st.error("Erro ao processar sintomas. Por favor, tente novamente.")
         return []
 
 @st.cache_data
