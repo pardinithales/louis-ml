@@ -12,24 +12,11 @@ def get_db_path():
     
     return str(db_path)
 
-def get_db_connection():
-    """Retorna uma conexão com o banco de dados"""
-    try:
-        db_path = get_db_path()
-        conn = sqlite3.connect(db_path)
-        
-        # Inicializar banco se não existir
-        init_db()
-        
-        return conn
-    except Exception as e:
-        logging.error(f"Erro ao conectar ao banco: {str(e)}")
-        raise
-
 def init_db():
     """Inicializa o banco de dados"""
     try:
-        conn = get_db_connection()
+        # Conectar diretamente sem usar get_db_connection
+        conn = sqlite3.connect(get_db_path())
         cursor = conn.cursor()
         
         # Criar tabela de síndromes
@@ -51,19 +38,35 @@ def init_db():
         
         conn.commit()
         logging.info("✓ Banco de dados inicializado com sucesso")
+        return True
         
     except Exception as e:
         logging.error(f"Erro ao inicializar banco de dados: {str(e)}")
-        raise
+        return False
+        
     finally:
-        if conn:
+        if 'conn' in locals():
             conn.close()
+
+def get_db_connection():
+    """Retorna uma conexão com o banco de dados"""
+    try:
+        # Inicializar banco primeiro
+        init_db()
+        
+        # Então criar nova conexão
+        return sqlite3.connect(get_db_path())
+        
+    except Exception as e:
+        logging.error(f"Erro ao conectar ao banco: {str(e)}")
+        raise
 
 def load_symptoms():
     """Carrega lista de sintomas do banco"""
-    conn = get_db_connection()
-    cursor = conn.cursor()
     try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
         cursor.execute("SELECT DISTINCT signs FROM syndromes")
         results = cursor.fetchall()
         
@@ -77,8 +80,10 @@ def load_symptoms():
                     continue
                     
         return sorted(list(all_symptoms))
+        
     finally:
-        conn.close()
+        if 'conn' in locals():
+            conn.close()
 
 def load_syndromes():
     """Carrega todas as síndromes do banco"""
