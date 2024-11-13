@@ -2,6 +2,7 @@ import sqlite3
 import json
 import logging
 from pathlib import Path
+from datetime import datetime
 
 def get_db_path():
     """Retorna o caminho do banco de dados"""
@@ -94,6 +95,50 @@ def load_symptoms():
         if 'conn' in locals():
             conn.close()
 
+def add_syndrome(syndrome_data):
+    """Adiciona uma nova síndrome ao banco"""
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        # Garantir que notes seja uma lista JSON válida
+        if 'notes' in syndrome_data:
+            if isinstance(syndrome_data['notes'], str):
+                syndrome_data['notes'] = [syndrome_data['notes']]
+            notes_json = json.dumps(syndrome_data['notes'])
+        else:
+            notes_json = json.dumps([])
+
+        cursor.execute("""
+            INSERT INTO syndromes (
+                syndrome_name, signs, locals, arteries, notes,
+                is_ipsilateral, local_name, vessel_name,
+                registered_at, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            syndrome_data['syndrome_name'],
+            json.dumps(syndrome_data['signs']),
+            json.dumps(syndrome_data['locals']),
+            json.dumps(syndrome_data['arteries']),
+            notes_json,  # Usando a versão JSON das notas
+            json.dumps(syndrome_data.get('is_ipsilateral', {})),
+            json.dumps(syndrome_data.get('local_name', [])),
+            json.dumps(syndrome_data.get('vessel_name', [])),
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        ))
+        
+        conn.commit()
+        return True
+        
+    except Exception as e:
+        logging.error(f"Erro ao adicionar síndrome: {str(e)}")
+        return False
+        
+    finally:
+        if 'conn' in locals():
+            conn.close()
+
 def load_syndromes():
     """Carrega todas as síndromes do banco"""
     try:
@@ -110,23 +155,24 @@ def load_syndromes():
         syndromes = []
         for row in results:
             try:
-                # Tratamento seguro para o campo notes
-                notes = []
-                if row[5]:  # índice do campo notes
+                # Tratamento seguro para todos os campos JSON
+                def safe_json_load(value, default=[]):
+                    if not value:
+                        return default
                     try:
-                        notes = json.loads(row[5])
+                        return json.loads(value)
                     except json.JSONDecodeError:
-                        notes = [row[5]] if row[5] else []
+                        return [value] if isinstance(value, str) else default
                 
                 syndrome = {
                     'syndrome_name': row[1],
-                    'signs': json.loads(row[2]) if row[2] else [],
-                    'locals': row[3],
-                    'arteries': row[4],
-                    'notes': notes,  # Usando o notes tratado
-                    'is_ipsilateral': json.loads(row[6]) if row[6] else {},
-                    'local_name': json.loads(row[7]) if row[7] else [],
-                    'vessel_name': json.loads(row[8]) if row[8] else [],
+                    'signs': safe_json_load(row[2]),
+                    'locals': safe_json_load(row[3]),
+                    'arteries': safe_json_load(row[4]),
+                    'notes': safe_json_load(row[5]),
+                    'is_ipsilateral': safe_json_load(row[6], {}),
+                    'local_name': safe_json_load(row[7]),
+                    'vessel_name': safe_json_load(row[8]),
                     'registered_at': row[9],
                     'updated_at': row[10]
                 }
