@@ -63,26 +63,33 @@ OLLAMA_API_URL = "http://localhost:11434/api/generate"
 def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, normalized_to_original):
     logging.info("Enviando texto para o OpenAI GPT-4 para extração de sintomas")
     try:
-        formatted_symptom_list = '\n'.join(lista_sintomas)
+        # Garante que a lista de sintomas esteja formatada corretamente
+        formatted_symptom_list = '\n'.join(f"- {symptom}" for symptom in lista_sintomas)
+        
+        logging.info(f"Lista de sintomas enviada:\n{formatted_symptom_list}")  # Log para debug
 
         system_prompt = f"""You are a specialist in vascular neurological syndromes. 
-        IMPORTANT: Extract ONLY symptoms that match the following list. Output as comma-separated values.
+        IMPORTANT: Extract ALL matching symptoms that appear in the case from the following list. 
+        Output as comma-separated values.
         
         Available symptoms list:
         {formatted_symptom_list}
         
         RESPONSE FORMAT EXAMPLE:
-        headache, weakness, diplopia
+        Hemiparesis / Hemiplegia, Oculomotor palsy (III), Ataxia
         
         RULES:
-        1. Use ONLY symptoms from the provided list
-        2. Output ONLY comma-separated symptoms
+        1. Use ONLY symptoms EXACTLY as they appear in the provided list
+        2. Output ALL matching symptoms, separated by commas
         3. NO additional text or explanations
-        4. Must be in English
-        5. Do not include symptoms not present in the list"""
+        4. Maintain EXACT same formatting as in the list
+        5. Do not modify or abbreviate the symptoms
+        6. Include ALL symptoms that match, not just one"""
 
-        user_prompt = f"""Extract matching symptoms from this case:
+        user_prompt = f"""Extract ALL matching symptoms from this case:
         {texto_caso}"""
+
+        logging.info(f"Sintomas enviados para análise: {texto_caso}")  # Log para debug
 
         response = client.chat.completions.create(
             model="gpt-4",
@@ -90,36 +97,36 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ],
-            temperature=0.1,
+            temperature=0.0,  # Reduzido para maior consistência
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0
         )
 
-        if not response or not response.choices:
-            logging.error("Resposta vazia da OpenAI")
-            return []
-
         llm_output = response.choices[0].message.content.strip()
-        
-        if not llm_output:
-            logging.error("Output vazio da OpenAI")
-            return []
+        logging.info(f"Resposta da OpenAI: {llm_output}")  # Log para debug
 
-        extracted_symptoms = [s.strip().lower() for s in llm_output.split(',')]
-        
+        extracted_symptoms = [s.strip() for s in llm_output.split(',')]
+        logging.info(f"Sintomas extraídos: {extracted_symptoms}")  # Log para debug
+
+        # Mantém o case original e a formatação exata
         matched_symptoms = []
         for symptom in extracted_symptoms:
-            if symptom in normalized_to_original:
-                matched_symptoms.append(normalized_to_original[symptom])
+            # Procura correspondência exata na lista original
+            matching_original = next(
+                (s for s in lista_sintomas if s.lower().strip() == symptom.lower().strip()),
+                None
+            )
+            if matching_original:
+                matched_symptoms.append(matching_original)
 
-        matched_symptoms = list(set(matched_symptoms))
-        
+        matched_symptoms = list(dict.fromkeys(matched_symptoms))  # Remove duplicatas mantendo a ordem
+        logging.info(f"Sintomas finais após matching: {matched_symptoms}")  # Log para debug
+
         return matched_symptoms
 
     except Exception as e:
-        logging.error(f"Erro ao conectar com a OpenAI GPT-4: {str(e)}")
-        st.error("Erro ao processar sintomas. Por favor, tente novamente.")
+        logging.error(f"Erro ao processar sintomas: {str(e)}")
         return []
 
 @st.cache_data
