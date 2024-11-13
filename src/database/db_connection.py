@@ -5,11 +5,12 @@ from pathlib import Path
 
 def get_db_path():
     """Retorna o caminho do banco de dados"""
-    db_path = Path(__file__).parent.parent / "data" / "syndromes.db"
+    db_path = Path(__file__).parent.parent.parent / "data" / "syndrome_data.db"
     
-    # Criar diretório data se não existir
-    db_path.parent.mkdir(parents=True, exist_ok=True)
-    
+    if not db_path.exists():
+        logging.warning(f"Banco não encontrado em: {db_path}")
+        db_path.parent.mkdir(parents=True, exist_ok=True)
+        
     return str(db_path)
 
 def init_db():
