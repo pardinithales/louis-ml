@@ -145,6 +145,16 @@ def load_syndromes():
         conn = get_db_connection()
         cursor = conn.cursor()
         
+        # Verificar estrutura da tabela
+        cursor.execute("PRAGMA table_info(syndromes)")
+        columns = cursor.fetchall()
+        logging.info(f"Estrutura da tabela: {columns}")
+        
+        # Verificar primeiro registro
+        cursor.execute("SELECT * FROM syndromes LIMIT 1")
+        first_row = cursor.fetchone()
+        logging.info(f"Primeiro registro: {first_row}")
+        
         cursor.execute("SELECT * FROM syndromes")
         results = cursor.fetchall()
         
@@ -155,28 +165,24 @@ def load_syndromes():
         syndromes = []
         for row in results:
             try:
-                # Tratamento seguro para todos os campos JSON
-                def safe_json_load(value, default=[]):
-                    if not value:
-                        return default
-                    try:
-                        return json.loads(value)
-                    except json.JSONDecodeError:
-                        return [value] if isinstance(value, str) else default
+                # Criar dicionário baseado nas colunas reais
+                syndrome = {}
+                for i, col in enumerate(columns):
+                    col_name = col[1]  # Nome da coluna
+                    if i < len(row):  # Verificar se índice existe
+                        value = row[i]
+                        
+                        # Tratar campos JSON
+                        if col_name in ['signs', 'locals', 'arteries', 'notes', 'is_ipsilateral', 'local_name', 'vessel_name']:
+                            try:
+                                value = json.loads(value) if value else []
+                            except (json.JSONDecodeError, TypeError):
+                                value = [value] if value else []
+                                
+                        syndrome[col_name] = value
                 
-                syndrome = {
-                    'syndrome_name': row[1],
-                    'signs': safe_json_load(row[2]),
-                    'locals': safe_json_load(row[3]),
-                    'arteries': safe_json_load(row[4]),
-                    'notes': safe_json_load(row[5]),
-                    'is_ipsilateral': safe_json_load(row[6], {}),
-                    'local_name': safe_json_load(row[7]),
-                    'vessel_name': safe_json_load(row[8]),
-                    'registered_at': row[9],
-                    'updated_at': row[10]
-                }
                 syndromes.append(syndrome)
+                logging.info(f"Síndrome processada com sucesso: {syndrome['syndrome_name']}")
                 
             except Exception as e:
                 logging.error(f"Erro ao processar síndrome: {str(e)}")
