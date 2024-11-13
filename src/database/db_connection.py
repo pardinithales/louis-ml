@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 def get_db_path():
     project_root = Path(__file__).resolve().parent.parent.parent
-    db_path = project_root / "data" / "syndrome_data.db"
+    db_path = r"C:\Users\fagun\OneDrive\Desktop\louiS_2.0\syndrome_data.db"
     return str(db_path)
 
 def get_db_connection():
