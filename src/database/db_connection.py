@@ -23,31 +23,33 @@ def get_db_connection():
 
 def load_symptoms():
     """
-    Carrega lista única de sintomas do banco de dados
+    Carrega todos os sintomas únicos do banco de dados
     """
     try:
         conn = sqlite3.connect("data/syndrome_data.db")
         cursor = conn.cursor()
         
-        # Pega todos os signs do banco
+        # Pega todas as linhas
         cursor.execute("SELECT signs FROM syndromes")
         rows = cursor.fetchall()
         
-        all_symptoms = []
+        # Set para armazenar sintomas únicos
+        all_symptoms = set()
+        
+        # Processa cada linha
         for row in rows:
             try:
-                if row[0]:  # verifica se não é None
+                if row[0]:  # se não for None
                     signs = json.loads(row[0])
                     if isinstance(signs, list):
-                        all_symptoms.extend([s.strip() for s in signs])
-            except (json.JSONDecodeError, AttributeError) as e:
-                logging.error(f"Erro ao processar sintomas: {e}")
+                        all_symptoms.update(signs)  # adiciona ao set
+            except json.JSONDecodeError:
                 continue
         
-        # Remove duplicatas mantendo a ordem
-        unique_symptoms = list(dict.fromkeys(all_symptoms))
+        # Converte para lista mantendo a ordem alfabética
+        unique_symptoms = sorted(list(all_symptoms))
         
-        logging.info(f"Sintomas carregados do banco: {unique_symptoms}")
+        logging.info(f"Total de sintomas carregados: {len(unique_symptoms)}")
         return unique_symptoms
         
     except sqlite3.Error as e:
