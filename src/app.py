@@ -61,16 +61,19 @@ if not test_openai_connection(client):
 OLLAMA_API_URL = "http://localhost:11434/api/generate"
 
 def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, normalized_to_original):
-    logging.info("Enviando texto para o OpenAI GPT-4 para extração de sintomas")
+    logging.info("Iniciando extração de sintomas...")
     try:
-        # Garante que a lista de sintomas esteja formatada corretamente
+        # Log da lista completa de sintomas disponíveis
+        logging.info(f"Total de sintomas disponíveis: {len(lista_sintomas)}")
+        logging.info("Lista completa de sintomas disponíveis:")
+        for s in lista_sintomas:
+            logging.info(f"  - {s}")
+            
+        # Formata lista de sintomas
         formatted_symptom_list = '\n'.join(f"- {symptom}" for symptom in lista_sintomas)
-        
-        logging.info(f"Lista de sintomas enviada:\n{formatted_symptom_list}")  # Log para debug
 
         system_prompt = f"""You are a specialist in vascular neurological syndromes. 
         IMPORTANT: Extract ALL matching symptoms that appear in the case from the following list. 
-        Output as comma-separated values.
         
         Available symptoms list:
         {formatted_symptom_list}
@@ -80,16 +83,15 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
         
         RULES:
         1. Use ONLY symptoms EXACTLY as they appear in the provided list
-        2. Output ALL matching symptoms, separated by commas
-        3. NO additional text or explanations
-        4. Maintain EXACT same formatting as in the list
-        5. Do not modify or abbreviate the symptoms
-        6. Include ALL symptoms that match, not just one"""
+        2. Output ALL matching symptoms from the list
+        3. Separate symptoms by commas
+        4. NO additional text"""
 
         user_prompt = f"""Extract ALL matching symptoms from this case:
         {texto_caso}"""
 
-        logging.info(f"Sintomas enviados para análise: {texto_caso}")  # Log para debug
+        # Log do texto enviado para análise
+        logging.info(f"Texto para análise: {texto_caso}")
 
         response = client.chat.completions.create(
             model="gpt-4",
@@ -97,31 +99,27 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ],
-            temperature=0.0,  # Reduzido para maior consistência
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
+            temperature=0.0
         )
 
         llm_output = response.choices[0].message.content.strip()
-        logging.info(f"Resposta da OpenAI: {llm_output}")  # Log para debug
+        logging.info(f"Resposta bruta da OpenAI: {llm_output}")
 
         extracted_symptoms = [s.strip() for s in llm_output.split(',')]
-        logging.info(f"Sintomas extraídos: {extracted_symptoms}")  # Log para debug
+        logging.info(f"Total de sintomas extraídos: {len(extracted_symptoms)}")
+        logging.info("Sintomas extraídos antes do matching:")
+        for s in extracted_symptoms:
+            logging.info(f"  - {s}")
 
-        # Mantém o case original e a formatação exata
         matched_symptoms = []
         for symptom in extracted_symptoms:
-            # Procura correspondência exata na lista original
-            matching_original = next(
-                (s for s in lista_sintomas if s.lower().strip() == symptom.lower().strip()),
-                None
-            )
-            if matching_original:
-                matched_symptoms.append(matching_original)
+            if symptom.lower().strip() in [s.lower().strip() for s in lista_sintomas]:
+                matched_symptoms.append(symptom)
 
-        matched_symptoms = list(dict.fromkeys(matched_symptoms))  # Remove duplicatas mantendo a ordem
-        logging.info(f"Sintomas finais após matching: {matched_symptoms}")  # Log para debug
+        logging.info(f"Total de sintomas após matching: {len(matched_symptoms)}")
+        logging.info("Sintomas finais após matching:")
+        for s in matched_symptoms:
+            logging.info(f"  - {s}")
 
         return matched_symptoms
 
