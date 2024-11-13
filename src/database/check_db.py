@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Usando o caminho absoluto do banco original
-DB_PATH = r"C:\Users\fagun\OneDrive\Desktop\louiS_2.0\syndrome_data.db"
+DB_PATH = r"C:\Users\fagun\louis-ml\data\syndrome_data.db"
 
 def test_db():
     try:
