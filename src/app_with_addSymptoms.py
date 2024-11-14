@@ -504,6 +504,19 @@ def add_syndrome(sd: Dict):
         if 'conn' in locals():
             conn.close()
 
+def show_syndrome_editor(syndrome_data):
+    """Editor de síndrome antes de adicionar"""
+    with st.expander(f"Editar {syndrome_data['syndrome_name']}", expanded=True):
+        edited_data = syndrome_data.copy()
+        
+        edited_data['syndrome_name'] = st.text_input("Nome da Síndrome", value=syndrome_data['syndrome_name'])
+        edited_data['signs'] = st.text_area("Sinais", value="\n".join(syndrome_data['signs'])).split("\n")
+        edited_data['locals'] = st.text_area("Locais", value="\n".join(syndrome_data['locals'])).split("\n")
+        edited_data['arteries'] = st.text_area("Artérias", value="\n".join(syndrome_data['arteries'])).split("\n")
+        edited_data['notes'] = st.text_area("Notas", value="\n".join(syndrome_data.get('notes', []))).split("\n")
+        
+        return edited_data
+
 def main():
     st.title("Louis - Sistema de Análise Neurológica")
     
