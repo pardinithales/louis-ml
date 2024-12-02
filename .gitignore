@@ -3,25 +3,31 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+.vercel
+.env.*
+!*.example
 
 # Logs
 logs/*
 !logs/.gitkeep
 
-# Dados
-dvc-storage/
+# Dados - regras específicas
+data/*
+!data/create_tables.sql
+!data/export_db.py
+!data/import_db.py
+!data/db_json.json
+!data/3_database_structure_SQL.txt
+!data/syndrome_data.db
 
 # Ambiente virtual
 venv/
 .venv/
-.vercel
-.env
-.streamlit/secrets.toml
 
-# Secrets e ambiente
-.env
-.env.*
-!*.example
+# Configurações
+.streamlit/
 *.toml
-*.toml.*
-!*.example
+!*.example.toml
+
+# DVC
+dvc-storage/
