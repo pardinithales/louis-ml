@@ -94,7 +94,7 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
         logging.info(f"Texto para análise: {texto_caso}")
 
         response = client.chat.completions.create(
-            model="gpt-4",
+            model="o3-mini",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
