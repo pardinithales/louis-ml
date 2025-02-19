@@ -72,49 +72,45 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
         # Formata lista de sintomas
         formatted_symptom_list = '\n'.join(f"- {symptom}" for symptom in lista_sintomas)
 
-        user_prompt = f"""You are a specialist in vascular neurological syndromes. 
-        IMPORTANT: Extract ALL matching symptoms that appear in the case from the following list. 
+        # Prompt único e claro
+        prompt = f"""You are a specialist in vascular neurological syndromes.
+IMPORTANT: Extract ALL matching symptoms that appear in the case from the following list.
         
-        Available symptoms list:
-        {formatted_symptom_list}
+Available symptoms list:
+{formatted_symptom_list}
         
-        RESPONSE FORMAT EXAMPLE:
-        Hemiparesis / Hemiplegia, Oculomotor palsy (III), Ataxia
+RESPONSE FORMAT EXAMPLE:
+Hemiparesis / Hemiplegia, Oculomotor palsy (III), Ataxia
         
-        RULES:
-        1. Use ONLY symptoms EXACTLY as they appear in the provided list
-        2. Output ALL matching symptoms from the list
-        3. Separate symptoms by commas
-        4. NO additional text
-        5. YOU RETURN ALL IN ENGLIH, EXACTLY AS THEY APPEAR IN THE LIST"""
-
-        user_prompt = f"""Extract ALL matching symptoms from this case:
-        {texto_caso}"""
+RULES:
+1. Use ONLY symptoms EXACTLY as they appear in the provided list
+2. Output ALL matching symptoms from the list
+3. Separate symptoms by commas
+4. NO additional text, only the symptom list
+        
+Extract ALL matching symptoms from this case:
+{texto_caso}"""
 
         # Log do texto enviado para análise
-        logging.info(f"Texto para análise: {texto_caso}")
+        logging.info(f"Prompt completo enviado: {prompt}")
 
         response = client.chat.completions.create(
-            model="o3-mini",
-            messages=[
-                {"role": "user", "content": user_prompt}
-            ],
+            model="o3-mini",  # Verifique se este é o modelo correto
+            messages=[{"role": "user", "content": prompt}],
         )
 
         llm_output = response.choices[0].message.content.strip()
         logging.info(f"Resposta bruta da OpenAI: {llm_output}")
 
-        extracted_symptoms = [s.strip() for s in llm_output.split(',')]
+        # Processar a resposta
+        extracted_symptoms = [s.strip() for s in llm_output.split(',') if s.strip()]
         logging.info(f"Total de sintomas extraídos: {len(extracted_symptoms)}")
         logging.info("Sintomas extraídos antes do matching:")
         for s in extracted_symptoms:
             logging.info(f"  - {s}")
 
-        matched_symptoms = []
-        for symptom in extracted_symptoms:
-            if symptom.lower().strip() in [s.lower().strip() for s in lista_sintomas]:
-                matched_symptoms.append(symptom)
-
+        # Garantir que apenas sintomas da lista original sejam retornados
+        matched_symptoms = [s for s in extracted_symptoms if s in lista_sintomas]
         logging.info(f"Total de sintomas após matching: {len(matched_symptoms)}")
         logging.info("Sintomas finais após matching:")
         for s in matched_symptoms:
