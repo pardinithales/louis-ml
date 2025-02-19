@@ -85,7 +85,8 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
         1. Use ONLY symptoms EXACTLY as they appear in the provided list
         2. Output ALL matching symptoms from the list
         3. Separate symptoms by commas
-        4. NO additional text"""
+        4. NO additional text
+        5. YOU RETURN ALL IN ENGLIH, EXACTLY AS THEY APPEAR IN THE LIST"""
 
         user_prompt = f"""Extract ALL matching symptoms from this case:
         {texto_caso}"""
