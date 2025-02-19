@@ -274,7 +274,7 @@ def main():
 
         if st.button("Limpar Todos"):
             st.session_state.symptoms_list = []
-            st.experimental_rerun()
+            st.rerun()
 
         if st.session_state.symptoms_list:
             st.write("**Sintomas atuais:**", ", ".join(st.session_state.symptoms_list))
