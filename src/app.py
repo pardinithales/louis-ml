@@ -72,7 +72,7 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
         # Formata lista de sintomas
         formatted_symptom_list = '\n'.join(f"- {symptom}" for symptom in lista_sintomas)
 
-        system_prompt = f"""You are a specialist in vascular neurological syndromes. 
+        user_prompt = f"""You are a specialist in vascular neurological syndromes. 
         IMPORTANT: Extract ALL matching symptoms that appear in the case from the following list. 
         
         Available symptoms list:
@@ -96,10 +96,8 @@ def get_llm_symptoms(texto_caso, lista_sintomas, normalized_symptoms_list, norma
         response = client.chat.completions.create(
             model="o3-mini",
             messages=[
-                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ],
-            temperature=0.0
         )
 
         llm_output = response.choices[0].message.content.strip()
